@@ -1,0 +1,9 @@
+# GUI dependencies — install LOCALLY (requires a system display)
+# These cannot run in a headless server environment like Replit.
+#
+# Setup on your local machine:
+#   pip install -r requirements.txt
+#   pip install -r requirements-gui.txt
+#   pyside6-deploy is also available: pip install pyside6-deploy
+
+PySide6>=6.7.0

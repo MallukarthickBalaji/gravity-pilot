@@ -1,45 +1,80 @@
-# [Project name]
+# DesktopPilot AI
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A hierarchical multi-agent desktop automation system. Users give a natural-language instruction; the system clarifies, plans, executes (document generation, browser automation, desktop/file ops), validates, and persists memory across sessions.
 
 ## Run & Operate
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
-- `pnpm run typecheck` — full typecheck across all packages
-- `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
+### Python (DesktopPilot)
+- `cd desktop_pilot && python main.py` — interactive CLI (Phase 1+)
+- `cd desktop_pilot && python test_scaffold.py` — non-interactive smoke test
+- `cd desktop_pilot && uvicorn api.server:app --port 8000` — FastAPI backend (Phase 7+)
+- Required env: `Groq_API_KEY` — Groq API key (set as Replit Secret)
+- Optional env: `OLLAMA_HOST` (default: http://localhost:11434), `OLLAMA_MODEL`
+
+### JS/TS workspace
+- `pnpm --filter @workspace/api-server run dev` — Node API server (port 5000)
+- `pnpm run typecheck` — full typecheck
 
 ## Stack
 
-- pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+### Python project (`desktop_pilot/`)
+- Python 3.11+, LangGraph (StateGraph with cyclic edges), LangChain
+- FastAPI (async backend, Phase 7), PySide6 (desktop GUI, Phase 8 — run locally)
+- Primary LLM: Groq `llama-3.3-70b-versatile`; Fallback: Ollama `llama3.1:8b-instruct`
+- Document gen: python-docx, openpyxl, python-pptx
+- Automation: PyAutoGUI (desktop), Playwright (browser)
+- Memory: SQLite via SQLAlchemy
+
+### JS/TS workspace
+- pnpm workspaces, Node.js 24, TypeScript 5.9, Express 5
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+```
+desktop_pilot/
+├── config.py                    — env/config (pydantic-settings)
+├── main.py                      — interactive CLI entry point
+├── test_scaffold.py             — non-interactive smoke test
+├── requirements.txt             — all deps (install with pip)
+├── requirements-gui.txt         — PySide6 (local only)
+├── agents/
+│   ├── model_router.py          — connectivity check, backend selection
+│   ├── supervisor.py            — task classification
+│   ├── requirement_analyzer.py  — completeness check, clarifying questions
+│   └── planning_agent.py        — ordered execution plan generation
+├── graph/
+│   ├── state.py                 — AgentState TypedDict (source of truth)
+│   └── workflow.py              — LangGraph StateGraph + routing
+└── memory/                      — SQLite memory (Phase 6)
+```
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- **LangGraph StateGraph** with explicit cyclic edges: `validation_agent → planning_agent` (replan on failure) and `validation_agent → requirement_analyzer` (reask on ambiguous failure). Not a linear pipeline.
+- **Graceful capability degradation**: model_router sets `Capabilities` flags; supervisor checks them and tells the user honestly when a capability is unavailable rather than failing silently mid-run.
+- **Single clarifying question per turn**: requirement_analyzer asks exactly one question if info is missing, then routes to END. Next user reply restarts from supervisor with accumulated message history.
+- **PySide6 runs locally only**: requires a system display; not executable in Replit's headless environment.
 
-## Product
+## Build order (phases)
 
-_Describe the high-level user-facing capabilities of this app once they exist._
-
-## User preferences
-
-_Populate as you build — explicit user instructions worth remembering across sessions._
+| Phase | Status | What |
+|---|---|---|
+| 1 | ✅ Done | Scaffold + model_router + supervisor + requirement_analyzer + planning_agent |
+| 2 | Next | document_agent (Word, Excel, PowerPoint) |
+| 3 | — | task_coordinator + validation_agent + cyclic edges |
+| 4 | — | desktop_agent + browser_agent |
+| 5 | — | memory_agent + SQLite wiring |
+| 6 | — | FastAPI layer |
+| 7 | — | PySide6 frontend |
+| 8 | — | vision_agent stub |
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- Run `python test_scaffold.py` from inside `desktop_pilot/` (not workspace root) — imports are relative.
+- `Groq_API_KEY` secret name has capital G (set by user); pydantic-settings is case-insensitive so it resolves to `groq_api_key`.
+- PySide6 and PyAutoGUI both require a display — they cannot run on Replit's headless server. Test the GUI locally.
+- Playwright requires `playwright install chromium` after pip install.
 
-## Pointers
+## User preferences
 
-- See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details
+_Populate as you build._

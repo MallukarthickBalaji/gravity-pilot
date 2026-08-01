@@ -1,0 +1,107 @@
+# Build Prompt for Antigravity — DesktopPilot AI
+
+Copy everything below the line into Antigravity as your project brief. It's written as a single engineering spec, but you should still expect to iterate turn-by-turn (scaffold → one agent at a time → wire the graph → frontend) rather than expecting one perfect one-shot build.
+
+---
+
+## Project
+
+Build **DesktopPilot AI**, a hierarchical multi-agent desktop automation system. A user gives a natural-language instruction; the system clarifies missing details, plans a sequence of steps, executes them using specialized agents (document generation, browser automation, desktop/file operations), validates the result, and returns a verified response — with persistent memory across sessions.
+
+This is a Phase 1 academic prototype. Prioritize a **working, demonstrable vertical slice** over exhaustive feature coverage. It is better to have 3 task types working end-to-end and validated than 10 half-working ones.
+
+## Tech Stack (non-negotiable)
+
+- **Language:** Python 3.11+
+- **Orchestration:** LangGraph (StateGraph, with real cyclic edges — not a linear pipeline)
+- **Backend API:** FastAPI (async)
+- **Frontend:** PySide6 desktop app — a chat-style interface that also visualizes which agent is currently active and shows a running execution trace (not just a spinner)
+- **Primary LLM:** Groq API, `llama-3.3-70b-versatile`
+- **Fallback LLM:** Ollama running a local model (default `llama3.1:8b-instruct`) for offline mode — see Model Router below
+- **Document generation:** `python-docx` (Word), `openpyxl` (Excel), `python-pptx` (PowerPoint)
+- **Desktop automation:** `PyAutoGUI`
+- **Browser automation:** `Playwright` (preferred over Selenium)
+- **Memory store:** SQLite (via `sqlalchemy` or raw `sqlite3` — keep it simple)
+- **Package/dependency management:** `requirements.txt` + a `README.md` with exact setup and run steps
+
+## Architecture — build exactly this graph, not a simplified version
+
+LangGraph `StateGraph` with the following nodes and **explicit edges, including backward/cyclic ones**:
+
+| Node | Responsibility |
+|---|---|
+| `supervisor` | Classifies the incoming request into a task category and decides which downstream path to take. Does not execute anything itself. |
+| `requirement_analyzer` | Checks whether the current state has enough information to plan. If not, generates a clarifying question and returns control to the user (interrupt). |
+| `planning_agent` | Converts a fully-specified request into an ordered list of executable steps, each tagged with the agent that should run it. |
+| `model_router` | Not a reasoning agent — a utility node. Checks connectivity, selects Groq or Ollama as the active backend for this run, and annotates state with which capabilities are available in the current mode (e.g. `browser_available: false` when offline). |
+| `memory_agent` | Reads relevant prior context into state before planning, and writes updated history/preferences after the run completes. |
+| `task_coordinator` | Takes the plan from `planning_agent` and dispatches each step to the correct execution agent in order. |
+| `desktop_agent` | Executes file/folder operations and application launching via PyAutoGUI. |
+| `browser_agent` | Executes web search, navigation, and data extraction via Playwright. Must no-op gracefully (not crash) if `model_router` marked browser as unavailable. |
+| `document_agent` | Executes Word/Excel/PowerPoint generation via python-docx / openpyxl / python-pptx. |
+| `vision_agent` | Stub for Phase 1 — implement the interface and a basic OCR call (e.g. `pytesseract`) but it's OK if this agent is minimally functional. Say so clearly in code comments, don't fake completeness. |
+| `validation_agent` | Checks whether the last executed step actually succeeded (file exists and is non-empty, browser action returned expected data, etc.). On failure, routes back to `planning_agent` (replan) or `requirement_analyzer` (if the failure was due to missing/ambiguous input) rather than just erroring out. |
+
+**Required cyclic edges (this is the part most agent scaffolds get wrong — do not skip it):**
+- `validation_agent → planning_agent` on execution failure (triggers replanning)
+- `validation_agent → requirement_analyzer` on ambiguous/missing-input failure
+- `requirement_analyzer → supervisor` after clarification is collected, to resume the flow
+
+## Model Router — implementation requirement
+
+Do **not** try to make Groq and Ollama behave identically. Implement graceful degradation:
+
+1. On each run start, `model_router` pings connectivity (simple timeout-based check against the Groq endpoint).
+2. If online → use Groq/Llama-3.3-70B for all reasoning nodes (`supervisor`, `requirement_analyzer`, `planning_agent`).
+3. If offline → use the local Ollama model, and set a capability flag that disables `browser_agent` and restricts `planning_agent` to a smaller set of task types it's actually reliable at (document generation, desktop/file operations only).
+4. The `supervisor` must check this flag and tell the user honestly when a request needs a capability that isn't available in the current mode, rather than silently failing partway through execution.
+
+## Backend (FastAPI)
+
+Minimum endpoints:
+- `POST /chat` — accepts a user message + session ID, runs the LangGraph graph (streaming if feasible), returns the response plus the execution trace (which agents ran, in what order, and their status).
+- `GET /session/{id}/history` — returns stored memory for a session.
+- `GET /health` — reports current backend mode (Groq vs Ollama) and connectivity status.
+
+## Frontend (PySide6)
+
+- Chat input/output panel.
+- A live side panel showing the agent execution trace for the current request (e.g. "Requirement Analyzer → Planning Agent → Document Agent → Validation Agent ✓") so the multi-agent behavior is actually visible during a demo — this matters for your review presentation.
+- A status indicator showing current backend mode (Cloud / Local) and available capabilities.
+
+## Document generation agent — concrete behavior to implement
+
+Implement working functions for at minimum:
+- Generate a Word document from a title + structured content (headings + paragraphs).
+- Generate an Excel sheet from a simple tabular spec (e.g. an attendance sheet: rows of names + date columns).
+- Generate a PowerPoint from a list of slide titles + bullet content.
+
+Each should return a file path and be checked by `validation_agent` (file exists, non-zero size, opens without error).
+
+## Memory schema (SQLite)
+
+At minimum: `sessions`, `messages` (role, content, timestamp, session_id), `task_history` (task type, status, output_path, timestamp), `preferences` (key-value per session or user). Keep it simple — this is not meant to be a production data model.
+
+## What NOT to build in this pass
+
+- Do not implement voice interaction, cloud sync, email/calendar automation, or RAG/vector memory — these are explicitly future scope, not Phase 1.
+- Do not fake the vision agent as fully working OCR/screen-understanding if it isn't — a clearly-labeled stub is fine and honest.
+- Do not build a web frontend in addition to PySide6 unless I ask for it later — one frontend only for now.
+
+## Build order (match this to avoid a half-wired mess)
+
+1. Project scaffold: folder structure, `requirements.txt`, config/env handling for API keys (Groq key, Ollama host).
+2. `model_router` + a minimal LangGraph graph with just `supervisor → requirement_analyzer → planning_agent` wired, testable via CLI before any UI exists.
+3. `document_agent` with the three document-generation functions, unit-testable standalone.
+4. `task_coordinator` + `validation_agent`, including the backward edges.
+5. `desktop_agent`, then `browser_agent`.
+6. `memory_agent` + SQLite wiring.
+7. FastAPI layer wrapping the graph.
+8. PySide6 frontend wired to the FastAPI backend.
+9. `vision_agent` stub last.
+
+At each step, give me runnable code and a short note on what's tested vs. untested — don't silently mark things done.
+
+---
+
+**Now scaffold step 1 (project structure + requirements.txt + model_router).** Wait for me to confirm it runs before moving to step 2.
