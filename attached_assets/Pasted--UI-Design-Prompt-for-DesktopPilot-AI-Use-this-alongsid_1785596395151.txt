@@ -1,0 +1,80 @@
+# UI / Design Prompt for DesktopPilot AI
+
+Use this alongside the engineering build prompt, at the point where you're ready to design and style the PySide6 frontend (build step 8). Paste it into Antigravity as a separate, focused pass — don't merge it into the backend scaffolding request.
+
+---
+
+## Brief
+
+Design and implement the PySide6 desktop interface for **DesktopPilot AI**, a multi-agent desktop automation assistant. The person using this is a student, teacher, or office worker typing a natural-language request and watching a supervisor agent delegate work to specialized agents (planning, document generation, browser, desktop, validation) until a task completes.
+
+**Do not build a generic chatbot UI.** A plain scrolling message list with a text box at the bottom is the templated answer here and actively hides the thing that makes this project interesting: multiple agents handing work to each other in real time. The interface's job is to make that delegation *visible and legible*, not to look like a copy of ChatGPT.
+
+## Visual identity — reuse across the whole project
+
+Keep this consistent with the project report and presentation so the whole deliverable feels like one product, not three unrelated files:
+
+- **Navy** `#1F3A5F` — structural elements, headers, the Supervisor Agent's color
+- **Teal** `#2E7D6B` — active/success states, reasoning-and-support-layer agents
+- **Slate blue** `#3E6B8A` — execution-layer agents
+- **Amber/gold** `#C9891A` — attention, in-progress states, the Planning Agent
+- **Light background** `#EAF0F6` — panels, cards
+- **Neutral text** `#222222` on white, `#5A6472` for secondary text
+
+Typography: a clean grotesque for UI chrome (Inter or IBM Plex Sans — free, open license, ships well with Qt) and a monospace face (JetBrains Mono or IBM Plex Mono) for the execution trace and any file paths/status text. The monospace face isn't decoration — it signals "this is a system log," which is the right register for agent activity, distinct from the conversational chat register.
+
+## Layout — three zones, not one
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  DesktopPilot AI          ● Local (Ollama)   ● Online         │  ← status bar
+├───────────────────────────────┬───────────────────────────────┤
+│                                │  AGENT TRACE                  │
+│   Conversation                 │  ┌──────────────────────┐     │
+│   (chat-style, but agent       │  │ ✓ Supervisor          │     │
+│   responses are attributed     │  │ ✓ Requirement Analyzer│     │
+│   to the agent that produced   │  │ ⟳ Planning Agent       │     │
+│   them, not a generic          │  │ · Document Agent      │     │
+│   "assistant")                 │  │ · Validation Agent    │     │
+│                                 │  └──────────────────────┘     │
+│                                 │  live, updates as the graph   │
+│                                 │  actually executes             │
+├─────────────────────────────────┴───────────────────────────────┤
+│  Type a request…                                    [Send]     │
+└───────────────────────────────────────────────────────────────┘
+```
+
+- **Left/main: conversation.** Keep it simple — this is not the signature element, don't over-design it.
+- **Right: live agent trace panel.** This is the signature element (see below). It should exist and update in every session, not be a collapsible afterthought.
+- **Top: status bar.** Shows current LLM backend (Local/Ollama vs Cloud/Groq) and internet connectivity as two independent indicators — this directly reflects the model-router design, don't collapse them into one light.
+
+## Signature element: the agent trace panel
+
+This is the one place to spend real design effort — everything else should stay quiet around it. Requirements:
+
+- Each agent gets a small node with its assigned color (from the palette above) and a state: idle (dim/outline only), active (filled, subtle pulse — one soft animation, not a spinner-fest), done (checkmark), failed (used sparingly, a muted red outline, not alarming).
+- When `validation_agent` triggers a cyclic edge back to `planning_agent` or `requirement_analyzer`, show that visually — a short animated line retracing back up the trace, not just a new entry appended at the bottom. This is the one moment worth an orchestrated animation: it's the actual technical differentiator of your architecture (cyclic, stateful execution vs. a linear pipeline), so the UI should be the place that proves it, not just the report.
+- On hover/click, an agent node can expand to show what it actually did (e.g. Document Agent → "Generated attendance_sheet.xlsx").
+
+## States to design explicitly (don't leave these as an afterthought)
+
+- **Offline, Ollama-only:** status bar shows Local/Offline; Browser Agent's node in the trace panel should visually indicate "unavailable" (not just fail silently if invoked) — greyed out with a small icon, not hidden.
+- **Clarification needed:** when `requirement_analyzer` interrupts to ask a follow-up question, that should read as a distinct, clearly-labeled UI moment (e.g. a highlighted question bubble), not blend into normal chat flow — the person needs to notice they're being asked something before they keep typing.
+- **Task failed after retries:** the interface's voice should say what happened and what it tried, not just "Something went wrong." E.g. "Couldn't generate the spreadsheet — retried twice, still missing the student list. What should I use?"
+- **Empty state (first launch, no history):** a short, concrete prompt suggestion (e.g. "Try: 'Create an attendance sheet for my AI class'"), not a blank box.
+
+## What to avoid
+
+- Don't default to a near-black background with a single neon accent, or a cream/terracotta palette — both are the generic "AI app" look right now and will make this look templated rather than intentional.
+- Don't animate everything. One deliberate animation (the trace panel's state transitions and the cyclic retry-loop visual) beats five small ones scattered around the app.
+- Don't make the agent trace panel collapsible-by-default or hidden behind a tab — it's the reason this project is a multi-agent system and not a chatbot; it should be on-screen by default in every session, especially for your review demo.
+
+## Implementation notes for PySide6
+
+- Use QSS (Qt stylesheets) for the palette/typography, not per-widget inline styling — keep one central stylesheet file.
+- The agent trace panel is a custom widget (`QGraphicsView` or a custom `QWidget` with manual paint events for the node/edge drawing), not a `QListWidget` — a plain list can't show the retry-loop animation.
+- Use `QPropertyAnimation` for the pulse/retry-loop transitions, kept short (150–300ms) so it reads as responsive, not decorative.
+
+---
+
+**Now design and implement the agent trace panel widget first, in isolation, with mock/fake agent-state data before wiring it to the real backend.** Show me a screenshot before integrating it into the full app.

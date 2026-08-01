@@ -1,0 +1,64 @@
+/* DesktopPilot AI — Design System Tokens
+   Matches the visual identity spec for the project report and presentation. */
+
+:root {
+  /* Brand palette */
+  --dp-navy:          #1F3A5F; /* supervisor, structural chrome */
+  --dp-teal:          #2E7D6B; /* req_analyzer, memory_agent, validation — reasoning layer */
+  --dp-slate-blue:    #3E6B8A; /* doc_agent, browser_agent, desktop_agent — execution layer */
+  --dp-amber:         #C9891A; /* planning_agent, in-progress attention */
+  --dp-red-muted:     #B84040; /* failures — not alarming */
+
+  /* Surfaces */
+  --dp-bg:            #F4F8FC; /* page background */
+  --dp-panel:         #EAF0F6; /* card / panel fill */
+  --dp-panel-border:  #CBD5E0; /* panel stroke */
+  --dp-sidebar-bg:    #162A42; /* dark sidebar / trace panel bg */
+  --dp-sidebar-text:  #C8D8E8; /* primary text on dark bg */
+  --dp-sidebar-dim:   #4E6E8E; /* dim text on dark bg */
+
+  /* Text */
+  --dp-text-primary:  #1A2B3C;
+  --dp-text-secondary:#5A6472;
+
+  /* Typography */
+  --dp-font-ui:       'Inter', 'DM Sans', system-ui, sans-serif;
+  --dp-font-mono:     'JetBrains Mono', 'IBM Plex Mono', monospace;
+}
+
+/* Base resets for mockup components */
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; font-family: var(--dp-font-ui); }
+
+/* Agent node pulse animation */
+@keyframes dp-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 var(--dp-pulse-color, rgba(62,107,138,0.6)); }
+  50%       { box-shadow: 0 0 0 9px rgba(0,0,0,0); }
+}
+
+/* Retry-loop path animation — draws the cyclic edge */
+@keyframes dp-retry-draw {
+  0%   { stroke-dashoffset: 260; opacity: 1; }
+  80%  { stroke-dashoffset: 0;   opacity: 1; }
+  100% { stroke-dashoffset: 0;   opacity: 1; }
+}
+
+/* Traveling dot on retry path */
+@keyframes dp-retry-dot {
+  0%   { opacity: 0; }
+  5%   { opacity: 1; }
+  85%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Node entrance stagger */
+@keyframes dp-node-in {
+  from { opacity: 0; transform: translateX(-6px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Status row fill-in */
+@keyframes dp-done-flash {
+  0%   { background: rgba(46,125,107,0.35); }
+  100% { background: transparent; }
+}
