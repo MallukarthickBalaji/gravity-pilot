@@ -3,20 +3,21 @@ info:
   # Do not change the title, if the title changes, the import paths will be broken
   title: Api
   version: 0.1.0
-  description: API specification
+  description: DesktopPilot AI API
 servers:
   - url: /api
     description: Base API path
 tags:
   - name: health
     description: Health operations
+  - name: chat
+    description: Chat session management
 paths:
   /healthz:
     get:
       operationId: healthCheck
       tags: [health]
       summary: Health check
-      description: Returns server health status
       responses:
         "200":
           description: Healthy
@@ -24,13 +25,179 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+
+  /chat/status:
+    get:
+      operationId: getChatStatus
+      tags: [chat]
+      summary: Get backend mode and capabilities
+      responses:
+        "200":
+          description: Backend status
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BackendStatus"
+
+  /chat/sessions:
+    get:
+      operationId: listChatSessions
+      tags: [chat]
+      summary: List recent chat sessions
+      responses:
+        "200":
+          description: List of sessions
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ChatSession"
+    post:
+      operationId: createChatSession
+      tags: [chat]
+      summary: Create a new chat session
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ChatSessionInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ChatSession"
+
+  /chat/sessions/{sessionId}:
+    get:
+      operationId: getChatSession
+      tags: [chat]
+      summary: Get a single chat session
+      parameters:
+        - name: sessionId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Session
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ChatSession"
+        "404":
+          description: Not found
+    delete:
+      operationId: deleteChatSession
+      tags: [chat]
+      summary: Delete a single chat session
+      parameters:
+        - name: sessionId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Deleted
+        "404":
+          description: Not found
+
+  /chat/sessions/{sessionId}/messages:
+    get:
+      operationId: getSessionMessages
+      tags: [chat]
+      summary: Get all messages for a session
+      parameters:
+        - name: sessionId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Messages
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ChatMessage"
+
 components:
   schemas:
     HealthStatus:
       type: object
+      required: [status]
       properties:
         status:
           type: string
-      required:
-        - status
 
+    BackendStatus:
+      type: object
+      required: [mode, browserAutomation, desktopAutomation, documentGeneration]
+      properties:
+        mode:
+          type: string
+          enum: [groq, ollama, none]
+        browserAutomation:
+          type: boolean
+        desktopAutomation:
+          type: boolean
+        documentGeneration:
+          type: boolean
+
+    ChatSession:
+      type: object
+      required: [id, mode, createdAt]
+      properties:
+        id:
+          type: string
+        mode:
+          type: string
+          enum: [groq, ollama, none]
+        title:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+          format: date-time
+
+    ChatSessionInput:
+      type: object
+      required: [mode]
+      properties:
+        mode:
+          type: string
+          enum: [groq, ollama, none]
+
+    ChatMessage:
+      type: object
+      required: [id, sessionId, role, text, createdAt]
+      properties:
+        id:
+          type: string
+        sessionId:
+          type: string
+        role:
+          type: string
+          enum: [user, agent]
+        agentName:
+          type: ["string", "null"]
+        agentColor:
+          type: ["string", "null"]
+        kind:
+          type: ["string", "null"]
+          enum: [normal, clarification, error, plan, null]
+        text:
+          type: string
+        items:
+          type: ["array", "null"]
+          items:
+            type: string
+        createdAt:
+          type: string
+          format: date-time

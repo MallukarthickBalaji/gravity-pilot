@@ -20,7 +20,7 @@ logger = logging.getLogger(__name__)
 _SYSTEM_PROMPT = """\
 You are a planning agent for a desktop automation AI system.
 
-Given a fully-specified user request, produce an ordered list of execution
+Given a fully-specified user request and COLLECTED TASK INFO, produce an ordered list of execution
 steps. Each step must specify which specialized agent should handle it.
 
 Available execution agents:
@@ -37,19 +37,54 @@ Each step must follow this schema:
   }
 
 Rules:
-  - Produce only the steps necessary. Don't pad the plan.
+  - Produce exactly ONE execution step for document generation (do not create separate steps for different document types).
+  - You MUST use the `document_type` and `filename` from COLLECTED TASK INFO. Do not guess or override them.
   - For document_generation tasks, params must include at minimum:
-      "doc_type": "word" | "excel" | "powerpoint"
-      "output_filename": "<name>.docx/.xlsx/.pptx"
-      "content": { <structured content matching the doc type> }
-  - For browser_automation tasks, params must include:
-      "url": "<url or null>", "query": "<search query or null>",
-      "extract": "<what to extract>"
-  - For desktop_automation tasks, params must include:
-      "operation": "create_file|create_folder|move|copy|delete|rename|launch_app"
-      "source_path": "<path or app name>", "dest_path": "<path if applicable>"
-  - After all execution steps, add a final validation step:
-      { "step_id": N, "agent": "validation_agent", "action": "Validate result", "params": {} }
+      "doc_type": "<from COLLECTED TASK INFO>"
+      "output_filename": "<from COLLECTED TASK INFO>"
+      "content": { ... }
+
+Content Structures:
+1. WORD: 
+    For formal letters (e.g., leave letter, request letter), the content must follow:
+    {
+        "from": "Sender Name (from user or neutral)",
+        "to": "Recipient (e.g. The Manager, The Principal)",
+        "date": "Today's date or blank",
+        "subject": "Clear subject line",
+        "salutation": "Respected Sir/Madam,",
+        "body": ["Paragraph 1 text", "Paragraph 2 text", ...],
+        "closing": "Yours faithfully,",
+        "signature": "Sender Name"
+    }
+    For general documents, use:
+    { "title": "...", "sections": [{"heading": "...", "paragraph": "..."}] }
+    CRITICAL: Never generate generic placeholder text. Write full, meaningful paragraphs based on the user's intent. Do not invent personal info (company name, ID, address) unless provided.
+
+2. POWERPOINT:
+    You must provide an array of exactly the requested number of slides:
+    {
+        "title": "Presentation Title",
+        "slides": [
+            { "title": "Slide 1 Title", "content": ["Bullet 1", "Bullet 2", ...] },
+            { "title": "Slide 2 Title", "content": ["Bullet 1", "Bullet 2", ...] }
+        ]
+    }
+    CRITICAL: Do not create empty slides or generic placeholder slides (like "Introduction" with empty content). Fill the content array with meaningful bullet points.
+
+3. EXCEL:
+    You must generate realistic columns and rows.
+    {
+        "sheet_title": "...",
+        "columns": ["Header1", "Header2", "Header3"],
+        "rows": [
+            ["Row1Col1", "Row1Col2", "Row1Col3"],
+            ["Row2Col1", "Row2Col2", "Row2Col3"]
+        ]
+    }
+    CRITICAL: Generate meaningful data. For example, if generating 10 students, generate 10 rows of varied mock data based on the requested columns. Do NOT output empty workbooks.
+
+If you are replanning due to a validation failure (REPLAN REASON provided below), you MUST fix the errors mentioned in the replan reason in your new structured content.
 
 Respond with ONLY a JSON object — no prose, no markdown, no code fences:
 {
@@ -64,6 +99,7 @@ async def planning_agent_node(state: AgentState) -> dict[str, Any]:
     """LangGraph node: generates the execution plan."""
     backend = state.get("model_backend", "none")
     task_type = state.get("task_type", "unknown")
+    current_info = state.get("current_task_info", {})
 
     # ── General queries: answer directly, no execution plan needed ────────────
     if task_type == "general_query":
@@ -77,14 +113,18 @@ async def planning_agent_node(state: AgentState) -> dict[str, Any]:
                 [
                     SystemMessage(
                         content=(
-                            "You are a helpful AI assistant. "
-                            "Answer the user's question clearly and concisely."
+                            "You are DesktopPilot AI, a hierarchical multi-agent desktop automation system. "
+                            "You can answer general questions, but your main capabilities include:\n"
+                            "1. Document Generation: Creating Word (.docx), Excel (.xlsx), and PowerPoint (.pptx) files.\n"
+                            "2. Desktop Automation: File and folder operations (create, move, copy, delete, rename, launch apps).\n"
+                            "3. Browser Automation: Searching the web and extracting text from URLs.\n"
+                            "Answer the user's question clearly, and let them know you can help with these automated tasks."
                         )
                     ),
                     HumanMessage(content=f"{history}\nUser: {state['user_input']}"),
                 ]
             )
-            answer = resp.content.strip()
+            answer = str(resp.content).strip()
         except Exception as exc:
             answer = f"(Error generating response: {exc})"
 
@@ -110,6 +150,7 @@ async def planning_agent_node(state: AgentState) -> dict[str, Any]:
 
     user_msg = (
         f"Task type: {task_type}\n"
+        f"COLLECTED TASK INFO: {json.dumps(current_info)}\n"
         f"{memory_section}"
         f"Conversation:\n{history_text}\n\n"
         f"Current user input: {state['user_input']}\n\n"
@@ -118,13 +159,17 @@ async def planning_agent_node(state: AgentState) -> dict[str, Any]:
         f"desktop={'yes' if state.get('capabilities') and state['capabilities'].desktop_automation else 'no'}, "
         f"documents={'yes' if state.get('capabilities') and state['capabilities'].document_generation else 'no'}"
     )
+    
+    replan_reason = state.get("replan_reason")
+    if replan_reason:
+        user_msg += f"\n\nCRITICAL REPLAN REASON (Previous validation failed):\n{replan_reason}\nYou must fix this error in your generated steps."
 
     llm = get_llm(backend)
     try:
         response = await llm.ainvoke(
             [SystemMessage(content=_SYSTEM_PROMPT), HumanMessage(content=user_msg)]
         )
-        raw = response.content.strip()
+        raw = str(response.content).strip()
         if raw.startswith("```"):
             raw = raw.split("```")[1]
             if raw.startswith("json"):
@@ -143,6 +188,7 @@ async def planning_agent_node(state: AgentState) -> dict[str, Any]:
         f"[{s.get('agent', '?')}] {s.get('action', '?')[:40]}"
         for s in steps
     )
+    logger.info("PLAN: %s", step_summary)
     logger.info("PlanningAgent → %d steps (%s complexity)", len(steps), complexity)
 
     return {

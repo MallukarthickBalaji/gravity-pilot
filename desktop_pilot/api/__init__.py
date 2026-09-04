@@ -1,0 +1,3 @@
+"""
+DesktopPilot AI FastAPI package.
+"""

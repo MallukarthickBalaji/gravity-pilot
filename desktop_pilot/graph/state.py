@@ -62,6 +62,8 @@ class AgentState(TypedDict):
     # ── Classification (set by supervisor) ───────────────────────────────────
     task_type: Optional[str]         # document_generation | browser_automation |
                                      # desktop_automation | general_query | unknown
+    current_task_info: Optional[dict[str, Any]]  # stores active task parameters across turns
+    status: Optional[str]            # waiting_for_user | executing | completed
 
     # ── Requirements analysis (set by requirement_analyzer) ──────────────────
     requirements_complete: bool
@@ -72,6 +74,7 @@ class AgentState(TypedDict):
     current_step: int                    # used by task_coordinator in later phases
 
     # ── Execution (set by task_coordinator + execution agents) ───────────────
+    target_agent: Optional[str]                  # agent determined by coordinator
     last_execution_result: Optional[dict[str, Any]]  # output from last agent
 
     # ── Validation (set by validation_agent) ─────────────────────────────────

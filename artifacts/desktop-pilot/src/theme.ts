@@ -1,0 +1,16 @@
+export const C = {
+  navy:       "#1F3A5F",
+  teal:       "#2E7D6B",
+  slateBlue:  "#3E6B8A",
+  amber:      "#C9891A",
+  redMuted:   "#B84040",
+  bg:         "#F4F8FC",
+  panel:      "#EAF0F6",
+  panelBorder:"#CBD5E0",
+  sidebarBg:  "#162A42",
+  sidebarText:"#C8D8E8",
+  sidebarDim: "#4E6E8E",
+  border:     "#2A4468",
+  textPrim:   "#1A2B3C",
+  textSec:    "#5A6472",
+};

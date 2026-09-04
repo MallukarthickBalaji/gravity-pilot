@@ -39,10 +39,9 @@ def _print_trace(trace: list[dict[str, Any]]) -> None:
         return
     print("\n  Execution trace:")
     for entry in trace:
-        icon = {"success": "✓", "error": "✗", "pending": "→", "skipped": "○"}.get(
-            entry.get("status", ""), "·"
-        )
-        print(f"    {icon} [{entry['agent']}] {entry['message']}")
+        icon = {"success": "[OK]", "error": "[X]", "pending": "[->]", "skipped": "[-]"}
+        icon_str = icon.get(entry.get("status", ""), "[*]")
+        print(f"    {icon_str} [{entry['agent']}] {entry['message']}")
 
 
 def _print_plan(plan: list[dict[str, Any]]) -> None:

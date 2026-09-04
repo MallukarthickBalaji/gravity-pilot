@@ -6,7 +6,7 @@ A hierarchical multi-agent desktop automation system. Users give a natural-langu
 
 ### Python (DesktopPilot)
 - `cd desktop_pilot && python main.py` — interactive CLI (Phase 1+)
-- `cd desktop_pilot && python test_scaffold.py` — non-interactive smoke test
+- `cd desktop_pilot && python test_scaffold.py` — non-interactive smoke testcheck
 - `cd desktop_pilot && uvicorn api.server:app --port 8000` — FastAPI backend (Phase 7+)
 - Required env: `Groq_API_KEY` — Groq API key (set as Replit Secret)
 - Optional env: `OLLAMA_HOST` (default: http://localhost:11434), `OLLAMA_MODEL`
@@ -60,13 +60,13 @@ desktop_pilot/
 | Phase | Status | What |
 |---|---|---|
 | 1 | ✅ Done | Scaffold + model_router + supervisor + requirement_analyzer + planning_agent |
-| 2 | Next | document_agent (Word, Excel, PowerPoint) |
-| 3 | — | task_coordinator + validation_agent + cyclic edges |
-| 4 | — | desktop_agent + browser_agent |
-| 5 | — | memory_agent + SQLite wiring |
-| 6 | — | FastAPI layer |
-| 7 | — | PySide6 frontend |
-| 8 | — | vision_agent stub |
+| 2 | ✅ Done | document_agent (Word, Excel, PowerPoint) |
+| 3 | ✅ Done | task_coordinator + validation_agent + cyclic edges |
+| 4 | ✅ Done | desktop_agent + browser_agent |
+| 5 | ✅ Done | memory_agent + SQLite wiring |
+| 6 | ✅ Done | FastAPI layer |
+| 7 | ✅ Done | PySide6 desktop GUI client (`gui.py`) |
+| 8 | ✅ Done | Vision Agent stub (`vision_agent.py`) |
 
 ## Gotchas
 

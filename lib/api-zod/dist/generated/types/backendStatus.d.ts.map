@@ -1,0 +1,1 @@
+{"version":3,"file":"backendStatus.d.ts","sourceRoot":"","sources":["../../../src/generated/types/backendStatus.ts"],"names":[],"mappings":"AAAA;;;;;;GAMG;AACH,OAAO,KAAK,EAAE,iBAAiB,EAAE,MAAM,qBAAqB,CAAC;AAE7D,MAAM,WAAW,aAAa;IAC5B,IAAI,EAAE,iBAAiB,CAAC;IACxB,iBAAiB,EAAE,OAAO,CAAC;IAC3B,iBAAiB,EAAE,OAAO,CAAC;IAC3B,kBAAkB,EAAE,OAAO,CAAC;CAC7B"}

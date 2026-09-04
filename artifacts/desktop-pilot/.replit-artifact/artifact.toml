@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "DesktopPilot AI"
+description = "A hierarchical multi-agent desktop automation assistant. Users type natural-language requests (create documents, automate desktop tasks, run web searches) and the app routes them through a LangGraph pipeline — supervisor → requirement analyzer → planning agent → execution agents — streaming real-time agent status updates to a live trace panel."
+version = "1.0.0"
+id = "artifacts/desktop-pilot"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18724
+
+[services.development]
+run = "pnpm --filter @workspace/desktop-pilot run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/desktop-pilot", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/desktop-pilot/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18724"
+BASE_PATH = "/"

@@ -29,8 +29,8 @@ from graph.state import AgentState
 from graph.workflow import create_graph
 
 
-PASS = "  ✓ PASS"
-FAIL = "  ✗ FAIL"
+PASS = "  [OK]"
+FAIL = "  [X]"
 
 
 def _base_state(user_input: str) -> AgentState:

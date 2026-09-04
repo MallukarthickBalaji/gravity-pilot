@@ -1,11 +1,9 @@
 """
 requirement_analyzer.py — Requirements completeness checker.
 
-Checks whether the current state has enough information to plan.
-If information is missing, it generates ONE clarifying question and returns
-control to the user (the graph routes to END so the CLI/UI can present it).
-
-After the user replies, supervisor resumes the flow.
+Instead of asking the LLM to reason about missing fields (which smaller models struggle with),
+we ask the LLM to simply extract what IT KNOWS from the conversation into a JSON object.
+Then, Python code determines if anything is missing and asks the user.
 """
 from __future__ import annotations
 
@@ -20,50 +18,38 @@ from graph.state import AgentState
 
 logger = logging.getLogger(__name__)
 
-_SYSTEM_PROMPT = """\
-You are a requirements analyst for a task execution system.
+_ANALYSIS_PROMPT = """\
+You are an intelligent Requirements Analyzer. Read the conversation history and the current user request.
+Determine if you have enough information to fulfill the user's task.
 
-Given a user request and its task type, determine whether you have ALL the
-information needed to execute the task without ambiguity.
+For document generation, apply these rules:
+1. Formal Letter: Requires purpose, recipient, and sender name. (Do NOT be overly pedantic. "my manager" is a valid recipient. "5 days" is a valid date duration. Accept reasonable approximations without asking for exact names or exact calendar dates).
+2. Report: Requires report topic and key sections/content.
+3. PowerPoint: MUST require a topic. If the user just says "Create a PowerPoint", you MUST set requirements_complete to false and ask for the topic. Use sensible defaults for slide count/content if not provided.
+4. Excel: Requires what should be tracked or data columns (e.g., "attendance report for 10 students" is sufficient).
+5. Filename: DO NOT treat filename as a requirement unless the user explicitly asks to specify one. A meaningful filename will be auto-generated.
 
-Required information by task type:
-  document_generation:
-    - Document type (Word .docx / Excel .xlsx / PowerPoint .pptx)
-    - Content or data (title, headings, paragraphs, rows/columns, slide bullets)
-    - Desired output filename (or acceptable to auto-generate)
+NEVER hallucinate or invent user-specific information (names, recipients, dates, companies, etc.). If it's missing and required, ask for it.
 
-  browser_automation:
-    - Target URL or search query
-    - What specific data to extract or action to perform
-
-  desktop_automation:
-    - Specific file paths, folder names, or application names to interact with
-    - The exact operation (create / move / copy / delete / rename / launch)
-
-  general_query:
-    - Always considered complete — no execution agent is needed.
-
-Rules:
-  - If ONE piece of critical information is missing, ask for it in a single,
-    friendly, specific question. Do not ask multiple questions at once.
-  - If everything is clear, mark complete.
-  - Do NOT assume default values silently for document content or file paths.
-
-Respond with ONLY a JSON object — no prose, no markdown, no code fences:
+Output ONLY a JSON object in this exact format:
 {
-  "complete": true | false,
-  "missing_info": ["item1", "item2"],
-  "clarifying_question": "<one question to ask the user, or null if complete>"
+    "requirements_complete": true or false,
+    "missing_fields": ["list", "of", "missing", "fields"],
+    "clarifying_question": "A natural question asking for the missing fields, or empty string if complete",
+    "collected_data": {
+        "document_type": "word/excel/powerpoint/null",
+        "key1": "extracted value 1"
+    }
 }
 """
 
-
 async def requirement_analyzer_node(state: AgentState) -> dict[str, Any]:
-    """LangGraph node: checks requirements completeness."""
+    """LangGraph node: checks requirements completeness by using LLM to analyze missing fields."""
     backend = state.get("model_backend", "none")
     task_type = state.get("task_type", "unknown")
+    current_info = state.get("current_task_info", {}) or {}
 
-    # ── General queries need no further analysis ───────────────────────────────
+    # General queries need no further analysis
     if task_type == "general_query":
         return {
             "requirements_complete": True,
@@ -77,16 +63,11 @@ async def requirement_analyzer_node(state: AgentState) -> dict[str, Any]:
             ],
         }
 
-    # ── Unknown task type — ask user to rephrase ───────────────────────────────
     if task_type == "unknown":
         return {
             "requirements_complete": False,
-            "clarifying_question": (
-                "I wasn't sure what you'd like me to do. "
-                "Could you describe the task more specifically? "
-                "For example: \"Create a Word document…\", \"Search the web for…\", "
-                "or \"Move a file from…\"."
-            ),
+            "clarifying_question": "I wasn't sure what you'd like me to do. Could you describe the task more specifically?",
+            "status": "waiting_for_user",
             "execution_trace": [
                 {
                     "agent": "requirement_analyzer",
@@ -96,44 +77,74 @@ async def requirement_analyzer_node(state: AgentState) -> dict[str, Any]:
             ],
         }
 
-    # ── Build context from conversation history ────────────────────────────────
-    # Include all prior messages so the analyzer understands follow-up context.
+    # Build conversation context
     history_text = "\n".join(
         f"{m['role'].capitalize()}: {m['content']}"
         for m in state.get("messages", [])
     )
+    
+    current_state_text = json.dumps(current_info, indent=2)
 
-    user_msg = (
-        f"Task type: {task_type}\n\n"
-        f"Conversation so far:\n{history_text}\n\n"
-        f"Current user input: {state['user_input']}"
-    )
+    user_msg = f"Task type: {task_type}\n\nPreviously collected data:\n{current_state_text}\n\nConversation so far:\n{history_text}\n\nCurrent user input: {state['user_input']}"
 
     llm = get_llm(backend)
+    extracted = {}
     try:
         response = await llm.ainvoke(
-            [SystemMessage(content=_SYSTEM_PROMPT), HumanMessage(content=user_msg)]
+            [SystemMessage(content=_ANALYSIS_PROMPT), HumanMessage(content=user_msg)]
         )
-        raw = response.content.strip()
-        if raw.startswith("```"):
-            raw = raw.split("```")[1]
-            if raw.startswith("json"):
-                raw = raw[4:]
-        parsed: dict = json.loads(raw)
-        complete: bool = parsed.get("complete", False)
-        missing: list = parsed.get("missing_info", [])
-        question: str | None = parsed.get("clarifying_question")
+        raw = str(response.content).strip()
+        
+        # Use regex to find the JSON block in case there is conversational text
+        import re
+        match = re.search(r'```(?:json)?(.*?)```', raw, re.DOTALL)
+        if match:
+            raw = match.group(1).strip()
+        else:
+            # Fallback if no code blocks, try to find first { and last }
+            start = raw.find('{')
+            end = raw.rfind('}')
+            if start != -1 and end != -1:
+                raw = raw[start:end+1]
+                
+        extracted = json.loads(raw.strip())
     except Exception as exc:
-        logger.exception("RequirementAnalyzer LLM call failed: %s", exc)
-        complete = False
-        missing = ["(analysis error)"]
-        question = "I had trouble analysing your request. Could you rephrase it with more detail?"
+        logger.exception("RequirementAnalyzer LLM extraction failed: %s", exc)
+        return {
+            "requirements_complete": False,
+            "clarifying_question": "I had trouble understanding your request. Could you please provide the details one more time?",
+            "status": "waiting_for_user",
+            "execution_trace": [{"agent": "requirement_analyzer", "status": "pending", "message": "Extraction failed due to invalid LLM output."}]
+        }
 
-    if complete:
+    # Merge extracted data into current_task_info
+    new_data = extracted.get("collected_data", {})
+    for k, v in new_data.items():
+        if v is not None and v != "":
+            current_info[k] = str(v).strip()
+
+    # Determine default document type if missing
+    if task_type == "document_generation" and not current_info.get("document_type"):
+        text_lower = history_text.lower() + " " + state['user_input'].lower()
+        if "presentation" in text_lower or "ppt" in text_lower or "slide" in text_lower:
+            current_info["document_type"] = "powerpoint"
+        elif "excel" in text_lower or "sheet" in text_lower or "csv" in text_lower:
+            current_info["document_type"] = "excel"
+        elif "word" in text_lower or "letter" in text_lower or "doc" in text_lower:
+            current_info["document_type"] = "word"
+
+    logger.info("RequirementAnalyzer COLLECTED DATA: %s", current_info)
+
+    requirements_complete = extracted.get("requirements_complete", False)
+    clarifying_question = extracted.get("clarifying_question", "")
+    missing_fields = extracted.get("missing_fields", [])
+
+    if requirements_complete:
         logger.info("RequirementAnalyzer → complete for task_type=%s", task_type)
         return {
             "requirements_complete": True,
             "clarifying_question": None,
+            "current_task_info": current_info,
             "execution_trace": [
                 {
                     "agent": "requirement_analyzer",
@@ -143,17 +154,17 @@ async def requirement_analyzer_node(state: AgentState) -> dict[str, Any]:
             ],
         }
     else:
-        logger.info(
-            "RequirementAnalyzer → incomplete (missing: %s)", ", ".join(missing)
-        )
+        logger.info("RequirementAnalyzer → incomplete (MISSING FIELDS: %s)", ", ".join(missing_fields))
         return {
             "requirements_complete": False,
-            "clarifying_question": question,
+            "clarifying_question": clarifying_question if clarifying_question else "Could you please provide more details?",
+            "current_task_info": current_info,
+            "status": "waiting_for_user",
             "execution_trace": [
                 {
                     "agent": "requirement_analyzer",
                     "status": "pending",
-                    "message": f"Missing: {', '.join(missing)}. Asking user.",
+                    "message": f"Missing: {', '.join(missing_fields)}. Asking user.",
                 }
             ],
         }
