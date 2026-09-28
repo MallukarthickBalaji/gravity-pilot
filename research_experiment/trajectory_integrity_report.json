@@ -1,0 +1,410 @@
+{
+  "total_benchmark_tasks": 50,
+  "total_trajectories_found": 50,
+  "valid_trajectories": 50,
+  "invalid_trajectories": 0,
+  "missing_trajectories": [],
+  "duplicate_trajectories": [],
+  "trajectory_details": {
+    "DT001": {
+      "valid": true,
+      "status": "success",
+      "rsr": 100.0,
+      "duration_seconds": 3.21,
+      "category": "Documents",
+      "difficulty": "easy"
+    },
+    "DT002": {
+      "valid": true,
+      "status": "success",
+      "rsr": 100.0,
+      "duration_seconds": 3.84,
+      "category": "Documents",
+      "difficulty": "easy"
+    },
+    "DT003": {
+      "valid": true,
+      "status": "success",
+      "rsr": 100.0,
+      "duration_seconds": 3.04,
+      "category": "Documents",
+      "difficulty": "medium"
+    },
+    "DT004": {
+      "valid": true,
+      "status": "success",
+      "rsr": 100.0,
+      "duration_seconds": 2.06,
+      "category": "Documents",
+      "difficulty": "medium"
+    },
+    "DT005": {
+      "valid": true,
+      "status": "partial",
+      "rsr": 75.0,
+      "duration_seconds": 5.52,
+      "category": "Documents",
+      "difficulty": "medium"
+    },
+    "DT006": {
+      "valid": true,
+      "status": "success",
+      "rsr": 100.0,
+      "duration_seconds": 5.27,
+      "category": "Documents",
+      "difficulty": "easy"
+    },
+    "DT007": {
+      "valid": true,
+      "status": "partial",
+      "rsr": 80.0,
+      "duration_seconds": 13.94,
+      "category": "Documents",
+      "difficulty": "hard"
+    },
+    "DT008": {
+      "valid": true,
+      "status": "success",
+      "rsr": 100.0,
+      "duration_seconds": 17.81,
+      "category": "Documents",
+      "difficulty": "medium"
+    },
+    "DT009": {
+      "valid": true,
+      "status": "success",
+      "rsr": 100.0,
+      "duration_seconds": 17.52,
+      "category": "Documents",
+      "difficulty": "hard"
+    },
+    "DT010": {
+      "valid": true,
+      "status": "success",
+      "rsr": 100.0,
+      "duration_seconds": 16.64,
+      "category": "Documents",
+      "difficulty": "easy"
+    },
+    "DT011": {
+      "valid": true,
+      "status": "success",
+      "rsr": 100.0,
+      "duration_seconds": 6.31,
+      "category": "Spreadsheets",
+      "difficulty": "easy"
+    },
+    "DT012": {
+      "valid": true,
+      "status": "success",
+      "rsr": 100.0,
+      "duration_seconds": 4.5,
+      "category": "Spreadsheets",
+      "difficulty": "easy"
+    },
+    "DT013": {
+      "valid": true,
+      "status": "success",
+      "rsr": 100.0,
+      "duration_seconds": 9.48,
+      "category": "Spreadsheets",
+      "difficulty": "medium"
+    },
+    "DT014": {
+      "valid": true,
+      "status": "failure",
+      "rsr": 0.0,
+      "duration_seconds": 16.77,
+      "category": "Spreadsheets",
+      "difficulty": "medium"
+    },
+    "DT015": {
+      "valid": true,
+      "status": "success",
+      "rsr": 100.0,
+      "duration_seconds": 19.29,
+      "category": "Spreadsheets",
+      "difficulty": "medium"
+    },
+    "DT016": {
+      "valid": true,
+      "status": "success",
+      "rsr": 100.0,
+      "duration_seconds": 12.28,
+      "category": "Spreadsheets",
+      "difficulty": "easy"
+    },
+    "DT017": {
+      "valid": true,
+      "status": "failure",
+      "rsr": 0.0,
+      "duration_seconds": 9.92,
+      "category": "Spreadsheets",
+      "difficulty": "hard"
+    },
+    "DT018": {
+      "valid": true,
+      "status": "success",
+      "rsr": 100.0,
+      "duration_seconds": 4.82,
+      "category": "Spreadsheets",
+      "difficulty": "medium"
+    },
+    "DT019": {
+      "valid": true,
+      "status": "success",
+      "rsr": 100.0,
+      "duration_seconds": 10.99,
+      "category": "Spreadsheets",
+      "difficulty": "hard"
+    },
+    "DT020": {
+      "valid": true,
+      "status": "failure",
+      "rsr": 0.0,
+      "duration_seconds": 6.84,
+      "category": "Spreadsheets",
+      "difficulty": "easy"
+    },
+    "DT021": {
+      "valid": true,
+      "status": "success",
+      "rsr": 100.0,
+      "duration_seconds": 14.78,
+      "category": "Presentations",
+      "difficulty": "easy"
+    },
+    "DT022": {
+      "valid": true,
+      "status": "partial",
+      "rsr": 75.0,
+      "duration_seconds": 6.79,
+      "category": "Presentations",
+      "difficulty": "easy"
+    },
+    "DT023": {
+      "valid": true,
+      "status": "success",
+      "rsr": 100.0,
+      "duration_seconds": 10.47,
+      "category": "Presentations",
+      "difficulty": "medium"
+    },
+    "DT024": {
+      "valid": true,
+      "status": "success",
+      "rsr": 100.0,
+      "duration_seconds": 15.63,
+      "category": "Presentations",
+      "difficulty": "medium"
+    },
+    "DT025": {
+      "valid": true,
+      "status": "success",
+      "rsr": 100.0,
+      "duration_seconds": 13.44,
+      "category": "Presentations",
+      "difficulty": "medium"
+    },
+    "DT026": {
+      "valid": true,
+      "status": "success",
+      "rsr": 100.0,
+      "duration_seconds": 11.75,
+      "category": "Presentations",
+      "difficulty": "easy"
+    },
+    "DT027": {
+      "valid": true,
+      "status": "success",
+      "rsr": 100.0,
+      "duration_seconds": 7.52,
+      "category": "Presentations",
+      "difficulty": "hard"
+    },
+    "DT028": {
+      "valid": true,
+      "status": "success",
+      "rsr": 100.0,
+      "duration_seconds": 18.13,
+      "category": "Presentations",
+      "difficulty": "medium"
+    },
+    "DT029": {
+      "valid": true,
+      "status": "success",
+      "rsr": 100.0,
+      "duration_seconds": 14.05,
+      "category": "Presentations",
+      "difficulty": "hard"
+    },
+    "DT030": {
+      "valid": true,
+      "status": "success",
+      "rsr": 100.0,
+      "duration_seconds": 11.91,
+      "category": "Presentations",
+      "difficulty": "easy"
+    },
+    "DT031": {
+      "valid": true,
+      "status": "success",
+      "rsr": 100.0,
+      "duration_seconds": 15.93,
+      "category": "FileOperations",
+      "difficulty": "easy"
+    },
+    "DT032": {
+      "valid": true,
+      "status": "success",
+      "rsr": 100.0,
+      "duration_seconds": 15.76,
+      "category": "FileOperations",
+      "difficulty": "easy"
+    },
+    "DT033": {
+      "valid": true,
+      "status": "success",
+      "rsr": 100.0,
+      "duration_seconds": 12.13,
+      "category": "FileOperations",
+      "difficulty": "medium"
+    },
+    "DT034": {
+      "valid": true,
+      "status": "success",
+      "rsr": 100.0,
+      "duration_seconds": 7.38,
+      "category": "FileOperations",
+      "difficulty": "medium"
+    },
+    "DT035": {
+      "valid": true,
+      "status": "success",
+      "rsr": 100.0,
+      "duration_seconds": 16.02,
+      "category": "FileOperations",
+      "difficulty": "medium"
+    },
+    "DT036": {
+      "valid": true,
+      "status": "success",
+      "rsr": 100.0,
+      "duration_seconds": 9.53,
+      "category": "FileOperations",
+      "difficulty": "easy"
+    },
+    "DT037": {
+      "valid": true,
+      "status": "failure",
+      "rsr": 0.0,
+      "duration_seconds": 15.15,
+      "category": "FileOperations",
+      "difficulty": "medium"
+    },
+    "DT038": {
+      "valid": true,
+      "status": "success",
+      "rsr": 100.0,
+      "duration_seconds": 8.26,
+      "category": "FileOperations",
+      "difficulty": "hard"
+    },
+    "DT039": {
+      "valid": true,
+      "status": "partial",
+      "rsr": 75.0,
+      "duration_seconds": 3.83,
+      "category": "FileOperations",
+      "difficulty": "medium"
+    },
+    "DT040": {
+      "valid": true,
+      "status": "success",
+      "rsr": 100.0,
+      "duration_seconds": 6.18,
+      "category": "FileOperations",
+      "difficulty": "hard"
+    },
+    "DT041": {
+      "valid": true,
+      "status": "partial",
+      "rsr": 60.0,
+      "duration_seconds": 4.28,
+      "category": "Workflows",
+      "difficulty": "hard"
+    },
+    "DT042": {
+      "valid": true,
+      "status": "partial",
+      "rsr": 60.0,
+      "duration_seconds": 21.08,
+      "category": "Workflows",
+      "difficulty": "hard"
+    },
+    "DT043": {
+      "valid": true,
+      "status": "failure",
+      "rsr": 20.0,
+      "duration_seconds": 6.76,
+      "category": "Workflows",
+      "difficulty": "medium"
+    },
+    "DT044": {
+      "valid": true,
+      "status": "failure",
+      "rsr": 40.0,
+      "duration_seconds": 26.56,
+      "category": "Workflows",
+      "difficulty": "medium"
+    },
+    "DT045": {
+      "valid": true,
+      "status": "partial",
+      "rsr": 60.0,
+      "duration_seconds": 32.83,
+      "category": "Workflows",
+      "difficulty": "hard"
+    },
+    "DT046": {
+      "valid": true,
+      "status": "failure",
+      "rsr": 40.0,
+      "duration_seconds": 11.39,
+      "category": "Workflows",
+      "difficulty": "hard"
+    },
+    "DT047": {
+      "valid": true,
+      "status": "failure",
+      "rsr": 40.0,
+      "duration_seconds": 10.0,
+      "category": "Workflows",
+      "difficulty": "medium"
+    },
+    "DT048": {
+      "valid": true,
+      "status": "partial",
+      "rsr": 60.0,
+      "duration_seconds": 23.19,
+      "category": "Workflows",
+      "difficulty": "hard"
+    },
+    "DT049": {
+      "valid": true,
+      "status": "partial",
+      "rsr": 60.0,
+      "duration_seconds": 24.98,
+      "category": "Workflows",
+      "difficulty": "hard"
+    },
+    "DT050": {
+      "valid": true,
+      "status": "failure",
+      "rsr": 40.0,
+      "duration_seconds": 8.33,
+      "category": "Workflows",
+      "difficulty": "hard"
+    }
+  }
+}

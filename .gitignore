@@ -17,8 +17,7 @@ desktop_pilot/.env.*
 !desktop_pilot/.env.example
 
 # Logs & temp
-*.log
-.DS_Store
-Thumbs.db
-.idea/
-.vscode/
+backend/data/*.db
+frontend/dist/
+backend/output/*
+!backend/output/.gitkeep

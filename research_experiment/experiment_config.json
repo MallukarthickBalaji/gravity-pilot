@@ -1,0 +1,21 @@
+{
+  "project_name": "DesktopPilot AI / GravityPilot",
+  "benchmark_version": "2.0 (Replanning-Verified)",
+  "date": "2026-09-28 09:49:49",
+  "model_provider": "Groq",
+  "active_model": "openai/gpt-oss-20b",
+  "local_model_installed": "llama3:latest",
+  "environment": {
+    "os": "win32",
+    "python_version": "3.11.0",
+    "framework": "LangGraph + FastAPI + React/Vite"
+  },
+  "total_tasks": 50,
+  "conditions_evaluated": [
+    "Condition A: Direct LLM (zero-tool baseline) - MEASURED",
+    "Condition B: Requirement Analysis OFF (ablation) - MEASURED",
+    "Condition C: Validation OFF (ablation) - NOT MEASURED",
+    "Condition D: Replanning OFF (ablation) - NOT MEASURED",
+    "Condition E: Full DesktopPilot (all components) - MEASURED"
+  ]
+}

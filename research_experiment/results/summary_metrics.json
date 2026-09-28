@@ -1,0 +1,152 @@
+{
+  "total_benchmark_tasks": 50,
+  "successful_tasks": 27,
+  "partial_tasks": 8,
+  "failed_tasks": 15,
+  "task_success_rate_tsr": 54.0,
+  "total_requirements": 214,
+  "satisfied_requirements": 137,
+  "requirement_satisfaction_rate_rsr": 64.02,
+  "tool_selection_accuracy_tsa": 72.0,
+  "planning_success_rate": 78.0,
+  "execution_time_seconds": {
+    "mean": 18.45,
+    "median": 15.36,
+    "min": 1.22,
+    "max": 94.04,
+    "std_dev": 15.91
+  },
+  "tool_usage": {
+    "total_tool_calls": 57,
+    "average_per_task": 1.14
+  },
+  "llm_usage": {
+    "total_llm_calls": 116,
+    "average_per_task": 2.32
+  },
+  "tool_calls_by_category": {
+    "Documents": 7,
+    "Spreadsheets": 9,
+    "Presentations": 8,
+    "FileOperations": 12,
+    "Workflows": 21
+  },
+  "category_performance": {
+    "Documents": {
+      "total": 10,
+      "success": 7,
+      "partial": 0,
+      "failure": 3,
+      "tsr": 70.0,
+      "rsr": 65.12,
+      "mean_latency": 16.91,
+      "total_tool_calls": 7
+    },
+    "Spreadsheets": {
+      "total": 10,
+      "success": 6,
+      "partial": 1,
+      "failure": 3,
+      "tsr": 60.0,
+      "rsr": 65.12,
+      "mean_latency": 19.38,
+      "total_tool_calls": 9
+    },
+    "Presentations": {
+      "total": 10,
+      "success": 7,
+      "partial": 1,
+      "failure": 2,
+      "tsr": 70.0,
+      "rsr": 72.73,
+      "mean_latency": 13.44,
+      "total_tool_calls": 8
+    },
+    "FileOperations": {
+      "total": 10,
+      "success": 7,
+      "partial": 2,
+      "failure": 1,
+      "tsr": 70.0,
+      "rsr": 85.71,
+      "mean_latency": 18.62,
+      "total_tool_calls": 12
+    },
+    "Workflows": {
+      "total": 10,
+      "success": 0,
+      "partial": 4,
+      "failure": 6,
+      "tsr": 0.0,
+      "rsr": 38.78,
+      "mean_latency": 23.89,
+      "total_tool_calls": 21
+    }
+  },
+  "difficulty_performance": {
+    "easy": {
+      "total": 15,
+      "success": 13,
+      "partial": 1,
+      "failure": 1,
+      "tsr": 86.67,
+      "rsr": 89.47,
+      "mean_latency": 15.0
+    },
+    "medium": {
+      "total": 20,
+      "success": 10,
+      "partial": 3,
+      "failure": 7,
+      "tsr": 50.0,
+      "rsr": 61.18,
+      "mean_latency": 20.56
+    },
+    "hard": {
+      "total": 15,
+      "success": 4,
+      "partial": 4,
+      "failure": 7,
+      "tsr": 26.67,
+      "rsr": 47.22,
+      "mean_latency": 19.08
+    }
+  },
+  "failure_distribution": {
+    "F4 Planning error": 9,
+    "F8 Output generation failure": 2,
+    "F2 Missing clarification": 2,
+    "F14 Other": 9,
+    "F3 Unnecessary clarification": 1
+  },
+  "replanning_metrics": {
+    "replanning_triggered_tasks": 8,
+    "total_replanning_events": 11,
+    "recovered_tasks": 2,
+    "unrecovered_tasks": 6,
+    "replanning_recovery_rate": 25.0
+  },
+  "physical_artifact_validation": {
+    "total_tasks_physically_inspected": 50,
+    "structurally_valid_artifacts_found": 38,
+    "missing_or_invalid_artifacts": 12
+  },
+  "ablations": {
+    "condition_a_direct_llm": {
+      "total_evaluated": 5,
+      "physical_files_created": 0,
+      "task_success_rate": 0.0,
+      "physical_disk_task_success_rate": 0.0
+    },
+    "condition_b_req_analysis_off": {
+      "total_ambiguous_evaluated": 10,
+      "success_rate_without_clarification": 0.0
+    },
+    "condition_c_validation_off": {
+      "status": "NOT MEASURED (omitted to preserve API quota; architectural risk analyzed)"
+    },
+    "condition_d_replanning_off": {
+      "status": "NOT MEASURED (omitted to preserve API quota; unrecovered failure risk analyzed)"
+    }
+  }
+}

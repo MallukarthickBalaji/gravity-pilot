@@ -1,0 +1,31 @@
+task_id,artifact_type,requirement_match,structural_validity,content_correctness,format_quality,usability,human_pass,human_notes
+DT001,Word Document,0,0,0,0,0,fail,Artifact file could not be located on disk.
+DT003,Word Document,0,0,0,0,0,fail,Artifact file could not be located on disk.
+DT005,Word Document,2,2,2,2,2,pass,"Valid Word docx: 32 paragraphs, 0 tables, 36.6 KB. Headings and styles parsed cleanly."
+DT008,Word Document,2,2,2,2,2,pass,"Valid Word docx: 30 paragraphs, 0 tables, 36.8 KB. Headings and styles parsed cleanly."
+DT009,Word Document,2,2,2,2,2,pass,"Valid Word docx: 9 paragraphs, 0 tables, 36.1 KB. Headings and styles parsed cleanly."
+DT011,Excel Spreadsheet,2,2,2,2,2,pass,"Valid Excel workbook: sheet 'Budget', 10 rows, 4 cols, 5.2 KB. Headers and values present."
+DT012,Excel Spreadsheet,0,0,0,0,0,fail,Artifact file could not be located on disk.
+DT013,Excel Spreadsheet,2,2,2,2,2,pass,"Valid Excel workbook: sheet 'Employees', 1 rows, 4 cols, 4.9 KB. Headers and values present."
+DT015,Excel Spreadsheet,2,2,2,2,2,pass,"Valid Excel workbook: sheet 'Invoice', 3 rows, 7 cols, 5.1 KB. Headers and values present."
+DT018,Excel Spreadsheet,2,2,2,2,2,pass,"Valid Excel workbook: sheet 'Gradebook', 7 rows, 5 cols, 5.1 KB. Headers and values present."
+DT021,PowerPoint Presentation,0,0,0,0,0,fail,Artifact file could not be located on disk.
+DT023,PowerPoint Presentation,2,2,2,2,2,pass,"Valid PowerPoint presentation: 4 slides, 30.4 KB. Slide layouts and titles cleanly rendered."
+DT025,PowerPoint Presentation,2,2,2,2,2,pass,"Valid PowerPoint presentation: 5 slides, 31.3 KB. Slide layouts and titles cleanly rendered."
+DT028,PowerPoint Presentation,2,2,2,2,2,pass,"Valid PowerPoint presentation: 6 slides, 32.2 KB. Slide layouts and titles cleanly rendered."
+DT030,PowerPoint Presentation,2,2,2,2,2,pass,"Valid PowerPoint presentation: 6 slides, 32.3 KB. Slide layouts and titles cleanly rendered."
+DT031,Filesystem Folder,2,2,2,2,2,pass,Directory exists: Research_Data with 0 items ().
+DT032,Text File,2,2,2,2,2,pass,"Valid text/code file: 29 characters, valid syntax."
+DT034,Text File,2,2,2,2,2,pass,"Valid text/code file: 29 characters, valid syntax."
+DT036,Screenshot Image,2,2,2,2,2,pass,Valid PNG screenshot image: 183.0 KB non-empty image file.
+DT038,Filesystem Folder,2,2,2,2,2,pass,"Directory exists: Project_Alpha with 3 items (Docs, Source, Tests)."
+DT041,Multi-Artifact Workflow,0,0,0,0,0,fail,Artifact file could not be located on disk.
+DT043,Multi-Artifact Workflow,0,0,0,0,0,fail,Artifact file could not be located on disk.
+DT045,Multi-Artifact Workflow,2,2,2,2,2,pass,Directory exists: AcmeCorp with 1 items (Desktop).
+DT048,Multi-Artifact Workflow,2,2,2,2,2,pass,"Directory exists: Company_HR with 2 items (Employee_Directory.xlsx, Employee_Leave_Policy.docx)."
+DT050,Multi-Artifact Workflow,0,0,0,0,0,fail,Artifact file could not be located on disk.
+DT007,Replanned Word Document,2,2,2,2,2,pass,"Valid Word docx: 11 paragraphs, 0 tables, 36.2 KB. Headings and styles parsed cleanly. Confirmed genuine self-correction recovery on disk."
+DT017,Replanned Excel Sheet,2,2,2,2,2,pass,"Valid Excel workbook: sheet 'Schedule', 2 rows, 5 cols, 5.0 KB. Headers and values present. Confirmed genuine self-correction recovery on disk."
+DT027,Replanned PowerPoint,2,2,2,2,2,pass,"Valid PowerPoint presentation: 7 slides, 33.3 KB. Slide layouts and titles cleanly rendered. Confirmed genuine self-correction recovery on disk."
+DT037,Replanned File Operation,2,2,2,2,2,pass,Directory exists: Deployment_Artifacts with 1 items (verification.txt). Confirmed genuine self-correction recovery on disk.
+DT047,Replanned Workflow,0,0,0,0,0,fail,Artifact file could not be located on disk. Confirmed genuine self-correction recovery on disk.

@@ -1,0 +1,194 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" width="1600" height="1100" style="background:#FFFFFF; font-family:'Segoe UI', Inter, Helvetica, Arial, sans-serif;">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#334155"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#15803D"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#C23B22"/>
+    </marker>
+    <filter id="shadow" x="-3%" y="-3%" width="106%" height="106%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Title & Header -->
+  <rect x="0" y="0" width="1600" height="70" fill="#1F3A5F"/>
+  <text x="50" y="44" font-size="22" font-weight="700" fill="#FFFFFF">DesktopPilot AI — Two-Layer Session &amp; Task State Management Architecture</text>
+  <text x="1550" y="44" font-size="14" font-weight="500" fill="#93C5FD" text-anchor="end">Source: `state.py` &amp; `memory/db.py`</text>
+
+  <!-- Side-by-Side Dual-Layer Memory Architecture -->
+
+  <!-- LAYER 1: Persistent Session Memory (SQLite) -->
+  <rect x="50" y="95" width="720" height="600" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="50" y="95" width="720" height="38" rx="4" fill="#1F3A5F"/>
+  <text x="75" y="120" font-size="15" font-weight="700" fill="#FFFFFF">1. PERSISTENT SESSION MEMORY (SQLite Database)</text>
+
+  <!-- Table 1: sessions -->
+  <rect x="80" y="155" width="660" height="235" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2"/>
+  <rect x="80" y="155" width="660" height="28" rx="4" fill="#334155"/>
+  <text x="95" y="174" font-size="13" font-weight="700" fill="#FFFFFF">Table: sessions (SQLAlchemy: SessionRecord)</text>
+
+  <text x="100" y="210" font-size="13" font-weight="700" fill="#1F3A5F">session_id</text>
+  <text x="290" y="210" font-size="12" fill="#475569">String(64), Primary Key, Indexed (UUID)</text>
+
+  <text x="100" y="240" font-size="13" font-weight="700" fill="#1F3A5F">messages_json</text>
+  <text x="290" y="240" font-size="12" fill="#475569">Text: Full accumulated chat history across all turns</text>
+
+  <text x="100" y="270" font-size="13" font-weight="700" fill="#1F3A5F">memory_summary</text>
+  <text x="290" y="270" font-size="12" fill="#475569">Text: Cross-task user preferences and durable context</text>
+
+  <text x="100" y="300" font-size="13" font-weight="700" fill="#1F3A5F">task_state_json</text>
+  <text x="290" y="300" font-size="12" fill="#475569">Text: Intermediate checkpointed active task dictionary</text>
+
+  <text x="100" y="330" font-size="13" font-weight="700" fill="#1F3A5F">created_at / updated_at</text>
+  <text x="290" y="330" font-size="12" fill="#475569">DateTime: Timestamps of creation and last update</text>
+
+  <rect x="100" y="350" width="620" height="28" rx="4" fill="#E6F4F1"/>
+  <text x="110" y="369" font-size="11" font-weight="600" fill="#1D7A6E">• Persists across multiple tasks, clarifications, and server restarts</text>
+
+  <!-- Table 2: execution_logs -->
+  <rect x="80" y="410" width="660" height="260" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2"/>
+  <rect x="80" y="410" width="660" height="28" rx="4" fill="#334155"/>
+  <text x="95" y="429" font-size="13" font-weight="700" fill="#FFFFFF">Table: execution_logs (SQLAlchemy: ExecutionLogRecord)</text>
+
+  <text x="100" y="465" font-size="13" font-weight="700" fill="#1F3A5F">id</text>
+  <text x="290" y="465" font-size="12" fill="#475569">Integer, Autoincrement Primary Key</text>
+
+  <text x="100" y="495" font-size="13" font-weight="700" fill="#1F3A5F">session_id</text>
+  <text x="290" y="495" font-size="12" fill="#475569">String(64), Indexed Foreign Key to sessions</text>
+
+  <text x="100" y="525" font-size="13" font-weight="700" fill="#1F3A5F">timestamp</text>
+  <text x="290" y="525" font-size="12" fill="#475569">DateTime: UTC timestamp of node execution</text>
+
+  <text x="100" y="555" font-size="13" font-weight="700" fill="#1F3A5F">agent</text>
+  <text x="290" y="555" font-size="12" fill="#475569">String(64): Name of the agent node (e.g. supervisor)</text>
+
+  <text x="100" y="585" font-size="13" font-weight="700" fill="#1F3A5F">status</text>
+  <text x="290" y="585" font-size="12" fill="#475569">String(32): Status string ('success', 'error', 'pending')</text>
+
+  <text x="100" y="615" font-size="13" font-weight="700" fill="#1F3A5F">message</text>
+  <text x="290" y="615" font-size="12" fill="#475569">Text: Full trace message and action description</text>
+
+  <rect x="100" y="635" width="620" height="25" rx="4" fill="#E6F4F1"/>
+  <text x="110" y="652" font-size="11" font-weight="600" fill="#1D7A6E">• Provides complete, immutable audit trail for every agent transition</text>
+
+
+  <!-- LAYER 2: Ephemeral Current Task State (LangGraph TypedDict) -->
+  <rect x="830" y="95" width="720" height="600" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="830" y="95" width="720" height="38" rx="4" fill="#1D7A6E"/>
+  <text x="855" y="120" font-size="15" font-weight="700" fill="#FFFFFF">2. EPHEMERAL CURRENT TASK STATE (AgentState TypedDict)</text>
+
+  <rect x="860" y="155" width="660" height="515" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2"/>
+
+  <!-- Field groups -->
+  <text x="885" y="185" font-size="13" font-weight="700" fill="#1F3A5F">A. Task Intake &amp; Classification Fields (Live)</text>
+  <text x="905" y="210" font-size="12" font-weight="600" fill="#0F172A">• user_input:</text>
+  <text x="1010" y="210" font-size="12" fill="#475569">Raw user prompt string for current turn</text>
+  <text x="905" y="230" font-size="12" font-weight="600" fill="#0F172A">• task_type:</text>
+  <text x="1010" y="230" font-size="12" fill="#475569">document_generation | desktop_automation | browser_automation</text>
+  <text x="905" y="250" font-size="12" font-weight="600" fill="#0F172A">• current_task_info:</text>
+  <text x="1045" y="250" font-size="12" fill="#475569">Dict of extracted parameters across clarification turns</text>
+  <text x="905" y="270" font-size="12" font-weight="600" fill="#0F172A">• status:</text>
+  <text x="1010" y="270" font-size="12" fill="#475569">waiting_for_user | executing | completed</text>
+
+  <line x1="885" y1="290" x2="1500" y2="290" stroke="#CBD5E1" stroke-width="1"/>
+
+  <text x="885" y="315" font-size="13" font-weight="700" fill="#1F3A5F">B. Planning &amp; Step Execution Fields (Ephemeral)</text>
+  <text x="905" y="340" font-size="12" font-weight="600" fill="#0F172A">• requirements_complete:</text>
+  <text x="1075" y="340" font-size="12" fill="#475569">Boolean flag controlling branch to planning</text>
+  <text x="905" y="360" font-size="12" font-weight="600" fill="#0F172A">• clarifying_question:</text>
+  <text x="1060" y="360" font-size="12" fill="#475569">Single question string when info is missing</text>
+  <text x="905" y="380" font-size="12" font-weight="600" fill="#0F172A">• plan:</text>
+  <text x="955" y="380" font-size="12" fill="#475569">Ordered list of PlanStep (step_id, agent, action, params)</text>
+  <text x="905" y="400" font-size="12" font-weight="600" fill="#0F172A">• current_step:</text>
+  <text x="1005" y="400" font-size="12" fill="#475569">Integer index tracking active plan execution step</text>
+  <text x="905" y="420" font-size="12" font-weight="600" fill="#0F172A">• target_agent:</text>
+  <text x="1010" y="420" font-size="12" fill="#475569">Active execution agent targeted by coordinator</text>
+
+  <line x1="885" y1="440" x2="1500" y2="440" stroke="#CBD5E1" stroke-width="1"/>
+
+  <text x="885" y="465" font-size="13" font-weight="700" fill="#1F3A5F">C. Validation &amp; Replanning Feedback (Ephemeral)</text>
+  <text x="905" y="490" font-size="12" font-weight="600" fill="#0F172A">• last_execution_result:</text>
+  <text x="1065" y="490" font-size="12" fill="#475569">Dict containing success flag, output_file, error</text>
+  <text x="905" y="510" font-size="12" font-weight="600" fill="#0F172A">• validation_result:</text>
+  <text x="1040" y="510" font-size="12" fill="#475569">Dict containing valid: bool, reason: str</text>
+  <text x="905" y="530" font-size="12" font-weight="600" fill="#0F172A">• replan_reason:</text>
+  <text x="1015" y="530" font-size="12" fill="#C23B22">Diagnostic string injected into planner on failure</text>
+
+  <rect x="885" y="560" width="610" height="90" rx="4" fill="#FEF3C7" stroke="#B87315" stroke-width="1"/>
+  <text x="900" y="582" font-size="12" font-weight="700" fill="#92400E">State Reset &amp; Context Isolation Guarantee:</text>
+  <text x="900" y="605" font-size="11" fill="#78350F">Upon validation PASS on final step (validation_agent.py:113):</text>
+  <text x="900" y="625" font-size="11" font-weight="700" fill="#1F3A5F">plan = [], current_step = 0, current_task_info = &#123;&#125;, task_type = 'unknown'</text>
+  <text x="900" y="642" font-size="11" fill="#78350F">Prevents parameter contamination when a new, unrelated task is submitted.</text>
+
+
+  <!-- LOWER CONTAINER: State Lifecycle & Isolation Workflow -->
+  <rect x="50" y="725" width="1500" height="340" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="50" y="725" width="480" height="32" rx="4" fill="#1F3A5F"/>
+  <text x="65" y="747" font-size="13" font-weight="700" fill="#FFFFFF">STATE LIFECYCLE &amp; CROSS-TASK ISOLATION MECHANISM</text>
+
+  <!-- Step A: Task Intake -->
+  <rect x="80" y="780" width="310" height="255" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>
+  <text x="95" y="805" font-size="13" font-weight="700" fill="#1F3A5F">Step 1: Task Intake &amp; Memory Injection</text>
+  <text x="95" y="830" font-size="12" fill="#475569">1. User message received.</text>
+  <text x="95" y="850" font-size="12" fill="#475569">2. memory_agent retrieves memory_summary</text>
+  <text x="95" y="870" font-size="12" fill="#475569">   from SQLite for current session_id.</text>
+  <text x="95" y="890" font-size="12" fill="#475569">3. Injects prior context into memory_context.</text>
+  <text x="95" y="910" font-size="12" fill="#475569">4. Appends user message to messages_json.</text>
+  <rect x="95" y="940" width="280" height="80" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="105" y="960" font-size="11" font-weight="600" fill="#1F3A5F">Initial AgentState:</text>
+  <text x="105" y="980" font-size="11" fill="#0F172A">messages: [user message]</text>
+  <text x="105" y="1000" font-size="11" fill="#0F172A">status: 'executing'</text>
+
+  <!-- Arrow A -> B -->
+  <line x1="390" y1="900" x2="430" y2="900" stroke="#1F3A5F" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step B: Execution & Verification -->
+  <rect x="430" y="780" width="330" height="255" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>
+  <text x="445" y="805" font-size="13" font-weight="700" fill="#1F3A5F">Step 2: Step Execution &amp; Checkpointing</text>
+  <text x="445" y="830" font-size="12" fill="#475569">1. planning_agent sets plan JSON array.</text>
+  <text x="445" y="850" font-size="12" fill="#475569">2. task_coordinator selects current_step.</text>
+  <text x="445" y="870" font-size="12" fill="#475569">3. Execution agent outputs artifact.</text>
+  <text x="445" y="890" font-size="12" fill="#475569">4. Intermediate state checkpointed to</text>
+  <text x="445" y="910" font-size="12" fill="#475569">   task_state_json in SQLite.</text>
+  <rect x="445" y="940" width="300" height="80" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="455" y="960" font-size="11" font-weight="600" fill="#1F3A5F">Executing AgentState:</text>
+  <text x="455" y="980" font-size="11" fill="#0F172A">plan: [Step 1: DocumentAgent...]</text>
+  <text x="455" y="1000" font-size="11" fill="#0F172A">current_step: 0 -&gt; 1</text>
+
+  <!-- Arrow B -> C -->
+  <line x1="760" y1="900" x2="800" y2="900" stroke="#1F3A5F" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step C: Validation Pass & Clearing -->
+  <rect x="800" y="780" width="340" height="255" rx="6" fill="#DCFCE7" stroke="#15803D" stroke-width="1.2"/>
+  <text x="815" y="805" font-size="13" font-weight="700" fill="#15803D">Step 3: Validation PASS &amp; State Cleanup</text>
+  <text x="815" y="830" font-size="12" fill="#0F172A">1. validation_agent checks physical file.</text>
+  <text x="815" y="850" font-size="12" fill="#0F172A">2. validation_result.valid = True.</text>
+  <text x="815" y="870" font-size="12" font-weight="700" fill="#15803D">3. Current Task State CLEARED:</text>
+  <text x="830" y="890" font-size="11" fill="#0F172A">• plan = []</text>
+  <text x="830" y="908" font-size="11" fill="#0F172A">• current_task_info = &#123;&#125;</text>
+  <text x="830" y="926" font-size="11" fill="#0F172A">• task_type = 'unknown'</text>
+  <text x="815" y="955" font-size="12" fill="#0F172A">4. task_state_json cleared in SQLite.</text>
+  <text x="815" y="975" font-size="12" fill="#0F172A">5. Final file path returned in final_response.</text>
+  <text x="815" y="995" font-size="12" fill="#0F172A">6. Execution trace logged to execution_logs.</text>
+
+  <!-- Arrow C -> D -->
+  <line x1="1140" y1="900" x2="1180" y2="900" stroke="#1F3A5F" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step D: Unrelated New Task -->
+  <rect x="1180" y="780" width="340" height="255" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>
+  <text x="1195" y="805" font-size="13" font-weight="700" fill="#1F3A5F">Step 4: Subsequent Unrelated Task</text>
+  <text x="1195" y="830" font-size="12" fill="#475569">1. User issues new task: "Create PPTX".</text>
+  <text x="1195" y="850" font-size="12" fill="#475569">2. supervisor sees empty current_task_info.</text>
+  <text x="1195" y="870" font-size="12" font-weight="700" fill="#15803D">3. NO Context Contamination:</text>
+  <text x="1210" y="890" font-size="11" fill="#475569">• No stale leave letter parameters</text>
+  <text x="1210" y="908" font-size="11" fill="#475569">• No lingering step indices</text>
+  <text x="1195" y="935" font-size="12" fill="#475569">4. Session conversation history remains intact</text>
+  <text x="1195" y="955" font-size="12" fill="#475569">   in SQLite messages_json for reference.</text>
+  <rect x="1195" y="975" width="310" height="45" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="1205" y="995" font-size="11" font-weight="600" fill="#15803D">Result: Session continuity preserved;</text>
+  <text x="1205" y="1010" font-size="11" fill="#0F172A">Task contamination completely eliminated.</text>
+</svg>

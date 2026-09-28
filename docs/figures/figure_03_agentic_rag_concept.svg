@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" style="background:#FFFFFF; font-family:'Segoe UI', Inter, Helvetica, Arial, sans-serif;">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#334155"/>
+    </marker>
+    <marker id="arrow-navy" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#1F3A5F"/>
+    </marker>
+    <marker id="arrow-teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#1D7A6E"/>
+    </marker>
+    <filter id="shadow" x="-3%" y="-3%" width="106%" height="106%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Title & Header -->
+  <rect x="0" y="0" width="1600" height="70" fill="#1F3A5F"/>
+  <text x="50" y="44" font-size="22" font-weight="700" fill="#FFFFFF">Agentic Retrieval-Augmented Generation (RAG) — Conceptual Integration Pathway</text>
+  <text x="1550" y="44" font-size="14" font-weight="700" fill="#FCD34D" text-anchor="end">STATUS: PARTIALLY IMPLEMENTED (CONCEPTUAL DESIGN)</text>
+
+  <!-- Status Callout Banner -->
+  <rect x="50" y="95" width="1500" height="55" rx="6" fill="#FEF3C7" stroke="#B87315" stroke-width="1.5"/>
+  <text x="75" y="128" font-size="14" font-weight="700" fill="#92400E">NOTE: Strict Academic Compliance Notice</text>
+  <text x="375" y="128" font-size="13" fill="#78350F">This diagram depicts the planned domain-retrieval pipeline. As reported in Section 10, control flow is wired in LangGraph, while the vector store &amp; embedding corpus are sequenced for future work.</text>
+
+  <!-- Horizontal Pipeline Stages -->
+
+  <!-- STAGE 1: Intake -->
+  <rect x="50" y="180" width="260" height="340" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="50" y="180" width="260" height="32" rx="4" fill="#1F3A5F"/>
+  <text x="65" y="202" font-size="13" font-weight="700" fill="#FFFFFF">1. USER TASK INTAKE</text>
+
+  <rect x="70" y="230" width="220" height="85" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="85" y="255" font-size="13" font-weight="700" fill="#1F3A5F">Natural Language Query</text>
+  <text x="85" y="278" font-size="11" fill="#475569">"Create a formal leave</text>
+  <text x="85" y="295" font-size="11" fill="#475569">letter for 5 days..."</text>
+
+  <rect x="70" y="335" width="220" height="85" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="85" y="360" font-size="13" font-weight="700" fill="#1F3A5F">Requirement Analyzer</text>
+  <text x="85" y="380" font-size="11" fill="#475569">• Identifies domain intent</text>
+  <text x="85" y="398" font-size="11" fill="#475569">• Extracts key search terms</text>
+
+  <rect x="70" y="440" width="220" height="60" rx="4" fill="#DCFCE7" stroke="#15803D" stroke-width="1"/>
+  <text x="85" y="462" font-size="11" font-weight="700" fill="#15803D">Implemented:</text>
+  <text x="85" y="480" font-size="11" fill="#0F172A">Parameter extraction &amp; routing</text>
+
+  <!-- Arrow 1 -> 2 -->
+  <line x1="310" y1="350" x2="360" y2="350" stroke="#1F3A5F" stroke-width="2" marker-end="url(#arrow-navy)"/>
+
+  <!-- STAGE 2: Retrieval (PLANNED / PARTIAL) -->
+  <rect x="360" y="180" width="460" height="340" rx="8" fill="#FFFBEB" stroke="#B87315" stroke-width="2" stroke-dasharray="6,4" filter="url(#shadow)"/>
+  <rect x="360" y="180" width="460" height="32" rx="4" fill="#B87315"/>
+  <text x="375" y="202" font-size="13" font-weight="700" fill="#FFFFFF">2. KNOWLEDGE RETRIEVAL (PLANNED EXTENSION)</text>
+
+  <!-- Target Knowledge Corpus -->
+  <rect x="385" y="230" width="410" height="80" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="400" y="255" font-size="13" font-weight="700" fill="#1F3A5F">Domain Knowledge Corpus (Planned)</text>
+  <text x="400" y="275" font-size="11" fill="#475569">• Institutional Leave Letter Templates &amp; Salutations</text>
+  <text x="400" y="293" font-size="11" fill="#475569">• Department Formatting Guides &amp; Spreadsheet Schemas</text>
+
+  <!-- Vector Store Indexing -->
+  <rect x="385" y="325" width="410" height="85" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="400" y="350" font-size="13" font-weight="700" fill="#1F3A5F">Sentence-Embedding &amp; Vector Store</text>
+  <text x="400" y="370" font-size="11" fill="#475569">• Dense Embeddings (e.g. `all-MiniLM-L6-v2`)</text>
+  <text x="400" y="388" font-size="11" fill="#475569">• Top-K Similarity Search for exact section guidelines</text>
+
+  <rect x="385" y="425" width="410" height="75" rx="4" fill="#FEF3C7" stroke="#B87315" stroke-width="1"/>
+  <text x="400" y="447" font-size="12" font-weight="700" fill="#92400E">Current Implementation Status:</text>
+  <text x="400" y="467" font-size="11" fill="#78350F">Placeholder retrieval step wired in graph state; full vector index,</text>
+  <text x="400" y="485" font-size="11" fill="#78350F">embeddings, and Precision@K evaluation sequenced for Phase 2.</text>
+
+  <!-- Arrow 2 -> 3 -->
+  <line x1="820" y1="350" x2="870" y2="350" stroke="#1F3A5F" stroke-width="2" marker-end="url(#arrow-navy)"/>
+
+  <!-- STAGE 3: Context Augmentation & Reasoning -->
+  <rect x="870" y="180" width="340" height="340" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="870" y="180" width="340" height="32" rx="4" fill="#1F3A5F"/>
+  <text x="885" y="202" font-size="13" font-weight="700" fill="#FFFFFF">3. CONTEXT-AUGMENTED REASONING</text>
+
+  <rect x="895" y="230" width="290" height="80" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="910" y="255" font-size="13" font-weight="700" fill="#1F3A5F">State Context Injection</text>
+  <text x="910" y="275" font-size="11" fill="#475569">• Augments `AgentState.memory_context`</text>
+  <text x="910" y="293" font-size="11" fill="#475569">• Combines User Goal + Retrieved Guidelines</text>
+
+  <rect x="895" y="325" width="290" height="85" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="910" y="350" font-size="13" font-weight="700" fill="#1F3A5F">Planning Agent Decomposition</text>
+  <text x="910" y="370" font-size="11" fill="#475569">• Emits JSON PlanStep[] conforming to</text>
+  <text x="910" y="388" font-size="11" fill="#475569">  retrieved domain template structure</text>
+
+  <rect x="895" y="440" width="290" height="60" rx="4" fill="#DCFCE7" stroke="#15803D" stroke-width="1"/>
+  <text x="910" y="462" font-size="11" font-weight="700" fill="#15803D">Implemented:</text>
+  <text x="910" y="480" font-size="11" fill="#0F172A">LLM prompt augmentation &amp; plan generation</text>
+
+  <!-- Arrow 3 -> 4 -->
+  <line x1="1210" y1="350" x2="1260" y2="350" stroke="#1F3A5F" stroke-width="2" marker-end="url(#arrow-navy)"/>
+
+  <!-- STAGE 4: Tool Execution & Verification -->
+  <rect x="1260" y="180" width="290" height="340" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="1260" y="180" width="290" height="32" rx="4" fill="#1F3A5F"/>
+  <text x="1275" y="202" font-size="13" font-weight="700" fill="#FFFFFF">4. EXECUTION &amp; VALIDATION</text>
+
+  <rect x="1285" y="230" width="240" height="80" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="1300" y="255" font-size="13" font-weight="700" fill="#1F3A5F">Document / Execution Tool</text>
+  <text x="1300" y="275" font-size="11" fill="#475569">• python-docx / openpyxl</text>
+  <text x="1300" y="293" font-size="11" fill="#475569">• Generates target file on disk</text>
+
+  <rect x="1285" y="325" width="240" height="85" rx="6" fill="#E6F4F1" stroke="#1D7A6E" stroke-width="1"/>
+  <text x="1300" y="350" font-size="13" font-weight="700" fill="#1D7A6E">Validation Agent</text>
+  <text x="1300" y="370" font-size="11" fill="#0F172A">• Programmatic structural verification</text>
+  <text x="1300" y="388" font-size="11" fill="#0F172A">• Confirms required sections exist</text>
+
+  <rect x="1285" y="440" width="240" height="60" rx="4" fill="#DCFCE7" stroke="#15803D" stroke-width="1"/>
+  <text x="1300" y="462" font-size="11" font-weight="700" fill="#15803D">Implemented:</text>
+  <text x="1300" y="480" font-size="11" fill="#0F172A">Deterministic file generation &amp; validation</text>
+
+  <!-- Lower Container: Planned Sequencing Details -->
+  <rect x="50" y="560" width="1500" height="390" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="50" y="560" width="380" height="32" rx="4" fill="#1F3A5F"/>
+  <text x="65" y="582" font-size="13" font-weight="700" fill="#FFFFFF">PLANNED RAG RETRIEVAL STACK ROADMAP (SECTION 10.4)</text>
+
+  <!-- Roadmap Steps -->
+  <rect x="80" y="620" width="320" height="290" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1"/>
+  <rect x="80" y="620" width="320" height="28" rx="4" fill="#334155"/>
+  <text x="95" y="639" font-size="12" font-weight="700" fill="#FFFFFF">Phase A: Corpus Curation</text>
+  <text x="95" y="670" font-size="12" font-weight="600" fill="#1F3A5F">Target Domain Assets:</text>
+  <text x="95" y="692" font-size="11" fill="#475569">• Academic leave formats (Medical, Casual)</text>
+  <text x="95" y="712" font-size="11" fill="#475569">• TC &amp; Bonafide requisition templates</text>
+  <text x="95" y="732" font-size="11" fill="#475569">• Attendance record schemas &amp; formulas</text>
+  <text x="95" y="752" font-size="11" fill="#475569">• 5-slide academic seminar deck guidelines</text>
+  <text x="95" y="785" font-size="11" font-weight="600" fill="#0F172A">Deliverable: Curated JSON/Markdown files</text>
+
+  <rect x="430" y="620" width="320" height="290" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1"/>
+  <rect x="430" y="620" width="320" height="28" rx="4" fill="#334155"/>
+  <text x="445" y="639" font-size="12" font-weight="700" fill="#FFFFFF">Phase B: Embedding &amp; Index</text>
+  <text x="445" y="670" font-size="12" font-weight="600" fill="#1F3A5F">Vector Storage Layer:</text>
+  <text x="445" y="692" font-size="11" fill="#475569">• Sentence-Transformers embeddings</text>
+  <text x="445" y="712" font-size="11" fill="#475569">• Local ChromaDB / FAISS vector index</text>
+  <text x="445" y="732" font-size="11" fill="#475569">• Chunking strategy: Section-level chunks</text>
+  <text x="445" y="752" font-size="11" fill="#475569">• Metadata tagging by document category</text>
+  <text x="445" y="785" font-size="11" font-weight="600" fill="#0F172A">Deliverable: Queryable local vector index</text>
+
+  <rect x="780" y="620" width="320" height="290" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1"/>
+  <rect x="780" y="620" width="320" height="28" rx="4" fill="#334155"/>
+  <text x="795" y="639" font-size="12" font-weight="700" fill="#FFFFFF">Phase C: LangGraph Wiring</text>
+  <text x="795" y="670" font-size="12" font-weight="600" fill="#1F3A5F">Graph Node Integration:</text>
+  <text x="795" y="692" font-size="11" fill="#475569">• Replace placeholder retrieval stub</text>
+  <text x="795" y="712" font-size="11" fill="#475569">• Top-K similarity lookup node</text>
+  <text x="795" y="732" font-size="11" fill="#475569">• Context pruning &amp; prompt construction</text>
+  <text x="795" y="752" font-size="11" fill="#475569">• Feed directly into `planning_agent` state</text>
+  <text x="795" y="785" font-size="11" font-weight="600" fill="#0F172A">Deliverable: End-to-end retrieved prompt</text>
+
+  <rect x="1130" y="620" width="380" height="290" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1"/>
+  <rect x="1130" y="620" width="380" height="28" rx="4" fill="#334155"/>
+  <text x="1145" y="639" font-size="12" font-weight="700" fill="#FFFFFF">Phase D: Empirical RAG Evaluation</text>
+  <text x="1145" y="670" font-size="12" font-weight="600" fill="#1F3A5F">Quantitative Quality Metrics:</text>
+  <text x="1145" y="692" font-size="11" fill="#475569">• Precision@K and Recall@K against benchmark tasks</text>
+  <text x="1145" y="712" font-size="11" fill="#475569">• Context relevance &amp; faithfulness scores</text>
+  <text x="1145" y="732" font-size="11" fill="#475569">• Retrieval-to-generation latency overhead</text>
+  <text x="1145" y="752" font-size="11" fill="#475569">• Cross-task isolation check with multiple users</text>
+  <text x="1145" y="785" font-size="11" font-weight="600" fill="#0F172A">Deliverable: Rigorous quantitative evaluation table</text>
+</svg>

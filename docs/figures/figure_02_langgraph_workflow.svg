@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200" style="background:#FFFFFF; font-family:'Segoe UI', Inter, Helvetica, Arial, sans-serif;">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#334155"/>
+    </marker>
+    <marker id="arrow-navy" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#1F3A5F"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#15803D"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#C23B22"/>
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#B87315"/>
+    </marker>
+    <filter id="shadow" x="-3%" y="-3%" width="106%" height="106%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Title & Header -->
+  <rect x="0" y="0" width="1600" height="70" fill="#1F3A5F"/>
+  <text x="50" y="44" font-size="22" font-weight="700" fill="#FFFFFF">DesktopPilot AI — LangGraph StateGraph Workflow &amp; Cyclic Routing</text>
+  <text x="1550" y="44" font-size="14" font-weight="500" fill="#93C5FD" text-anchor="end">Source: `desktop_pilot/graph/workflow.py`</text>
+
+  <!-- START NODE -->
+  <rect x="700" y="95" width="200" height="50" rx="25" fill="#1F3A5F" filter="url(#shadow)"/>
+  <text x="800" y="126" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="middle">START</text>
+
+  <line x1="800" y1="145" x2="800" y2="175" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- NODE 1: model_router -->
+  <rect x="670" y="175" width="260" height="60" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="800" y="202" font-size="15" font-weight="700" fill="#1F3A5F" text-anchor="middle">model_router</text>
+  <text x="800" y="222" font-size="12" fill="#475569" text-anchor="middle">Checks backend &amp; capability flags</text>
+
+  <!-- Conditional Edge: route_after_model_router -->
+  <line x1="800" y1="235" x2="800" y2="280" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="810" y="260" font-size="11" font-weight="600" fill="#15803D">backend reachable</text>
+
+  <!-- Bailout if none -->
+  <path d="M 930 205 L 1450 205 L 1450 1080" fill="none" stroke="#C23B22" stroke-width="1.8" stroke-dasharray="5,4" marker-end="url(#arrow-red)"/>
+  <text x="1000" y="198" font-size="11" font-weight="600" fill="#C23B22">backend == 'none' ──&gt; __end__</text>
+
+  <!-- NODE 2: memory_agent -->
+  <rect x="670" y="280" width="260" height="60" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="800" y="307" font-size="15" font-weight="700" fill="#1F3A5F" text-anchor="middle">memory_agent</text>
+  <text x="800" y="327" font-size="12" fill="#475569" text-anchor="middle">Injects prior session memory &amp; state</text>
+
+  <line x1="800" y1="340" x2="800" y2="375" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- NODE 3: supervisor -->
+  <rect x="670" y="375" width="260" height="60" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="800" y="402" font-size="15" font-weight="700" fill="#1F3A5F" text-anchor="middle">supervisor</text>
+  <text x="800" y="422" font-size="12" fill="#475569" text-anchor="middle">Classifies intent into 5 task types</text>
+
+  <!-- Conditional Edge: route_after_supervisor -->
+  <line x1="800" y1="435" x2="800" y2="480" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="810" y="460" font-size="11" font-weight="600" fill="#15803D">capability available</text>
+
+  <path d="M 930 405 L 1400 405 L 1400 1080" fill="none" stroke="#C23B22" stroke-width="1.8" stroke-dasharray="5,4" marker-end="url(#arrow-red)"/>
+  <text x="960" y="398" font-size="11" font-weight="600" fill="#C23B22">capability unavailable (final_response) ──&gt; __end__</text>
+
+  <!-- NODE 4: requirement_analyzer -->
+  <rect x="670" y="480" width="260" height="65" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="800" y="507" font-size="15" font-weight="700" fill="#1F3A5F" text-anchor="middle">requirement_analyzer</text>
+  <text x="800" y="527" font-size="12" fill="#475569" text-anchor="middle">Validates parameter completeness</text>
+
+  <!-- Conditional Edge: route_after_requirement_analyzer -->
+  <line x1="800" y1="545" x2="800" y2="600" stroke="#15803D" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <text x="810" y="575" font-size="11" font-weight="700" fill="#15803D">requirements_complete == True</text>
+
+  <!-- Clarification loop branch -->
+  <path d="M 670 512 L 200 512 L 200 1080" fill="none" stroke="#B87315" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#arrow-amber)"/>
+  <text x="210" y="502" font-size="11" font-weight="700" fill="#B87315">requirements_complete == False (Ask 1 Question) ──&gt; __end__ (Awaits User Reply)</text>
+
+  <!-- NODE 5: planning_agent -->
+  <rect x="670" y="600" width="260" height="65" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="800" y="627" font-size="15" font-weight="700" fill="#1F3A5F" text-anchor="middle">planning_agent</text>
+  <text x="800" y="647" font-size="12" fill="#475569" text-anchor="middle">Produces ordered JSON PlanStep[]</text>
+
+  <!-- Conditional Edge: route_after_planning_agent -->
+  <line x1="800" y1="665" x2="800" y2="715" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="810" y="692" font-size="11" font-weight="600" fill="#15803D">plan generated</text>
+
+  <!-- Direct General Query End -->
+  <path d="M 930 632 L 1350 632 L 1350 1080" fill="none" stroke="#334155" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <text x="960" y="625" font-size="11" font-weight="600" fill="#334155">general_query (direct answer) ──&gt; __end__</text>
+
+  <!-- NODE 6: task_coordinator -->
+  <rect x="670" y="715" width="260" height="65" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="800" y="742" font-size="15" font-weight="700" fill="#1F3A5F" text-anchor="middle">task_coordinator</text>
+  <text x="800" y="762" font-size="12" fill="#475569" text-anchor="middle">Sequences plan[current_step]</text>
+
+  <!-- Conditional Routing to Execution Agents -->
+  <!-- Document Agent -->
+  <path d="M 700 780 L 375 830" fill="none" stroke="#1F3A5F" stroke-width="1.8" marker-end="url(#arrow-navy)"/>
+  <rect x="250" y="830" width="250" height="60" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.3" filter="url(#shadow)"/>
+  <text x="375" y="857" font-size="14" font-weight="700" fill="#1F3A5F" text-anchor="middle">document_agent</text>
+  <text x="375" y="876" font-size="11" fill="#475569" text-anchor="middle">docx, xlsx, pptx builders</text>
+
+  <!-- Desktop Agent -->
+  <path d="M 750 780 L 640 830" fill="none" stroke="#1F3A5F" stroke-width="1.8" marker-end="url(#arrow-navy)"/>
+  <rect x="520" y="830" width="240" height="60" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.3" filter="url(#shadow)"/>
+  <text x="640" y="857" font-size="14" font-weight="700" fill="#1F3A5F" text-anchor="middle">desktop_agent</text>
+  <text x="640" y="876" font-size="11" fill="#475569" text-anchor="middle">os / shutil / pyautogui</text>
+
+  <!-- Browser Agent -->
+  <path d="M 850 780 L 910 830" fill="none" stroke="#1F3A5F" stroke-width="1.8" marker-end="url(#arrow-navy)"/>
+  <rect x="790" y="830" width="240" height="60" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.3" filter="url(#shadow)"/>
+  <text x="910" y="857" font-size="14" font-weight="700" fill="#1F3A5F" text-anchor="middle">browser_agent</text>
+  <text x="910" y="876" font-size="11" fill="#475569" text-anchor="middle">Playwright / Web scraping</text>
+
+  <!-- Vision Agent -->
+  <path d="M 900 780 L 1180 830" fill="none" stroke="#1F3A5F" stroke-width="1.8" marker-end="url(#arrow-navy)"/>
+  <rect x="1060" y="830" width="240" height="60" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.3" filter="url(#shadow)"/>
+  <text x="1180" y="857" font-size="14" font-weight="700" fill="#334155" text-anchor="middle">vision_agent (Stub)</text>
+  <text x="1180" y="876" font-size="11" fill="#475569" text-anchor="middle">Screen inspection hook</text>
+
+  <!-- Execution Agents Convergence to Validation Agent -->
+  <path d="M 375 890 L 375 930 L 730 960" fill="none" stroke="#334155" stroke-width="1.5"/>
+  <path d="M 640 890 L 640 930 L 760 960" fill="none" stroke="#334155" stroke-width="1.5"/>
+  <path d="M 910 890 L 910 930 L 840 960" fill="none" stroke="#334155" stroke-width="1.5"/>
+  <path d="M 1180 890 L 1180 930 L 870 960" fill="none" stroke="#334155" stroke-width="1.5"/>
+
+  <line x1="800" y1="945" x2="800" y2="965" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- NODE 7: validation_agent -->
+  <rect x="640" y="965" width="320" height="70" rx="8" fill="#E6F4F1" stroke="#1D7A6E" stroke-width="1.8" filter="url(#shadow)"/>
+  <text x="800" y="995" font-size="16" font-weight="700" fill="#1D7A6E" text-anchor="middle">validation_agent</text>
+  <text x="800" y="1018" font-size="12" fill="#0F172A" text-anchor="middle">Structural checks on physical output file (.docx/.xlsx/.pptx)</text>
+
+  <!-- CRITICAL CYCLIC REPLANNING EDGE (validation_agent -> planning_agent) -->
+  <path d="M 640 1000 L 140 1000 L 140 632 L 660 632" fill="none" stroke="#C23B22" stroke-width="2.5" stroke-dasharray="6,4" marker-end="url(#arrow-red)"/>
+  <rect x="150" y="780" width="105" height="40" rx="4" fill="#FEE2E2" stroke="#C23B22" stroke-width="1"/>
+  <text x="202" y="797" font-size="11" font-weight="700" fill="#C23B22" text-anchor="middle">CYCLIC EDGE</text>
+  <text x="202" y="812" font-size="10" font-weight="600" fill="#C23B22" text-anchor="middle">replan_reason</text>
+
+  <!-- Multi-step Loop (validation_agent -> task_coordinator) -->
+  <path d="M 960 1000 L 1340 1000 L 1340 747 L 940 747" fill="none" stroke="#1F3A5F" stroke-width="1.8" stroke-dasharray="4,4" marker-end="url(#arrow-navy)"/>
+  <rect x="1348" y="850" width="165" height="28" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="1430" y="869" font-size="11" font-weight="600" fill="#1F3A5F" text-anchor="middle">current_step &lt; len(plan)</text>
+
+  <!-- PASS Edge to Final Memory State -->
+  <line x1="800" y1="1035" x2="800" y2="1080" stroke="#15803D" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <text x="810" y="1060" font-size="12" font-weight="700" fill="#15803D">PASS: step == len(plan)</text>
+
+  <!-- END NODE -->
+  <rect x="700" y="1080" width="200" height="50" rx="25" fill="#1F3A5F" filter="url(#shadow)"/>
+  <text x="800" y="1111" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="middle">END</text>
+
+  <!-- Legend -->
+  <rect x="1120" y="95" width="430" height="85" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="1135" y="115" font-size="12" font-weight="700" fill="#1F3A5F">LEGEND &amp; CONTROL FLOW</text>
+  <line x1="1135" y1="130" x2="1165" y2="130" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="1175" y="134" font-size="11" fill="#0F172A">Standard Sequential Edge</text>
+  <line x1="1135" y1="150" x2="1165" y2="150" stroke="#C23B22" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrow-red)"/>
+  <text x="1175" y="154" font-size="11" fill="#C23B22">Cyclic Replanning Edge (Failure Recovery)</text>
+  <line x1="1135" y1="170" x2="1165" y2="170" stroke="#B87315" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrow-amber)"/>
+  <text x="1175" y="174" font-size="11" fill="#B87315">Single Clarification Question Path</text>
+</svg>

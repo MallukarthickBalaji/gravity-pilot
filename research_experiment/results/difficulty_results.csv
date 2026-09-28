@@ -1,0 +1,4 @@
+difficulty,total_tasks,successful_tasks,partial_tasks,failed_tasks,tsr_percent,rsr_percent,mean_latency_sec
+easy,15,13,1,1,86.67,89.47,15.0
+medium,20,10,3,7,50.0,61.18,20.56
+hard,15,4,4,7,26.67,47.22,19.08

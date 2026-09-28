@@ -1,0 +1,1967 @@
+[
+  {
+    "task_id": "DT001",
+    "category": "Documents",
+    "difficulty": "easy",
+    "user_request": "Create a Word document explaining artificial intelligence overview.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Generate Word document (.docx)"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Document title related to Artificial Intelligence"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Contains introductory overview section with non-empty paragraphs"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "File saved successfully in output directory with non-zero bytes"
+      }
+    ],
+    "expected_tools": [
+      "generate_word_doc"
+    ],
+    "expected_outputs": [
+      "*.docx"
+    ],
+    "validation_criteria": [
+      "file_exists",
+      "is_docx",
+      "min_paragraphs_2",
+      "min_bytes_2000"
+    ]
+  },
+  {
+    "task_id": "DT002",
+    "category": "Documents",
+    "difficulty": "easy",
+    "user_request": "Create a Word document with meeting minutes for Project Kickoff.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Generate Word document (.docx)"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Title 'Meeting Minutes' or 'Project Kickoff'"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Includes agenda or discussion section with paragraphs"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "File saved in output directory"
+      }
+    ],
+    "expected_tools": [
+      "generate_word_doc"
+    ],
+    "expected_outputs": [
+      "*.docx"
+    ],
+    "validation_criteria": [
+      "file_exists",
+      "is_docx",
+      "min_paragraphs_2"
+    ]
+  },
+  {
+    "task_id": "DT003",
+    "category": "Documents",
+    "difficulty": "medium",
+    "user_request": "Create a technical report in Word on Cloud Computing architectures covering IaaS, PaaS, and SaaS.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Generate Word document (.docx)"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Document title on Cloud Computing"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Contains distinct sections discussing service models (IaaS/PaaS/SaaS)"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "At least 3 paragraphs of technical explanation"
+      },
+      {
+        "requirement_id": "R5",
+        "description": "Valid Word document structure"
+      }
+    ],
+    "expected_tools": [
+      "generate_word_doc"
+    ],
+    "expected_outputs": [
+      "*.docx"
+    ],
+    "validation_criteria": [
+      "file_exists",
+      "is_docx",
+      "min_paragraphs_3",
+      "min_bytes_3000"
+    ]
+  },
+  {
+    "task_id": "DT004",
+    "category": "Documents",
+    "difficulty": "medium",
+    "user_request": "Write Python code to calculate Fibonacci numbers and save it as fibonacci.py.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Create Python script (.py)"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Output filename matches fibonacci.py"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Contains function definition for calculating Fibonacci"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Valid Python syntax"
+      }
+    ],
+    "expected_tools": [
+      "generate_code_file"
+    ],
+    "expected_outputs": [
+      "fibonacci.py"
+    ],
+    "validation_criteria": [
+      "file_exists",
+      "valid_python_syntax",
+      "contains_fibonacci_func"
+    ]
+  },
+  {
+    "task_id": "DT005",
+    "category": "Documents",
+    "difficulty": "medium",
+    "user_request": "Create a professional project proposal document.",
+    "is_ambiguous": true,
+    "clarification_response": "The project proposal is for an automated inventory tracking software system.",
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Detect incomplete specification and prompt for clarification"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Accept user clarification for automated inventory tracking"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Generate Word document with proposal content"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Maintain session state across clarification turns"
+      }
+    ],
+    "expected_tools": [
+      "generate_word_doc"
+    ],
+    "expected_outputs": [
+      "*.docx"
+    ],
+    "validation_criteria": [
+      "clarification_prompted",
+      "file_exists",
+      "is_docx"
+    ]
+  },
+  {
+    "task_id": "DT006",
+    "category": "Documents",
+    "difficulty": "easy",
+    "user_request": "Write a Python script for quicksort algorithm and save to quicksort.py.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Create Python script (.py)"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Filename is quicksort.py"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Defines quicksort function"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Valid Python syntax"
+      }
+    ],
+    "expected_tools": [
+      "generate_code_file"
+    ],
+    "expected_outputs": [
+      "quicksort.py"
+    ],
+    "validation_criteria": [
+      "file_exists",
+      "valid_python_syntax",
+      "contains_quicksort_func"
+    ]
+  },
+  {
+    "task_id": "DT007",
+    "category": "Documents",
+    "difficulty": "hard",
+    "user_request": "Create a comprehensive Research Paper structure in Word about Multi-Agent Systems with Abstract, Introduction, Related Work, Methodology, and Conclusion.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Generate Word document (.docx)"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Title reflects Multi-Agent Systems"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Contains 4+ distinct research headings (Abstract, Intro, Method, Conclusion)"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Substantial textual content (5+ paragraphs)"
+      },
+      {
+        "requirement_id": "R5",
+        "description": "File saved with valid document layout"
+      }
+    ],
+    "expected_tools": [
+      "generate_word_doc"
+    ],
+    "expected_outputs": [
+      "*.docx"
+    ],
+    "validation_criteria": [
+      "file_exists",
+      "is_docx",
+      "min_paragraphs_5",
+      "min_bytes_4000"
+    ],
+    "experimental_fault_injection": {
+      "scenario": "A",
+      "task_id": "DT007",
+      "reason": "Word document missing required section 'Methodology'",
+      "category": "F8"
+    }
+  },
+  {
+    "task_id": "DT008",
+    "category": "Documents",
+    "difficulty": "medium",
+    "user_request": "Draft an internal technical memo for the engineering team.",
+    "is_ambiguous": true,
+    "clarification_response": "The memo should be about Code Review Standards and Best Practices for our Python engineering team.",
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Detect incomplete specification and prompt for clarification"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Accept user clarification for Code Review Standards"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Generate Word document (.docx) with memo content"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Verify Word document saved on disk"
+      }
+    ],
+    "expected_tools": [
+      "generate_word_doc"
+    ],
+    "expected_outputs": [
+      "*.docx"
+    ],
+    "validation_criteria": [
+      "clarification_prompted",
+      "file_exists",
+      "is_docx"
+    ]
+  },
+  {
+    "task_id": "DT009",
+    "category": "Documents",
+    "difficulty": "hard",
+    "user_request": "Create a Software Design Specification document in Word with System Overview, Architecture, Component Specifications, and Security Model.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Generate Word document (.docx)"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Professional title for Software Design Specification"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Contains 4 distinct sections matching requested specification topics"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "At least 4 paragraphs of technical detail"
+      },
+      {
+        "requirement_id": "R5",
+        "description": "Valid Word document"
+      }
+    ],
+    "expected_tools": [
+      "generate_word_doc"
+    ],
+    "expected_outputs": [
+      "*.docx"
+    ],
+    "validation_criteria": [
+      "file_exists",
+      "is_docx",
+      "min_paragraphs_4"
+    ]
+  },
+  {
+    "task_id": "DT010",
+    "category": "Documents",
+    "difficulty": "easy",
+    "user_request": "Create a simple README text file for a Python library saved as library_readme.txt.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Create text/markdown file"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Filename is library_readme.txt"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Contains usage and installation instructions"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Non-empty content"
+      }
+    ],
+    "expected_tools": [
+      "generate_code_file"
+    ],
+    "expected_outputs": [
+      "library_readme.txt"
+    ],
+    "validation_criteria": [
+      "file_exists",
+      "non_empty"
+    ]
+  },
+  {
+    "task_id": "DT011",
+    "category": "Spreadsheets",
+    "difficulty": "easy",
+    "user_request": "Create an Excel attendance sheet for 10 students.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Create Excel workbook (.xlsx)"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Contains header row with student identifiers"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Contains at least 8 student data rows"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Workbook saved with non-zero bytes"
+      }
+    ],
+    "expected_tools": [
+      "generate_excel_sheet"
+    ],
+    "expected_outputs": [
+      "*.xlsx"
+    ],
+    "validation_criteria": [
+      "file_exists",
+      "is_xlsx",
+      "min_rows_8"
+    ]
+  },
+  {
+    "task_id": "DT012",
+    "category": "Spreadsheets",
+    "difficulty": "easy",
+    "user_request": "Create a monthly household budget spreadsheet in Excel.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Create Excel workbook (.xlsx)"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Includes expense categories (Rent, Groceries, Utilities, etc.)"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Includes column headers for budget allocations"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Workbook opens and is valid"
+      }
+    ],
+    "expected_tools": [
+      "generate_excel_sheet"
+    ],
+    "expected_outputs": [
+      "*.xlsx"
+    ],
+    "validation_criteria": [
+      "file_exists",
+      "is_xlsx",
+      "min_rows_4"
+    ]
+  },
+  {
+    "task_id": "DT013",
+    "category": "Spreadsheets",
+    "difficulty": "medium",
+    "user_request": "Create a Sales Performance tracker in Excel with Q1, Q2, Q3, and Q4 revenue for 5 regions.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Create Excel workbook (.xlsx)"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Columns include Region, Q1, Q2, Q3, Q4"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Rows contain regional performance data"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "At least 4 regions populated"
+      },
+      {
+        "requirement_id": "R5",
+        "description": "Non-empty valid spreadsheet"
+      }
+    ],
+    "expected_tools": [
+      "generate_excel_sheet"
+    ],
+    "expected_outputs": [
+      "*.xlsx"
+    ],
+    "validation_criteria": [
+      "file_exists",
+      "is_xlsx",
+      "min_rows_4",
+      "min_cols_4"
+    ]
+  },
+  {
+    "task_id": "DT014",
+    "category": "Spreadsheets",
+    "difficulty": "medium",
+    "user_request": "Create an Employee Directory spreadsheet in Excel with Name, Department, Role, and Salary.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Create Excel workbook (.xlsx)"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Headers for Name, Department, Role, Salary"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "At least 5 employee entries"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Workbook structure verified"
+      }
+    ],
+    "expected_tools": [
+      "generate_excel_sheet"
+    ],
+    "expected_outputs": [
+      "*.xlsx"
+    ],
+    "validation_criteria": [
+      "file_exists",
+      "is_xlsx",
+      "min_rows_5",
+      "min_cols_3"
+    ]
+  },
+  {
+    "task_id": "DT015",
+    "category": "Spreadsheets",
+    "difficulty": "medium",
+    "user_request": "Create an invoice spreadsheet.",
+    "is_ambiguous": true,
+    "clarification_response": "Invoice for client Acme Corp with 3 consulting service line items.",
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Identify missing invoice recipient/line item details"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Ask single clarifying question"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Create Excel invoice sheet with consulting items upon user answer"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "State preserved across turns"
+      }
+    ],
+    "expected_tools": [
+      "generate_excel_sheet"
+    ],
+    "expected_outputs": [
+      "*.xlsx"
+    ],
+    "validation_criteria": [
+      "clarification_prompted",
+      "file_exists",
+      "is_xlsx"
+    ]
+  },
+  {
+    "task_id": "DT016",
+    "category": "Spreadsheets",
+    "difficulty": "easy",
+    "user_request": "Create an Inventory management sheet for 5 products with SKU, Quantity, and Unit Price.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Create Excel workbook (.xlsx)"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Headers for SKU/Product, Quantity, Unit Price"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "At least 4 product items listed"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Valid workbook"
+      }
+    ],
+    "expected_tools": [
+      "generate_excel_sheet"
+    ],
+    "expected_outputs": [
+      "*.xlsx"
+    ],
+    "validation_criteria": [
+      "file_exists",
+      "is_xlsx",
+      "min_rows_4"
+    ]
+  },
+  {
+    "task_id": "DT017",
+    "category": "Spreadsheets",
+    "difficulty": "hard",
+    "user_request": "Create a Project Resource Allocation and Milestone Schedule spreadsheet in Excel with Tasks, Assignee, Start Date, End Date, and Budget.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Create Excel workbook (.xlsx)"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Headers for Task, Assignee, Start Date, End Date, Budget"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "At least 6 milestone tasks mapped"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Budget data populated"
+      },
+      {
+        "requirement_id": "R5",
+        "description": "Valid worksheet format"
+      }
+    ],
+    "expected_tools": [
+      "generate_excel_sheet"
+    ],
+    "expected_outputs": [
+      "*.xlsx"
+    ],
+    "validation_criteria": [
+      "file_exists",
+      "is_xlsx",
+      "min_rows_6",
+      "min_cols_4"
+    ],
+    "experimental_fault_injection": {
+      "scenario": "B",
+      "task_id": "DT017",
+      "reason": "Excel spreadsheet missing required column 'Budget'",
+      "category": "F8"
+    }
+  },
+  {
+    "task_id": "DT018",
+    "category": "Spreadsheets",
+    "difficulty": "medium",
+    "user_request": "Create a student performance tracking spreadsheet.",
+    "is_ambiguous": true,
+    "clarification_response": "A Student Gradebook spreadsheet with Math, Science, and English scores for 6 students with total averages.",
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Detect incomplete specification and prompt for clarification"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Accept user clarification for Student Gradebook"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Create Excel workbook (.xlsx)"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Headers for Math, Science, English scores and Totals"
+      }
+    ],
+    "expected_tools": [
+      "generate_excel_sheet"
+    ],
+    "expected_outputs": [
+      "*.xlsx"
+    ],
+    "validation_criteria": [
+      "clarification_prompted",
+      "file_exists",
+      "is_xlsx"
+    ]
+  },
+  {
+    "task_id": "DT019",
+    "category": "Spreadsheets",
+    "difficulty": "hard",
+    "user_request": "Create a 12-Month Financial Cash Flow Projection spreadsheet in Excel with monthly Inflows, Outflows, and Net Cash Flow.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Create Excel workbook (.xlsx)"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Headers for Month/Category and financial cash flow items"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Monthly rows or columns covering financial projections"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Populated with realistic numerical data"
+      },
+      {
+        "requirement_id": "R5",
+        "description": "Valid openpyxl readable workbook"
+      }
+    ],
+    "expected_tools": [
+      "generate_excel_sheet"
+    ],
+    "expected_outputs": [
+      "*.xlsx"
+    ],
+    "validation_criteria": [
+      "file_exists",
+      "is_xlsx",
+      "min_rows_6"
+    ]
+  },
+  {
+    "task_id": "DT020",
+    "category": "Spreadsheets",
+    "difficulty": "easy",
+    "user_request": "Create an Event RSVP tracker in Excel with Name, Email, RSVP Status, and Meal Preference.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Create Excel workbook (.xlsx)"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Headers matching Name, Email, RSVP, Meal"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "At least 4 attendee entries"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Valid spreadsheet file"
+      }
+    ],
+    "expected_tools": [
+      "generate_excel_sheet"
+    ],
+    "expected_outputs": [
+      "*.xlsx"
+    ],
+    "validation_criteria": [
+      "file_exists",
+      "is_xlsx",
+      "min_rows_4"
+    ]
+  },
+  {
+    "task_id": "DT021",
+    "category": "Presentations",
+    "difficulty": "easy",
+    "user_request": "Create a 3-slide PowerPoint about renewable energy.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Create PowerPoint presentation (.pptx)"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Title slide on Renewable Energy"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "At least 3 slides total"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Content includes solar/wind topics with bullet points"
+      }
+    ],
+    "expected_tools": [
+      "generate_powerpoint"
+    ],
+    "expected_outputs": [
+      "*.pptx"
+    ],
+    "validation_criteria": [
+      "file_exists",
+      "is_pptx",
+      "min_slides_3"
+    ]
+  },
+  {
+    "task_id": "DT022",
+    "category": "Presentations",
+    "difficulty": "easy",
+    "user_request": "Create a 4-slide PowerPoint introducing Python programming.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Create PowerPoint presentation (.pptx)"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Title slide on Python Programming"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "At least 3-4 slides total"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Contains Python syntax/features bullets"
+      }
+    ],
+    "expected_tools": [
+      "generate_powerpoint"
+    ],
+    "expected_outputs": [
+      "*.pptx"
+    ],
+    "validation_criteria": [
+      "file_exists",
+      "is_pptx",
+      "min_slides_3"
+    ]
+  },
+  {
+    "task_id": "DT023",
+    "category": "Presentations",
+    "difficulty": "medium",
+    "user_request": "Create a 5-slide PowerPoint on Cybersecurity best practices covering threats, passwords, MFA, and phishing.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Create PowerPoint presentation (.pptx)"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Title slide on Cybersecurity"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "At least 4-5 slides total"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Specific slides covering threats, MFA, and phishing"
+      },
+      {
+        "requirement_id": "R5",
+        "description": "Valid PowerPoint file structure"
+      }
+    ],
+    "expected_tools": [
+      "generate_powerpoint"
+    ],
+    "expected_outputs": [
+      "*.pptx"
+    ],
+    "validation_criteria": [
+      "file_exists",
+      "is_pptx",
+      "min_slides_4"
+    ]
+  },
+  {
+    "task_id": "DT024",
+    "category": "Presentations",
+    "difficulty": "medium",
+    "user_request": "Create a 4-slide pitch deck for an AI healthcare startup covering Problem, Solution, Market, and Traction.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Create PowerPoint presentation (.pptx)"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Pitch deck title slide"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Slides for Problem, Solution, Market Opportunity"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "At least 4 slides"
+      },
+      {
+        "requirement_id": "R5",
+        "description": "Non-empty content bullets"
+      }
+    ],
+    "expected_tools": [
+      "generate_powerpoint"
+    ],
+    "expected_outputs": [
+      "*.pptx"
+    ],
+    "validation_criteria": [
+      "file_exists",
+      "is_pptx",
+      "min_slides_4"
+    ]
+  },
+  {
+    "task_id": "DT025",
+    "category": "Presentations",
+    "difficulty": "medium",
+    "user_request": "Create a presentation for my team.",
+    "is_ambiguous": true,
+    "clarification_response": "A 4-slide presentation on Agile Scrum Methodology.",
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Detect ambiguity (missing presentation topic/slides)"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Ask single friendly clarifying question"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Generate PowerPoint presentation on Agile Scrum upon clarification"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Session context maintained"
+      }
+    ],
+    "expected_tools": [
+      "generate_powerpoint"
+    ],
+    "expected_outputs": [
+      "*.pptx"
+    ],
+    "validation_criteria": [
+      "clarification_prompted",
+      "file_exists",
+      "is_pptx"
+    ]
+  },
+  {
+    "task_id": "DT026",
+    "category": "Presentations",
+    "difficulty": "easy",
+    "user_request": "Create a 3-slide PowerPoint about Deep Learning basics.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Create PowerPoint presentation (.pptx)"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Title slide on Deep Learning"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Contains neural networks / training slides"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "At least 3 slides"
+      }
+    ],
+    "expected_tools": [
+      "generate_powerpoint"
+    ],
+    "expected_outputs": [
+      "*.pptx"
+    ],
+    "validation_criteria": [
+      "file_exists",
+      "is_pptx",
+      "min_slides_3"
+    ]
+  },
+  {
+    "task_id": "DT027",
+    "category": "Presentations",
+    "difficulty": "hard",
+    "user_request": "Create a 6-slide executive briefing on Artificial General Intelligence (AGI) and safety alignment.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Create PowerPoint presentation (.pptx)"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Title slide on AGI & Safety Alignment"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Contains at least 5-6 slides"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Covers capabilities, alignment risks, governance"
+      },
+      {
+        "requirement_id": "R5",
+        "description": "Valid PowerPoint file structure"
+      }
+    ],
+    "expected_tools": [
+      "generate_powerpoint"
+    ],
+    "expected_outputs": [
+      "*.pptx"
+    ],
+    "validation_criteria": [
+      "file_exists",
+      "is_pptx",
+      "min_slides_5"
+    ],
+    "experimental_fault_injection": {
+      "scenario": "C",
+      "task_id": "DT027",
+      "reason": "PowerPoint presentation missing required slide 'Governance and Alignment Risks'",
+      "category": "F8"
+    }
+  },
+  {
+    "task_id": "DT028",
+    "category": "Presentations",
+    "difficulty": "medium",
+    "user_request": "Create a slide deck for the upcoming tech workshop.",
+    "is_ambiguous": true,
+    "clarification_response": "A 5-slide PowerPoint on Quantum Computing fundamentals covering Qubits, Superposition, and Entanglement.",
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Detect incomplete specification and prompt for clarification"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Accept user clarification for Quantum Computing presentation"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Create PowerPoint presentation (.pptx)"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Contains at least 4-5 slides on Quantum fundamentals"
+      }
+    ],
+    "expected_tools": [
+      "generate_powerpoint"
+    ],
+    "expected_outputs": [
+      "*.pptx"
+    ],
+    "validation_criteria": [
+      "clarification_prompted",
+      "file_exists",
+      "is_pptx"
+    ]
+  },
+  {
+    "task_id": "DT029",
+    "category": "Presentations",
+    "difficulty": "hard",
+    "user_request": "Create a 6-slide technical architecture review presentation comparing Microservices vs Monoliths.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Create PowerPoint presentation (.pptx)"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Title on Microservices vs Monolith Architecture"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "At least 5-6 slides"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Comparisons of scalability, complexity, deployment, and monitoring"
+      },
+      {
+        "requirement_id": "R5",
+        "description": "Valid presentation structure"
+      }
+    ],
+    "expected_tools": [
+      "generate_powerpoint"
+    ],
+    "expected_outputs": [
+      "*.pptx"
+    ],
+    "validation_criteria": [
+      "file_exists",
+      "is_pptx",
+      "min_slides_5"
+    ]
+  },
+  {
+    "task_id": "DT030",
+    "category": "Presentations",
+    "difficulty": "easy",
+    "user_request": "Create a 3-slide PowerPoint on DevOps CI/CD pipelines.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Create PowerPoint presentation (.pptx)"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Title slide on DevOps CI/CD"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "At least 3 slides total"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Covers continuous integration and deployment stages"
+      }
+    ],
+    "expected_tools": [
+      "generate_powerpoint"
+    ],
+    "expected_outputs": [
+      "*.pptx"
+    ],
+    "validation_criteria": [
+      "file_exists",
+      "is_pptx",
+      "min_slides_3"
+    ]
+  },
+  {
+    "task_id": "DT031",
+    "category": "FileOperations",
+    "difficulty": "easy",
+    "user_request": "Create a folder named 'Research_Data' on Desktop.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Execute create_folder tool"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Folder created on Desktop with name Research_Data"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Filesystem reflects folder existence"
+      }
+    ],
+    "expected_tools": [
+      "op_create_folder"
+    ],
+    "expected_outputs": [
+      "Research_Data/"
+    ],
+    "validation_criteria": [
+      "directory_exists"
+    ]
+  },
+  {
+    "task_id": "DT032",
+    "category": "FileOperations",
+    "difficulty": "easy",
+    "user_request": "Create a text file named 'notes.txt' on Desktop with the content 'Project sync meeting at 10 AM'.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Execute create_file tool"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "File created on Desktop with name notes.txt"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Content contains 'Project sync meeting at 10 AM'"
+      }
+    ],
+    "expected_tools": [
+      "op_create_file"
+    ],
+    "expected_outputs": [
+      "notes.txt"
+    ],
+    "validation_criteria": [
+      "file_exists",
+      "content_matches"
+    ]
+  },
+  {
+    "task_id": "DT033",
+    "category": "FileOperations",
+    "difficulty": "medium",
+    "user_request": "Copy the file 'notes.txt' on Desktop to 'notes_backup.txt' on Desktop.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Execute copy tool"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Destination file notes_backup.txt created"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Original file notes.txt preserved"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Copied content identical to source"
+      }
+    ],
+    "expected_tools": [
+      "op_copy"
+    ],
+    "expected_outputs": [
+      "notes_backup.txt"
+    ],
+    "validation_criteria": [
+      "file_exists",
+      "content_matches"
+    ]
+  },
+  {
+    "task_id": "DT034",
+    "category": "FileOperations",
+    "difficulty": "medium",
+    "user_request": "Rename 'notes_backup.txt' on Desktop to 'archive_notes.txt'.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Execute rename tool"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "New file archive_notes.txt exists"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Old file notes_backup.txt no longer exists"
+      }
+    ],
+    "expected_tools": [
+      "op_rename"
+    ],
+    "expected_outputs": [
+      "archive_notes.txt"
+    ],
+    "validation_criteria": [
+      "file_exists",
+      "old_file_removed"
+    ]
+  },
+  {
+    "task_id": "DT035",
+    "category": "FileOperations",
+    "difficulty": "medium",
+    "user_request": "Clean up some old test folders on my desktop.",
+    "is_ambiguous": true,
+    "clarification_response": "Delete the temporary folder named temp_scrap_folder on Desktop.",
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Detect ambiguous deletion target"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Prompt user for specific folder name"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Delete specified target after user confirmation"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Enforce safety restriction against system root deletion"
+      }
+    ],
+    "expected_tools": [
+      "op_delete"
+    ],
+    "expected_outputs": [],
+    "validation_criteria": [
+      "clarification_prompted",
+      "operation_completed"
+    ]
+  },
+  {
+    "task_id": "DT036",
+    "category": "FileOperations",
+    "difficulty": "easy",
+    "user_request": "Take a screenshot of my screen and save it as desktop_capture.png.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Execute screenshot tool"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Image saved with .png extension"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Non-zero file size (valid image bytes)"
+      }
+    ],
+    "expected_tools": [
+      "op_screenshot"
+    ],
+    "expected_outputs": [
+      "*.png"
+    ],
+    "validation_criteria": [
+      "file_exists",
+      "is_png",
+      "min_bytes_1000"
+    ]
+  },
+  {
+    "task_id": "DT037",
+    "category": "FileOperations",
+    "difficulty": "medium",
+    "user_request": "Create a directory named 'Deployment_Artifacts' on Desktop and verify directory status.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Dispatch desktop agent to create folder"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Verify directory 'Deployment_Artifacts' exists on Desktop"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Valid directory verification on filesystem"
+      }
+    ],
+    "expected_tools": [
+      "create_folder"
+    ],
+    "expected_outputs": [
+      "Deployment_Artifacts"
+    ],
+    "validation_criteria": [
+      "directory_exists"
+    ],
+    "experimental_fault_injection": {
+      "scenario": "D",
+      "task_id": "DT037",
+      "reason": "File operation destination path mismatch on attempt 1",
+      "category": "F12"
+    }
+  },
+  {
+    "task_id": "DT038",
+    "category": "FileOperations",
+    "difficulty": "hard",
+    "user_request": "Set up a new project directory structure on my Desktop.",
+    "is_ambiguous": true,
+    "clarification_response": "Create a nested structure named Project_Alpha containing Source, Docs, and Tests subfolders.",
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Detect incomplete specification and prompt for clarification"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Accept user clarification for Project_Alpha and subfolders"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Create directory Project_Alpha on Desktop"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Create Source, Docs, and Tests subfolders inside Project_Alpha"
+      }
+    ],
+    "expected_tools": [
+      "create_folder"
+    ],
+    "expected_outputs": [
+      "Project_Alpha"
+    ],
+    "validation_criteria": [
+      "clarification_prompted",
+      "all_directories_exist"
+    ]
+  },
+  {
+    "task_id": "DT039",
+    "category": "FileOperations",
+    "difficulty": "medium",
+    "user_request": "Search the web for 'official Python documentation'.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Execute web_search tool"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Query sanitized cleanly"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Returns structured results array (no raw HTML)"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Contains valid URL pointing to python.org"
+      }
+    ],
+    "expected_tools": [
+      "web_search"
+    ],
+    "expected_outputs": [
+      "structured_search_results"
+    ],
+    "validation_criteria": [
+      "has_results",
+      "no_captcha",
+      "contains_python_org"
+    ]
+  },
+  {
+    "task_id": "DT040",
+    "category": "FileOperations",
+    "difficulty": "hard",
+    "user_request": "Search the web for 'LangGraph multi-agent architecture' and verify top documentation sources.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Execute web search with resilient fallback hierarchy"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Rejects any bot CAPTCHA challenge"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Returns structured titles, URLs, and snippets"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Results validated by validation agent"
+      }
+    ],
+    "expected_tools": [
+      "web_search"
+    ],
+    "expected_outputs": [
+      "structured_search_results"
+    ],
+    "validation_criteria": [
+      "has_results",
+      "no_captcha"
+    ]
+  },
+  {
+    "task_id": "DT041",
+    "category": "Workflows",
+    "difficulty": "hard",
+    "user_request": "Create a project folder 'AI_Launch' on Desktop, generate an AI Overview Word document inside it, and capture a screenshot of my screen.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Create folder AI_Launch on Desktop"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Generate Word document explaining AI Overview"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Execute screenshot capture tool"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "All 3 distinct operations completed in ordered plan"
+      },
+      {
+        "requirement_id": "R5",
+        "description": "Files verified on filesystem"
+      }
+    ],
+    "expected_tools": [
+      "op_create_folder",
+      "generate_word_doc",
+      "op_screenshot"
+    ],
+    "expected_outputs": [
+      "AI_Launch/",
+      "*.docx",
+      "*.png"
+    ],
+    "validation_criteria": [
+      "multi_tool_execution",
+      "all_outputs_verified"
+    ]
+  },
+  {
+    "task_id": "DT042",
+    "category": "Workflows",
+    "difficulty": "hard",
+    "user_request": "Create a folder 'Q1_Review' on Desktop, generate a quarterly sales Excel sheet, and create a 3-slide summary PowerPoint.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Create folder Q1_Review"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Generate Excel sheet with Q1 sales figures"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Generate PowerPoint presentation with 3 summary slides"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Both document tools executed sequentially"
+      },
+      {
+        "requirement_id": "R5",
+        "description": "Both artifacts verified valid"
+      }
+    ],
+    "expected_tools": [
+      "op_create_folder",
+      "generate_excel_sheet",
+      "generate_powerpoint"
+    ],
+    "expected_outputs": [
+      "Q1_Review/",
+      "*.xlsx",
+      "*.pptx"
+    ],
+    "validation_criteria": [
+      "is_xlsx",
+      "is_pptx",
+      "multi_tool_execution"
+    ]
+  },
+  {
+    "task_id": "DT043",
+    "category": "Workflows",
+    "difficulty": "medium",
+    "user_request": "Search the web for 'latest TypeScript features' and create a Word summary report explaining the top features.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Execute web search for TypeScript features"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Extract search findings without bot challenge"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Generate Word report synthesizing the findings"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Report contains structured headings and paragraphs"
+      },
+      {
+        "requirement_id": "R5",
+        "description": "Word file verified"
+      }
+    ],
+    "expected_tools": [
+      "web_search",
+      "generate_word_doc"
+    ],
+    "expected_outputs": [
+      "*.docx"
+    ],
+    "validation_criteria": [
+      "search_success",
+      "is_docx",
+      "min_paragraphs_2"
+    ]
+  },
+  {
+    "task_id": "DT044",
+    "category": "Workflows",
+    "difficulty": "medium",
+    "user_request": "Create a folder 'Sprint_24' on Desktop, write a Python script for binary search, and create a task tracking spreadsheet in that folder.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Create folder Sprint_24 on Desktop"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Generate Python binary search script"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Generate task tracking Excel spreadsheet"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Multi-agent coordination across desktop, code, and spreadsheet"
+      },
+      {
+        "requirement_id": "R5",
+        "description": "All files validated"
+      }
+    ],
+    "expected_tools": [
+      "op_create_folder",
+      "generate_code_file",
+      "generate_excel_sheet"
+    ],
+    "expected_outputs": [
+      "Sprint_24/",
+      "*.py",
+      "*.xlsx"
+    ],
+    "validation_criteria": [
+      "directory_exists",
+      "valid_python_syntax",
+      "is_xlsx"
+    ]
+  },
+  {
+    "task_id": "DT045",
+    "category": "Workflows",
+    "difficulty": "hard",
+    "user_request": "Set up a complete workspace for my new client project.",
+    "is_ambiguous": true,
+    "clarification_response": "The client is AcmeCorp. Create folder AcmeCorp, an Executive Summary Word doc, and a Budget Excel sheet.",
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Identify missing client and scope specifications"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Prompt for clarification on client and deliverables"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Create AcmeCorp folder upon user clarification"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Generate Executive Summary Word doc"
+      },
+      {
+        "requirement_id": "R5",
+        "description": "Generate Budget Excel spreadsheet"
+      }
+    ],
+    "expected_tools": [
+      "op_create_folder",
+      "generate_word_doc",
+      "generate_excel_sheet"
+    ],
+    "expected_outputs": [
+      "AcmeCorp/",
+      "*.docx",
+      "*.xlsx"
+    ],
+    "validation_criteria": [
+      "clarification_prompted",
+      "multi_tool_execution",
+      "all_outputs_verified"
+    ]
+  },
+  {
+    "task_id": "DT046",
+    "category": "Workflows",
+    "difficulty": "hard",
+    "user_request": "Create folder 'ML_Study' on Desktop, write Python code for linear regression, generate a 3-slide presentation on Machine Learning, and verify both files.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Create ML_Study folder"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Generate Python linear regression code"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Generate 3-slide PowerPoint on Machine Learning"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Coordinate across code generation and presentation tools"
+      },
+      {
+        "requirement_id": "R5",
+        "description": "Both artifacts verified on disk"
+      }
+    ],
+    "expected_tools": [
+      "op_create_folder",
+      "generate_code_file",
+      "generate_powerpoint"
+    ],
+    "expected_outputs": [
+      "ML_Study/",
+      "*.py",
+      "*.pptx"
+    ],
+    "validation_criteria": [
+      "valid_python_syntax",
+      "is_pptx"
+    ]
+  },
+  {
+    "task_id": "DT047",
+    "category": "Workflows",
+    "difficulty": "medium",
+    "user_request": "Search the web for 'FastAPI web framework', generate a technical briefing Word document, and capture a screenshot.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Execute web search for FastAPI"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Generate technical Word document summarizing FastAPI"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Capture desktop screenshot"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "All 3 multi-domain steps completed"
+      },
+      {
+        "requirement_id": "R5",
+        "description": "Outputs verified"
+      }
+    ],
+    "expected_tools": [
+      "web_search",
+      "generate_word_doc",
+      "op_screenshot"
+    ],
+    "expected_outputs": [
+      "*.docx",
+      "*.png"
+    ],
+    "validation_criteria": [
+      "search_success",
+      "is_docx",
+      "is_png"
+    ],
+    "experimental_fault_injection": {
+      "scenario": "E",
+      "task_id": "DT047",
+      "reason": "Workflow step execution missing intermediate parameter on attempt 1",
+      "category": "F11"
+    }
+  },
+  {
+    "task_id": "DT048",
+    "category": "Workflows",
+    "difficulty": "hard",
+    "user_request": "Prepare the complete department onboarding files and folder.",
+    "is_ambiguous": true,
+    "clarification_response": "Create a folder 'Company_HR', generate an Employee Leave Policy Word doc, and create an Employee Directory Excel spreadsheet inside it.",
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Detect incomplete specification and prompt for clarification"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Accept user clarification for Company_HR onboarding package"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Create folder 'Company_HR' on Desktop"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Generate Leave Policy Word doc and Employee Directory Excel sheet"
+      }
+    ],
+    "expected_tools": [
+      "create_folder",
+      "generate_word_doc",
+      "generate_excel_sheet"
+    ],
+    "expected_outputs": [
+      "Company_HR",
+      "*.docx",
+      "*.xlsx"
+    ],
+    "validation_criteria": [
+      "clarification_prompted",
+      "all_artifacts_exist"
+    ]
+  },
+  {
+    "task_id": "DT049",
+    "category": "Workflows",
+    "difficulty": "hard",
+    "user_request": "Create a folder 'Cyber_Audit', generate a Cybersecurity Audit Checklist in Excel, create a 4-slide Executive Summary presentation, and save both.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Create Cyber_Audit folder on Desktop"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Generate Cybersecurity Checklist in Excel"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Generate 4-slide Executive Summary presentation in PowerPoint"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Sequential dispatch to document generators"
+      },
+      {
+        "requirement_id": "R5",
+        "description": "Outputs structurally validated"
+      }
+    ],
+    "expected_tools": [
+      "op_create_folder",
+      "generate_excel_sheet",
+      "generate_powerpoint"
+    ],
+    "expected_outputs": [
+      "Cyber_Audit/",
+      "*.xlsx",
+      "*.pptx"
+    ],
+    "validation_criteria": [
+      "directory_exists",
+      "is_xlsx",
+      "is_pptx"
+    ]
+  },
+  {
+    "task_id": "DT050",
+    "category": "Workflows",
+    "difficulty": "hard",
+    "user_request": "Create a folder 'Annual_Report_2026', generate a 4-section Financial Review Word document, generate an Annual Budget spreadsheet, and capture a verification screenshot.",
+    "is_ambiguous": false,
+    "clarification_response": null,
+    "requirements": [
+      {
+        "requirement_id": "R1",
+        "description": "Create folder Annual_Report_2026"
+      },
+      {
+        "requirement_id": "R2",
+        "description": "Generate Financial Review Word document with 4 sections"
+      },
+      {
+        "requirement_id": "R3",
+        "description": "Generate Annual Budget spreadsheet in Excel"
+      },
+      {
+        "requirement_id": "R4",
+        "description": "Capture verification screenshot"
+      },
+      {
+        "requirement_id": "R5",
+        "description": "All 4 multi-agent operations validated"
+      }
+    ],
+    "expected_tools": [
+      "op_create_folder",
+      "generate_word_doc",
+      "generate_excel_sheet",
+      "op_screenshot"
+    ],
+    "expected_outputs": [
+      "Annual_Report_2026/",
+      "*.docx",
+      "*.xlsx",
+      "*.png"
+    ],
+    "validation_criteria": [
+      "directory_exists",
+      "is_docx",
+      "is_xlsx",
+      "is_png"
+    ]
+  }
+]

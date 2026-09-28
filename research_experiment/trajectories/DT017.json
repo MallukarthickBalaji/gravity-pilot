@@ -1,0 +1,202 @@
+{
+  "task_id": "DT017",
+  "request": "Create a Project Resource Allocation and Milestone Schedule spreadsheet in Excel with Tasks, Assignee, Start Date, End Date, and Budget.",
+  "user_request": "Create a Project Resource Allocation and Milestone Schedule spreadsheet in Excel with Tasks, Assignee, Start Date, End Date, and Budget.",
+  "category": "Spreadsheets",
+  "difficulty": "hard",
+  "is_ambiguous": false,
+  "requirements": [
+    {
+      "requirement_id": "R1",
+      "description": "Create Excel workbook (.xlsx)",
+      "satisfied": false,
+      "reason": "Excel spreadsheet missing or invalid"
+    },
+    {
+      "requirement_id": "R2",
+      "description": "Headers for Task, Assignee, Start Date, End Date, Budget",
+      "satisfied": false,
+      "reason": "General criterion failed"
+    },
+    {
+      "requirement_id": "R3",
+      "description": "At least 6 milestone tasks mapped",
+      "satisfied": false,
+      "reason": "General criterion failed"
+    },
+    {
+      "requirement_id": "R4",
+      "description": "Budget data populated",
+      "satisfied": false,
+      "reason": "General criterion failed"
+    },
+    {
+      "requirement_id": "R5",
+      "description": "Valid worksheet format",
+      "satisfied": false,
+      "reason": "General criterion failed"
+    }
+  ],
+  "clarification": [],
+  "clarifications": [],
+  "plan": [],
+  "previous_plan": [
+    {
+      "step_id": 1,
+      "agent": "document_agent",
+      "action": "Create Excel spreadsheet with project resource allocation and milestone schedule",
+      "params": {
+        "doc_type": "excel",
+        "output_filename": "Project_Resource_Allocation.xlsx",
+        "content": {
+          "sheet_name": "Schedule",
+          "headers": [
+            "Task",
+            "Assignee",
+            "Start Date",
+            "End Date",
+            "Budget"
+          ],
+          "rows": []
+        }
+      }
+    }
+  ],
+  "execution": [
+    {
+      "agent": "planning_agent",
+      "status": "error",
+      "message": "Revised plan (attempt 1) generated with 0 step(s) after failure."
+    }
+  ],
+  "agent_actions": [
+    {
+      "agent": "planning_agent",
+      "status": "error",
+      "message": "Revised plan (attempt 1) generated with 0 step(s) after failure."
+    }
+  ],
+  "tool_calls": [],
+  "tool_results": [],
+  "artifacts": [],
+  "generated_outputs": [],
+  "validation": [
+    {
+      "physical_artifacts_verified": false,
+      "details": [
+        "No valid spreadsheet artifact found on disk."
+      ],
+      "system_final_response": null
+    }
+  ],
+  "validation_results": [
+    {
+      "physical_artifacts_verified": false,
+      "details": [
+        "No valid spreadsheet artifact found on disk."
+      ],
+      "system_final_response": null
+    }
+  ],
+  "replanning": [
+    {
+      "task_id": "DT017",
+      "attempt_number": 2,
+      "failure_reason": "[EXPERIMENTAL FAULT INJECTION] Excel spreadsheet missing required column 'Budget'",
+      "validation_errors": [
+        "[EXPERIMENTAL FAULT INJECTION] Excel spreadsheet missing required column 'Budget'"
+      ],
+      "old_plan": [
+        {
+          "step_id": 1,
+          "agent": "document_agent",
+          "action": "Create Excel spreadsheet with project resource allocation and milestone schedule",
+          "params": {
+            "doc_type": "excel",
+            "output_filename": "Project_Resource_Allocation.xlsx",
+            "content": {
+              "sheet_name": "Schedule",
+              "headers": [
+                "Task",
+                "Assignee",
+                "Start Date",
+                "End Date",
+                "Budget"
+              ],
+              "rows": []
+            }
+          }
+        }
+      ],
+      "new_plan": [],
+      "replan_count": 1,
+      "tools_used": [],
+      "execution_result": "Self-correction re-execution succeeded on disk",
+      "final_validation_result": {
+        "passed": false,
+        "reason": "[EXPERIMENTAL FAULT INJECTION] Excel spreadsheet missing required column 'Budget'"
+      },
+      "recovered": false
+    }
+  ],
+  "replanning_events": [
+    {
+      "task_id": "DT017",
+      "attempt_number": 2,
+      "failure_reason": "[EXPERIMENTAL FAULT INJECTION] Excel spreadsheet missing required column 'Budget'",
+      "validation_errors": [
+        "[EXPERIMENTAL FAULT INJECTION] Excel spreadsheet missing required column 'Budget'"
+      ],
+      "old_plan": [
+        {
+          "step_id": 1,
+          "agent": "document_agent",
+          "action": "Create Excel spreadsheet with project resource allocation and milestone schedule",
+          "params": {
+            "doc_type": "excel",
+            "output_filename": "Project_Resource_Allocation.xlsx",
+            "content": {
+              "sheet_name": "Schedule",
+              "headers": [
+                "Task",
+                "Assignee",
+                "Start Date",
+                "End Date",
+                "Budget"
+              ],
+              "rows": []
+            }
+          }
+        }
+      ],
+      "new_plan": [],
+      "replan_count": 1,
+      "tools_used": [],
+      "execution_result": "Self-correction re-execution succeeded on disk",
+      "final_validation_result": {
+        "passed": false,
+        "reason": "[EXPERIMENTAL FAULT INJECTION] Excel spreadsheet missing required column 'Budget'"
+      },
+      "recovered": false
+    }
+  ],
+  "final_result": "failure",
+  "final_status": "failure",
+  "failure_category": "F4 Planning error",
+  "recovery": false,
+  "timings": {
+    "start_time": "2026-09-28T09:36:20.479134",
+    "end_time": "2026-09-28T09:36:50.342232",
+    "duration_seconds": 29.86
+  },
+  "duration_seconds": 29.86,
+  "errors": [],
+  "metrics": {
+    "rsr": 0.0,
+    "reqs_passed": 0,
+    "reqs_total": 5,
+    "tool_selection_correct": false,
+    "tool_call_count": 0,
+    "replanning_count": 1
+  }
+}

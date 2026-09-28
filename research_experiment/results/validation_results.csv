@@ -1,0 +1,51 @@
+task_id,category,ground_truth_success,validator_verdict,match,details
+DT001,Documents,True,True,True,"Verified Word doc: 23 paragraphs, 0 tables, 37731 bytes"
+DT002,Documents,True,True,True,"Verified Word doc: 30 paragraphs, 0 tables, 37256 bytes"
+DT003,Documents,False,False,True,No valid document artifact found on disk.
+DT004,Documents,True,True,True,"Verified text/code file (506 chars, 524 bytes)"
+DT005,Documents,True,True,True,"Verified Word doc: 34 paragraphs, 0 tables, 37832 bytes"
+DT006,Documents,True,True,True,"Verified text/code file (515 chars, 528 bytes)"
+DT007,Documents,False,False,True,No valid document artifact found on disk.
+DT008,Documents,True,True,True,"Verified Word doc: 30 paragraphs, 0 tables, 37725 bytes"
+DT009,Documents,False,False,True,No valid document artifact found on disk.
+DT010,Documents,True,True,True,"Verified text/code file (313 chars, 338 bytes)"
+DT011,Spreadsheets,True,True,True,"Verified Excel sheet 'Attendance': 11 rows, 4 cols, 5328 bytes"
+DT012,Spreadsheets,True,True,True,"Verified Excel sheet 'Budget': 8 rows, 4 cols, 5237 bytes"
+DT013,Spreadsheets,True,True,True,"Verified Excel sheet 'Sales Performance': 6 rows, 5 cols, 5139 bytes"
+DT014,Spreadsheets,False,False,True,Excel sheet has only 1 rows (expected >= 3) | No valid spreadsheet artifact found on disk.
+DT015,Spreadsheets,True,True,True,"Verified Excel sheet 'Invoice': 4 rows, 5 cols, 5157 bytes"
+DT016,Spreadsheets,True,True,True,"Verified Excel sheet 'Inventory': 6 rows, 3 cols, 5129 bytes"
+DT017,Spreadsheets,False,False,True,No valid spreadsheet artifact found on disk.
+DT018,Spreadsheets,False,True,False,"Verified Excel sheet 'Performance': 6 rows, 6 cols, 5386 bytes | Verified Excel sheet 'Gradebook': 7 rows, 5 cols, 5235 bytes"
+DT019,Spreadsheets,True,True,True,"Verified Excel sheet 'Cash Flow Projection': 13 rows, 4 cols, 5365 bytes"
+DT020,Spreadsheets,False,False,True,Excel sheet has only 1 rows (expected >= 3) | No valid spreadsheet artifact found on disk.
+DT021,Presentations,True,True,True,"Verified PowerPoint: 4 slides, 31135 bytes"
+DT022,Presentations,False,True,False,"Verified PowerPoint: 5 slides, 32036 bytes"
+DT023,Presentations,False,False,True,No valid presentation artifact found on disk.
+DT024,Presentations,True,True,True,"Verified PowerPoint: 5 slides, 32122 bytes"
+DT025,Presentations,True,True,True,"Verified PowerPoint: 5 slides, 32060 bytes"
+DT026,Presentations,True,True,True,"Verified PowerPoint: 4 slides, 31028 bytes"
+DT027,Presentations,True,True,True,"Verified PowerPoint: 7 slides, 34052 bytes"
+DT028,Presentations,True,True,True,"Verified PowerPoint: 6 slides, 33018 bytes"
+DT029,Presentations,False,False,True,No valid presentation artifact found on disk.
+DT030,Presentations,True,True,True,"Verified PowerPoint: 4 slides, 31093 bytes"
+DT031,FileOperations,True,True,True,Verified directory: C:\Users\Karthick Balaji\Desktop\Research_Data (0 items) | Verified directory: C:\Users\Karthick Balaji\Desktop (52 items)
+DT032,FileOperations,True,True,True,Operation confirmed: Created file notes.txt at `C:\Users\Karthick Balaji\Desktop\notes.txt`.
+DT033,FileOperations,True,True,True,Operation confirmed: Copied notes.txt to C:\Users\Karthick Balaji\Desktop\notes_backup.txt successfully.
+DT034,FileOperations,False,False,True,Desktop file operation could not be confirmed.
+DT035,FileOperations,False,True,False,
+DT036,FileOperations,True,True,True,Verified screenshot: C:\Users\Karthick Balaji\Desktop\_capture.png (283177 bytes)
+DT037,FileOperations,True,True,True,Verified directory: C:\Users\Karthick Balaji\Desktop\Deployment_Artifacts (1 items)
+DT038,FileOperations,True,True,True,Verified directory: C:\Users\Karthick Balaji\Desktop\Project_Alpha (3 items) | Verified directory: C:\Users\Karthick Balaji\Desktop\Project_Alpha\Source (0 items) | Verified directory: C:\Users\Karthick Balaji\Desktop\Project_Alpha\Docs (0 items) | Verified directory: C:\Users\Karthick Balaji\Desktop\Project_Alpha\Tests (0 items)
+DT039,FileOperations,False,True,False,Verified web search results in system response.
+DT040,FileOperations,True,True,True,Verified web search results in system response.
+DT041,Workflows,False,True,False,Verified 3 workflow artifacts.
+DT042,Workflows,False,False,True,No workflow artifacts verified on disk.
+DT043,Workflows,False,True,False,Verified 1 workflow artifacts.
+DT044,Workflows,False,True,False,Verified 2 workflow artifacts.
+DT045,Workflows,False,True,False,Verified 3 workflow artifacts.
+DT046,Workflows,False,False,True,No workflow artifacts verified on disk.
+DT047,Workflows,False,False,True,No workflow artifacts verified on disk.
+DT048,Workflows,False,True,False,Verified 3 workflow artifacts.
+DT049,Workflows,False,True,False,Verified 3 workflow artifacts.
+DT050,Workflows,False,True,False,Verified 4 workflow artifacts.

@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" width="1600" height="1100" style="background:#FFFFFF; font-family:'Segoe UI', Inter, Helvetica, Arial, sans-serif;">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#334155"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#15803D"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#C23B22"/>
+    </marker>
+    <filter id="shadow" x="-3%" y="-3%" width="106%" height="106%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Title & Header -->
+  <rect x="0" y="0" width="1600" height="70" fill="#1F3A5F"/>
+  <text x="50" y="44" font-size="22" font-weight="700" fill="#FFFFFF">DesktopPilot AI — Output Validation &amp; Replanning Loop Specification</text>
+  <text x="1550" y="44" font-size="14" font-weight="500" fill="#93C5FD" text-anchor="end">Source: `desktop_pilot/agents/validation_agent.py`</text>
+
+  <!-- 3 Main Columns: Artifact Types & Their Exact Implemented Structural Rules -->
+
+  <!-- Column 1: Word (.docx) Validation -->
+  <rect x="50" y="95" width="480" height="520" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="50" y="95" width="480" height="38" rx="4" fill="#1F3A5F"/>
+  <text x="70" y="120" font-size="15" font-weight="700" fill="#FFFFFF">WORD (.docx) STRUCTURAL VALIDATION</text>
+
+  <rect x="70" y="150" width="440" height="150" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2"/>
+  <text x="85" y="175" font-size="13" font-weight="700" fill="#1F3A5F">Inspector: docx.Document(filepath)</text>
+  <text x="85" y="200" font-size="12" fill="#0F172A">Check 1: File Existence &amp; Non-Zero Size</text>
+  <text x="85" y="220" font-size="11" fill="#475569">• os.path.exists() &amp; os.path.getsize() &gt; 0</text>
+  <text x="85" y="245" font-size="12" fill="#0F172A">Check 2: Minimum Paragraph Count</text>
+  <text x="85" y="265" font-size="11" fill="#475569">• Rejects if len(doc.paragraphs) &lt;= 1</text>
+  <text x="85" y="285" font-size="11" fill="#C23B22">  Error: "Word document contains insufficient text (only 0 or 1 paragraph)."</text>
+
+  <rect x="70" y="315" width="440" height="150" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2"/>
+  <text x="85" y="340" font-size="13" font-weight="700" fill="#1F3A5F">Check 3: Meaningful Content &amp; Formatting</text>
+  <text x="85" y="365" font-size="12" fill="#0F172A">• Filters whitespace: [p.text.strip() for p in doc.paragraphs]</text>
+  <text x="85" y="385" font-size="12" fill="#0F172A">• Rejects trivial placeholder text (e.g. only "Document Title")</text>
+  <text x="85" y="405" font-size="11" fill="#C23B22">  Error: "Word document has no meaningful text content (only title/empty)."</text>
+  <text x="85" y="430" font-size="12" fill="#0F172A">• Verifies structured formal letter components:</text>
+  <text x="85" y="450" font-size="11" fill="#1D7A6E">  From, To, Date, Subject, Salutation, Body paragraphs, Closing, Sign</text>
+
+  <rect x="70" y="480" width="440" height="115" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2"/>
+  <text x="85" y="505" font-size="13" font-weight="700" fill="#15803D">Outcome on Pass:</text>
+  <text x="85" y="525" font-size="11" fill="#0F172A">• validation_result.valid = True</text>
+  <text x="85" y="545" font-size="11" fill="#0F172A">• Log: "Validated execution of Word Document successfully."</text>
+  <text x="85" y="565" font-size="11" fill="#0F172A">• Returns verified .docx file path to User</text>
+
+
+  <!-- Column 2: Excel (.xlsx) Validation -->
+  <rect x="560" y="95" width="480" height="520" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="560" y="95" width="480" height="38" rx="4" fill="#1F3A5F"/>
+  <text x="580" y="120" font-size="15" font-weight="700" fill="#FFFFFF">EXCEL (.xlsx) STRUCTURAL VALIDATION</text>
+
+  <rect x="580" y="150" width="440" height="150" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2"/>
+  <text x="595" y="175" font-size="13" font-weight="700" fill="#1F3A5F">Inspector: openpyxl.load_workbook(filepath)</text>
+  <text x="595" y="200" font-size="12" fill="#0F172A">Check 1: File Existence &amp; Non-Zero Size</text>
+  <text x="595" y="220" font-size="11" fill="#475569">• os.path.exists() &amp; os.path.getsize() &gt; 0</text>
+  <text x="595" y="245" font-size="12" fill="#0F172A">Check 2: Active Worksheet Detection</text>
+  <text x="595" y="265" font-size="11" fill="#475569">• Loads active sheet (ws = wb.active)</text>
+  <text x="595" y="285" font-size="11" fill="#475569">• Verifies valid title &amp; column dimension</text>
+
+  <rect x="580" y="315" width="440" height="150" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2"/>
+  <text x="595" y="340" font-size="13" font-weight="700" fill="#1F3A5F">Check 3: Row &amp; Cell Completeness</text>
+  <text x="595" y="365" font-size="12" fill="#0F172A">• Rejects empty workbooks (ws.max_row &lt;= 1 &amp;&amp; ws.max_column &lt;= 1)</text>
+  <text x="595" y="385" font-size="11" fill="#C23B22">  Error: "Excel file generated successfully but contains no data rows/columns."</text>
+  <text x="595" y="410" font-size="12" fill="#0F172A">• Rejects header-only sheets with 0 data rows (ws.max_row &lt;= 1)</text>
+  <text x="595" y="430" font-size="11" fill="#C23B22">  Error: "Excel file generated successfully but contains only headers (no data rows)."</text>
+  <text x="595" y="450" font-size="12" fill="#1D7A6E">• Confirms non-empty values across populated columns</text>
+
+  <rect x="580" y="480" width="440" height="115" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2"/>
+  <text x="595" y="505" font-size="13" font-weight="700" fill="#15803D">Outcome on Pass:</text>
+  <text x="595" y="525" font-size="11" fill="#0F172A">• validation_result.valid = True</text>
+  <text x="595" y="545" font-size="11" fill="#0F172A">• Log: "Validated execution of Excel Spreadsheet successfully."</text>
+  <text x="595" y="565" font-size="11" fill="#0F172A">• Returns verified .xlsx file path to User</text>
+
+
+  <!-- Column 3: PowerPoint (.pptx) Validation -->
+  <rect x="1070" y="95" width="480" height="520" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="1070" y="95" width="480" height="38" rx="4" fill="#1F3A5F"/>
+  <text x="1090" y="120" font-size="15" font-weight="700" fill="#FFFFFF">POWERPOINT (.pptx) STRUCTURAL VALIDATION</text>
+
+  <rect x="1090" y="150" width="440" height="150" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2"/>
+  <text x="1105" y="175" font-size="13" font-weight="700" fill="#1F3A5F">Inspector: pptx.Presentation(filepath)</text>
+  <text x="1105" y="200" font-size="12" fill="#0F172A">Check 1: File Existence &amp; Non-Zero Size</text>
+  <text x="1105" y="220" font-size="11" fill="#475569">• os.path.exists() &amp; os.path.getsize() &gt; 0</text>
+  <text x="1105" y="245" font-size="12" fill="#0F172A">Check 2: Minimum Slide Count</text>
+  <text x="1105" y="265" font-size="11" fill="#475569">• Rejects if len(prs.slides) == 0</text>
+  <text x="1105" y="285" font-size="11" fill="#C23B22">  Error: "PowerPoint generated successfully but contains no slides."</text>
+
+  <rect x="1090" y="315" width="440" height="150" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2"/>
+  <text x="1105" y="340" font-size="13" font-weight="700" fill="#1F3A5F">Check 3: Non-Placeholder Content Validation</text>
+  <text x="1105" y="365" font-size="12" fill="#0F172A">• Iterates all slide.shapes across all slides</text>
+  <text x="1105" y="385" font-size="12" fill="#0F172A">• Extracts shape.text and verifies non-empty strings</text>
+  <text x="1105" y="405" font-size="12" fill="#0F172A">• Rejects decks with only default generic text</text>
+  <text x="1105" y="425" font-size="11" fill="#C23B22">  Error: "PowerPoint contains only empty slides or generic placeholder text."</text>
+  <text x="1105" y="450" font-size="12" fill="#1D7A6E">• Confirms structured bullets across slide placeholders</text>
+
+  <rect x="1090" y="480" width="440" height="115" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2"/>
+  <text x="1105" y="505" font-size="13" font-weight="700" fill="#15803D">Outcome on Pass:</text>
+  <text x="1105" y="525" font-size="11" fill="#0F172A">• validation_result.valid = True</text>
+  <text x="1105" y="545" font-size="11" fill="#0F172A">• Log: "Validated execution of PowerPoint Deck successfully."</text>
+  <text x="1105" y="565" font-size="11" fill="#0F172A">• Returns verified .pptx file path to User</text>
+
+
+  <!-- LOWER CONTAINER: Replanning Feedback Flow -->
+  <rect x="50" y="640" width="1500" height="430" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="50" y="640" width="560" height="32" rx="4" fill="#1F3A5F"/>
+  <text x="65" y="662" font-size="13" font-weight="700" fill="#FFFFFF">VALIDATION FAILURE REPLANNING &amp; RE-EXECUTION PIPELINE</text>
+
+  <!-- Flow Boxes -->
+  <!-- Box 1: File Output Inspection -->
+  <rect x="80" y="700" width="310" height="345" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>
+  <rect x="80" y="700" width="310" height="26" rx="4" fill="#334155"/>
+  <text x="95" y="718" font-size="12" font-weight="700" fill="#FFFFFF">Phase 1: Deep File Parsing</text>
+  <text x="95" y="750" font-size="13" font-weight="700" fill="#1F3A5F">Inspect Physical File:</text>
+  <text x="95" y="775" font-size="12" fill="#475569">• Target: last_execution_result["output_file"]</text>
+  <text x="95" y="795" font-size="12" fill="#475569">• Reads real binary structure via native Python</text>
+  <text x="95" y="825" font-size="13" font-weight="700" fill="#1F3A5F">Key Design Principle:</text>
+  <text x="95" y="850" font-size="12" fill="#0F172A">A successful code run != correct result.</text>
+  <text x="95" y="875" font-size="11" fill="#475569">Validation checks the physical file itself</text>
+  <text x="95" y="893" font-size="11" fill="#475569">rather than merely catching runtime exceptions.</text>
+
+  <line x1="390" y1="870" x2="440" y2="870" stroke="#1F3A5F" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Box 2: Failure Detection -->
+  <rect x="440" y="700" width="330" height="345" rx="6" fill="#FEE2E2" stroke="#C23B22" stroke-width="1.2"/>
+  <rect x="440" y="700" width="330" height="26" rx="4" fill="#C23B22"/>
+  <text x="455" y="718" font-size="12" font-weight="700" fill="#FFFFFF">Phase 2: Error Diagnosis</text>
+  <text x="455" y="750" font-size="13" font-weight="700" fill="#C23B22">Structural Check Fails:</text>
+  <text x="455" y="775" font-size="12" fill="#0F172A">• failure_msg generated with exact reason</text>
+  <text x="455" y="805" font-size="13" font-weight="700" fill="#1F3A5F">State Updates in validation_agent:</text>
+  <rect x="455" y="825" width="300" height="90" rx="4" fill="#FFFFFF" stroke="#C23B22" stroke-width="1"/>
+  <text x="465" y="845" font-size="11" font-family="monospace" fill="#C23B22">"validation_result": &#123;</text>
+  <text x="480" y="865" font-size="11" font-family="monospace" fill="#C23B22">  "valid": False,</text>
+  <text x="480" y="885" font-size="11" font-family="monospace" fill="#C23B22">  "reason": failure_msg</text>
+  <text x="465" y="905" font-size="11" font-family="monospace" fill="#C23B22">&#125;</text>
+  <text x="455" y="935" font-size="11" font-family="monospace" fill="#C23B22">"replan_reason": failure_msg</text>
+  <text x="455" y="955" font-size="11" fill="#0F172A">• Appends status: "error" to trace</text>
+
+  <line x1="770" y1="870" x2="820" y2="870" stroke="#C23B22" stroke-width="2" marker-end="url(#arrow-red)"/>
+
+  <!-- Box 3: LangGraph Routing -->
+  <rect x="820" y="700" width="330" height="345" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2"/>
+  <rect x="820" y="700" width="330" height="26" rx="4" fill="#1F3A5F"/>
+  <text x="835" y="718" font-size="12" font-weight="700" fill="#FFFFFF">Phase 3: Cyclic Edge Routing</text>
+  <text x="835" y="750" font-size="13" font-weight="700" fill="#1F3A5F">route_after_validation():</text>
+  <text x="835" y="775" font-size="12" fill="#475569">• Detects non-None replan_reason</text>
+  <text x="835" y="795" font-size="12" fill="#C23B22">• Routes graph directly to planning_agent</text>
+  <text x="835" y="825" font-size="13" font-weight="700" fill="#1F3A5F">Bounded Retries Mechanism:</text>
+  <text x="835" y="850" font-size="12" fill="#475569">• Prevents infinite loops under unsatisfiable requests</text>
+  <text x="835" y="875" font-size="12" fill="#475569">• Terminates gracefully if threshold exceeded</text>
+
+  <line x1="1150" y1="870" x2="1200" y2="870" stroke="#1F3A5F" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Box 4: Correction & Regeneration -->
+  <rect x="1200" y="700" width="320" height="345" rx="6" fill="#DCFCE7" stroke="#15803D" stroke-width="1.2"/>
+  <rect x="1200" y="700" width="320" height="26" rx="4" fill="#15803D"/>
+  <text x="1215" y="718" font-size="12" font-weight="700" fill="#FFFFFF">Phase 4: Corrected Re-Execution</text>
+  <text x="1215" y="750" font-size="13" font-weight="700" fill="#1F3A5F">Planner Prompts with Context:</text>
+  <text x="1215" y="775" font-size="11" fill="#0F172A">• System prompt instructs LLM to fix errors described in replan_reason</text>
+  <text x="1215" y="805" font-size="13" font-weight="700" fill="#1F3A5F">Regeneration &amp; Re-Check:</text>
+  <text x="1215" y="830" font-size="11" fill="#0F172A">1. Planner outputs revised structured content</text>
+  <text x="1215" y="850" font-size="11" fill="#0F172A">2. Document Agent regenerates file</text>
+  <text x="1215" y="870" font-size="11" fill="#0F172A">3. Validation Agent performs structural re-test</text>
+  <text x="1215" y="890" font-size="11" font-weight="700" fill="#15803D">4. PASS achieved on second pass</text>
+  <text x="1215" y="920" font-size="11" fill="#0F172A">Verified empirically in Test Case 7.</text>
+</svg>

@@ -1,0 +1,51 @@
+task_id,category,difficulty,condition,is_ambiguous,clarification_asked,clarification_relevant,plan_steps,tool_calls,execution_time_sec,rsr_percent,final_status,failure_category,recovery
+DT001,Documents,easy,Condition E (Full System),False,False,False,1,1,6.11,100.0,success,None,False
+DT002,Documents,easy,Condition E (Full System),False,False,False,1,1,22.7,100.0,success,None,False
+DT003,Documents,medium,Condition E (Full System),False,False,False,0,0,6.42,0.0,failure,F4 Planning error,False
+DT004,Documents,medium,Condition E (Full System),False,False,False,1,1,19.46,100.0,success,None,False
+DT005,Documents,medium,Condition E (Full System),True,True,True,1,1,11.61,100.0,success,None,False
+DT006,Documents,easy,Condition E (Full System),False,False,False,1,1,21.65,100.0,success,None,False
+DT007,Documents,hard,Condition E (Full System),False,False,False,0,0,24.41,0.0,failure,F4 Planning error,False
+DT008,Documents,medium,Condition E (Full System),True,True,True,1,1,31.51,100.0,success,None,False
+DT009,Documents,hard,Condition E (Full System),False,False,False,0,0,2.42,0.0,failure,F4 Planning error,False
+DT010,Documents,easy,Condition E (Full System),False,False,False,1,1,22.82,100.0,success,None,False
+DT011,Spreadsheets,easy,Condition E (Full System),False,False,False,1,1,11.03,100.0,success,None,False
+DT012,Spreadsheets,easy,Condition E (Full System),False,False,False,1,1,18.23,100.0,success,None,False
+DT013,Spreadsheets,medium,Condition E (Full System),False,False,False,1,1,9.63,100.0,success,None,False
+DT014,Spreadsheets,medium,Condition E (Full System),False,False,False,1,1,10.57,0.0,failure,F8 Output generation failure,False
+DT015,Spreadsheets,medium,Condition E (Full System),True,False,False,1,1,31.61,100.0,success,None,False
+DT016,Spreadsheets,easy,Condition E (Full System),False,False,False,1,1,18.66,100.0,success,None,False
+DT017,Spreadsheets,hard,Condition E (Full System),False,False,False,0,0,29.86,0.0,failure,F4 Planning error,False
+DT018,Spreadsheets,medium,Condition E (Full System),True,False,False,1,1,32.97,50.0,partial,F2 Missing clarification,False
+DT019,Spreadsheets,hard,Condition E (Full System),False,False,False,1,1,17.82,100.0,success,None,False
+DT020,Spreadsheets,easy,Condition E (Full System),False,False,False,1,1,13.46,0.0,failure,F8 Output generation failure,False
+DT021,Presentations,easy,Condition E (Full System),False,False,False,1,1,15.01,100.0,success,None,False
+DT022,Presentations,easy,Condition E (Full System),False,False,False,1,1,17.24,50.0,partial,F14 Other,False
+DT023,Presentations,medium,Condition E (Full System),False,False,False,0,0,1.3,0.0,failure,F4 Planning error,False
+DT024,Presentations,medium,Condition E (Full System),False,False,False,1,1,16.67,100.0,success,None,False
+DT025,Presentations,medium,Condition E (Full System),True,True,True,1,1,14.04,100.0,success,None,False
+DT026,Presentations,easy,Condition E (Full System),False,False,False,1,1,12.56,100.0,success,None,False
+DT027,Presentations,hard,Condition E (Full System),False,False,False,1,1,22.25,100.0,success,None,True
+DT028,Presentations,medium,Condition E (Full System),True,True,True,1,1,18.82,100.0,success,None,False
+DT029,Presentations,hard,Condition E (Full System),False,False,False,0,0,1.61,0.0,failure,F4 Planning error,False
+DT030,Presentations,easy,Condition E (Full System),False,False,False,1,1,14.92,100.0,success,None,False
+DT031,FileOperations,easy,Condition E (Full System),False,False,False,1,1,9.07,100.0,success,None,False
+DT032,FileOperations,easy,Condition E (Full System),False,False,False,1,1,14.35,100.0,success,None,False
+DT033,FileOperations,medium,Condition E (Full System),False,False,False,1,1,15.36,100.0,success,None,False
+DT034,FileOperations,medium,Condition E (Full System),False,False,False,0,0,1.33,0.0,failure,F4 Planning error,False
+DT035,FileOperations,medium,Condition E (Full System),True,False,False,1,1,94.04,75.0,partial,F2 Missing clarification,False
+DT036,FileOperations,easy,Condition E (Full System),False,False,False,1,1,7.21,100.0,success,None,False
+DT037,FileOperations,medium,Condition E (Full System),False,False,False,2,2,19.55,100.0,success,None,True
+DT038,FileOperations,hard,Condition E (Full System),True,True,True,4,4,14.1,100.0,success,None,False
+DT039,FileOperations,medium,Condition E (Full System),False,False,False,1,1,9.99,75.0,partial,F14 Other,False
+DT040,FileOperations,hard,Condition E (Full System),False,False,False,0,0,1.22,100.0,success,None,False
+DT041,Workflows,hard,Condition E (Full System),False,False,False,3,3,9.99,60.0,partial,F14 Other,False
+DT042,Workflows,hard,Condition E (Full System),False,True,False,0,0,2.83,20.0,failure,F3 Unnecessary clarification,False
+DT043,Workflows,medium,Condition E (Full System),False,False,False,2,2,20.72,20.0,failure,F14 Other,False
+DT044,Workflows,medium,Condition E (Full System),False,False,False,3,3,14.07,40.0,failure,F14 Other,False
+DT045,Workflows,hard,Condition E (Full System),True,True,True,3,3,28.71,60.0,partial,F14 Other,False
+DT046,Workflows,hard,Condition E (Full System),False,False,False,0,0,5.97,20.0,failure,F4 Planning error,False
+DT047,Workflows,medium,Condition E (Full System),False,False,False,0,0,31.54,0.0,failure,F4 Planning error,False
+DT048,Workflows,hard,Condition E (Full System),True,True,True,3,3,67.76,75.0,partial,F14 Other,False
+DT049,Workflows,hard,Condition E (Full System),False,False,False,3,3,15.49,60.0,partial,F14 Other,False
+DT050,Workflows,hard,Condition E (Full System),False,False,False,4,4,41.83,40.0,failure,F14 Other,False

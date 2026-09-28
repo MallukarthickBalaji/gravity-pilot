@@ -1,0 +1,215 @@
+task_id,category,difficulty,requirement_id,description,satisfied,reason
+DT001,Documents,easy,R1,Generate Word document (.docx),True,Word document verified on disk
+DT001,Documents,easy,R2,Document title related to Artificial Intelligence,True,General artifact criterion met
+DT001,Documents,easy,R3,Contains introductory overview section with non-empty paragraphs,True,General artifact criterion met
+DT001,Documents,easy,R4,File saved successfully in output directory with non-zero bytes,True,Folder verified on filesystem
+DT002,Documents,easy,R1,Generate Word document (.docx),True,Word document verified on disk
+DT002,Documents,easy,R2,Title 'Meeting Minutes' or 'Project Kickoff',True,General artifact criterion met
+DT002,Documents,easy,R3,Includes agenda or discussion section with paragraphs,True,General artifact criterion met
+DT002,Documents,easy,R4,File saved in output directory,True,Folder verified on filesystem
+DT003,Documents,medium,R1,Generate Word document (.docx),False,Word document missing or invalid
+DT003,Documents,medium,R2,Document title on Cloud Computing,False,General criterion failed
+DT003,Documents,medium,R3,Contains distinct sections discussing service models (IaaS/PaaS/SaaS),False,General criterion failed
+DT003,Documents,medium,R4,At least 3 paragraphs of technical explanation,False,General criterion failed
+DT003,Documents,medium,R5,Valid Word document structure,False,Word document missing or invalid
+DT004,Documents,medium,R1,Create Python script (.py),True,Python script verified with valid syntax
+DT004,Documents,medium,R2,Output filename matches fibonacci.py,True,Python script verified with valid syntax
+DT004,Documents,medium,R3,Contains function definition for calculating Fibonacci,True,General artifact criterion met
+DT004,Documents,medium,R4,Valid Python syntax,True,Python script verified with valid syntax
+DT005,Documents,medium,R1,Detect incomplete specification and prompt for clarification,True,Clarification correctly triggered
+DT005,Documents,medium,R2,Accept user clarification for automated inventory tracking,True,Clarification correctly triggered
+DT005,Documents,medium,R3,Generate Word document with proposal content,True,Word document verified on disk
+DT005,Documents,medium,R4,Maintain session state across clarification turns,True,Clarification correctly triggered
+DT006,Documents,easy,R1,Create Python script (.py),True,Python script verified with valid syntax
+DT006,Documents,easy,R2,Filename is quicksort.py,True,Python script verified with valid syntax
+DT006,Documents,easy,R3,Defines quicksort function,True,General artifact criterion met
+DT006,Documents,easy,R4,Valid Python syntax,True,Python script verified with valid syntax
+DT007,Documents,hard,R1,Generate Word document (.docx),False,Word document missing or invalid
+DT007,Documents,hard,R2,Title reflects Multi-Agent Systems,False,General criterion failed
+DT007,Documents,hard,R3,"Contains 4+ distinct research headings (Abstract, Intro, Method, Conclusion)",False,General criterion failed
+DT007,Documents,hard,R4,Substantial textual content (5+ paragraphs),False,General criterion failed
+DT007,Documents,hard,R5,File saved with valid document layout,False,General criterion failed
+DT008,Documents,medium,R1,Detect incomplete specification and prompt for clarification,True,Clarification correctly triggered
+DT008,Documents,medium,R2,Accept user clarification for Code Review Standards,True,Clarification correctly triggered
+DT008,Documents,medium,R3,Generate Word document (.docx) with memo content,True,Word document verified on disk
+DT008,Documents,medium,R4,Verify Word document saved on disk,True,Word document verified on disk
+DT009,Documents,hard,R1,Generate Word document (.docx),False,Word document missing or invalid
+DT009,Documents,hard,R2,Professional title for Software Design Specification,False,General criterion failed
+DT009,Documents,hard,R3,Contains 4 distinct sections matching requested specification topics,False,General criterion failed
+DT009,Documents,hard,R4,At least 4 paragraphs of technical detail,False,General criterion failed
+DT009,Documents,hard,R5,Valid Word document,False,Word document missing or invalid
+DT010,Documents,easy,R1,Create text/markdown file,True,General artifact criterion met
+DT010,Documents,easy,R2,Filename is library_readme.txt,True,General artifact criterion met
+DT010,Documents,easy,R3,Contains usage and installation instructions,True,General artifact criterion met
+DT010,Documents,easy,R4,Non-empty content,True,General artifact criterion met
+DT011,Spreadsheets,easy,R1,Create Excel workbook (.xlsx),True,Excel spreadsheet verified on disk
+DT011,Spreadsheets,easy,R2,Contains header row with student identifiers,True,General artifact criterion met
+DT011,Spreadsheets,easy,R3,Contains at least 8 student data rows,True,General artifact criterion met
+DT011,Spreadsheets,easy,R4,Workbook saved with non-zero bytes,True,General artifact criterion met
+DT012,Spreadsheets,easy,R1,Create Excel workbook (.xlsx),True,Excel spreadsheet verified on disk
+DT012,Spreadsheets,easy,R2,"Includes expense categories (Rent, Groceries, Utilities, etc.)",True,General artifact criterion met
+DT012,Spreadsheets,easy,R3,Includes column headers for budget allocations,True,General artifact criterion met
+DT012,Spreadsheets,easy,R4,Workbook opens and is valid,True,General artifact criterion met
+DT013,Spreadsheets,medium,R1,Create Excel workbook (.xlsx),True,Excel spreadsheet verified on disk
+DT013,Spreadsheets,medium,R2,"Columns include Region, Q1, Q2, Q3, Q4",True,General artifact criterion met
+DT013,Spreadsheets,medium,R3,Rows contain regional performance data,True,General artifact criterion met
+DT013,Spreadsheets,medium,R4,At least 4 regions populated,True,General artifact criterion met
+DT013,Spreadsheets,medium,R5,Non-empty valid spreadsheet,True,Excel spreadsheet verified on disk
+DT014,Spreadsheets,medium,R1,Create Excel workbook (.xlsx),False,Excel spreadsheet missing or invalid
+DT014,Spreadsheets,medium,R2,"Headers for Name, Department, Role, Salary",False,General criterion failed
+DT014,Spreadsheets,medium,R3,At least 5 employee entries,False,General criterion failed
+DT014,Spreadsheets,medium,R4,Workbook structure verified,False,General criterion failed
+DT015,Spreadsheets,medium,R1,Identify missing invoice recipient/line item details,True,General artifact criterion met
+DT015,Spreadsheets,medium,R2,Ask single clarifying question,True,General artifact criterion met
+DT015,Spreadsheets,medium,R3,Create Excel invoice sheet with consulting items upon user answer,True,Excel spreadsheet verified on disk
+DT015,Spreadsheets,medium,R4,State preserved across turns,True,General artifact criterion met
+DT016,Spreadsheets,easy,R1,Create Excel workbook (.xlsx),True,Excel spreadsheet verified on disk
+DT016,Spreadsheets,easy,R2,"Headers for SKU/Product, Quantity, Unit Price",True,General artifact criterion met
+DT016,Spreadsheets,easy,R3,At least 4 product items listed,True,General artifact criterion met
+DT016,Spreadsheets,easy,R4,Valid workbook,True,General artifact criterion met
+DT017,Spreadsheets,hard,R1,Create Excel workbook (.xlsx),False,Excel spreadsheet missing or invalid
+DT017,Spreadsheets,hard,R2,"Headers for Task, Assignee, Start Date, End Date, Budget",False,General criterion failed
+DT017,Spreadsheets,hard,R3,At least 6 milestone tasks mapped,False,General criterion failed
+DT017,Spreadsheets,hard,R4,Budget data populated,False,General criterion failed
+DT017,Spreadsheets,hard,R5,Valid worksheet format,False,General criterion failed
+DT018,Spreadsheets,medium,R1,Detect incomplete specification and prompt for clarification,False,Failed to trigger necessary clarification
+DT018,Spreadsheets,medium,R2,Accept user clarification for Student Gradebook,False,Failed to trigger necessary clarification
+DT018,Spreadsheets,medium,R3,Create Excel workbook (.xlsx),True,Excel spreadsheet verified on disk
+DT018,Spreadsheets,medium,R4,"Headers for Math, Science, English scores and Totals",True,General artifact criterion met
+DT019,Spreadsheets,hard,R1,Create Excel workbook (.xlsx),True,Excel spreadsheet verified on disk
+DT019,Spreadsheets,hard,R2,Headers for Month/Category and financial cash flow items,True,General artifact criterion met
+DT019,Spreadsheets,hard,R3,Monthly rows or columns covering financial projections,True,General artifact criterion met
+DT019,Spreadsheets,hard,R4,Populated with realistic numerical data,True,General artifact criterion met
+DT019,Spreadsheets,hard,R5,Valid openpyxl readable workbook,True,General artifact criterion met
+DT020,Spreadsheets,easy,R1,Create Excel workbook (.xlsx),False,Excel spreadsheet missing or invalid
+DT020,Spreadsheets,easy,R2,"Headers matching Name, Email, RSVP, Meal",False,General criterion failed
+DT020,Spreadsheets,easy,R3,At least 4 attendee entries,False,General criterion failed
+DT020,Spreadsheets,easy,R4,Valid spreadsheet file,False,Excel spreadsheet missing or invalid
+DT021,Presentations,easy,R1,Create PowerPoint presentation (.pptx),True,PowerPoint presentation verified on disk
+DT021,Presentations,easy,R2,Title slide on Renewable Energy,True,General artifact criterion met
+DT021,Presentations,easy,R3,At least 3 slides total,True,General artifact criterion met
+DT021,Presentations,easy,R4,Content includes solar/wind topics with bullet points,True,General artifact criterion met
+DT022,Presentations,easy,R1,Create PowerPoint presentation (.pptx),True,PowerPoint presentation verified on disk
+DT022,Presentations,easy,R2,Title slide on Python Programming,False,Python file missing or syntax error
+DT022,Presentations,easy,R3,At least 3-4 slides total,True,General artifact criterion met
+DT022,Presentations,easy,R4,Contains Python syntax/features bullets,False,Python file missing or syntax error
+DT023,Presentations,medium,R1,Create PowerPoint presentation (.pptx),False,PowerPoint missing or invalid
+DT023,Presentations,medium,R2,Title slide on Cybersecurity,False,General criterion failed
+DT023,Presentations,medium,R3,At least 4-5 slides total,False,General criterion failed
+DT023,Presentations,medium,R4,"Specific slides covering threats, MFA, and phishing",False,General criterion failed
+DT023,Presentations,medium,R5,Valid PowerPoint file structure,False,PowerPoint missing or invalid
+DT024,Presentations,medium,R1,Create PowerPoint presentation (.pptx),True,PowerPoint presentation verified on disk
+DT024,Presentations,medium,R2,Pitch deck title slide,True,General artifact criterion met
+DT024,Presentations,medium,R3,"Slides for Problem, Solution, Market Opportunity",True,General artifact criterion met
+DT024,Presentations,medium,R4,At least 4 slides,True,General artifact criterion met
+DT024,Presentations,medium,R5,Non-empty content bullets,True,General artifact criterion met
+DT025,Presentations,medium,R1,Detect ambiguity (missing presentation topic/slides),True,Clarification correctly triggered
+DT025,Presentations,medium,R2,Ask single friendly clarifying question,True,General artifact criterion met
+DT025,Presentations,medium,R3,Generate PowerPoint presentation on Agile Scrum upon clarification,True,Clarification correctly triggered
+DT025,Presentations,medium,R4,Session context maintained,True,General artifact criterion met
+DT026,Presentations,easy,R1,Create PowerPoint presentation (.pptx),True,PowerPoint presentation verified on disk
+DT026,Presentations,easy,R2,Title slide on Deep Learning,True,General artifact criterion met
+DT026,Presentations,easy,R3,Contains neural networks / training slides,True,General artifact criterion met
+DT026,Presentations,easy,R4,At least 3 slides,True,General artifact criterion met
+DT027,Presentations,hard,R1,Create PowerPoint presentation (.pptx),True,PowerPoint presentation verified on disk
+DT027,Presentations,hard,R2,Title slide on AGI & Safety Alignment,True,General artifact criterion met
+DT027,Presentations,hard,R3,Contains at least 5-6 slides,True,General artifact criterion met
+DT027,Presentations,hard,R4,"Covers capabilities, alignment risks, governance",True,General artifact criterion met
+DT027,Presentations,hard,R5,Valid PowerPoint file structure,True,PowerPoint presentation verified on disk
+DT028,Presentations,medium,R1,Detect incomplete specification and prompt for clarification,True,Clarification correctly triggered
+DT028,Presentations,medium,R2,Accept user clarification for Quantum Computing presentation,True,Clarification correctly triggered
+DT028,Presentations,medium,R3,Create PowerPoint presentation (.pptx),True,PowerPoint presentation verified on disk
+DT028,Presentations,medium,R4,Contains at least 4-5 slides on Quantum fundamentals,True,General artifact criterion met
+DT029,Presentations,hard,R1,Create PowerPoint presentation (.pptx),False,PowerPoint missing or invalid
+DT029,Presentations,hard,R2,Title on Microservices vs Monolith Architecture,False,General criterion failed
+DT029,Presentations,hard,R3,At least 5-6 slides,False,General criterion failed
+DT029,Presentations,hard,R4,"Comparisons of scalability, complexity, deployment, and monitoring",False,General criterion failed
+DT029,Presentations,hard,R5,Valid presentation structure,False,PowerPoint missing or invalid
+DT030,Presentations,easy,R1,Create PowerPoint presentation (.pptx),True,PowerPoint presentation verified on disk
+DT030,Presentations,easy,R2,Title slide on DevOps CI/CD,True,General artifact criterion met
+DT030,Presentations,easy,R3,At least 3 slides total,True,General artifact criterion met
+DT030,Presentations,easy,R4,Covers continuous integration and deployment stages,True,General artifact criterion met
+DT031,FileOperations,easy,R1,Execute create_folder tool,True,General artifact criterion met
+DT031,FileOperations,easy,R2,Folder created on Desktop with name Research_Data,True,Folder verified on filesystem
+DT031,FileOperations,easy,R3,Filesystem reflects folder existence,True,Folder verified on filesystem
+DT032,FileOperations,easy,R1,Execute create_file tool,True,General artifact criterion met
+DT032,FileOperations,easy,R2,File created on Desktop with name notes.txt,True,General artifact criterion met
+DT032,FileOperations,easy,R3,Content contains 'Project sync meeting at 10 AM',True,General artifact criterion met
+DT033,FileOperations,medium,R1,Execute copy tool,True,General artifact criterion met
+DT033,FileOperations,medium,R2,Destination file notes_backup.txt created,True,General artifact criterion met
+DT033,FileOperations,medium,R3,Original file notes.txt preserved,True,General artifact criterion met
+DT033,FileOperations,medium,R4,Copied content identical to source,True,General artifact criterion met
+DT034,FileOperations,medium,R1,Execute rename tool,False,General criterion failed
+DT034,FileOperations,medium,R2,New file archive_notes.txt exists,False,General criterion failed
+DT034,FileOperations,medium,R3,Old file notes_backup.txt no longer exists,False,General criterion failed
+DT035,FileOperations,medium,R1,Detect ambiguous deletion target,True,General artifact criterion met
+DT035,FileOperations,medium,R2,Prompt user for specific folder name,False,Folder missing
+DT035,FileOperations,medium,R3,Delete specified target after user confirmation,True,General artifact criterion met
+DT035,FileOperations,medium,R4,Enforce safety restriction against system root deletion,True,General artifact criterion met
+DT036,FileOperations,easy,R1,Execute screenshot tool,True,Screenshot captured and verified
+DT036,FileOperations,easy,R2,Image saved with .png extension,True,General artifact criterion met
+DT036,FileOperations,easy,R3,Non-zero file size (valid image bytes),True,General artifact criterion met
+DT037,FileOperations,medium,R1,Dispatch desktop agent to create folder,True,Folder verified on filesystem
+DT037,FileOperations,medium,R2,Verify directory 'Deployment_Artifacts' exists on Desktop,True,Folder verified on filesystem
+DT037,FileOperations,medium,R3,Valid directory verification on filesystem,True,Folder verified on filesystem
+DT038,FileOperations,hard,R1,Detect incomplete specification and prompt for clarification,True,Clarification correctly triggered
+DT038,FileOperations,hard,R2,Accept user clarification for Project_Alpha and subfolders,True,Clarification correctly triggered
+DT038,FileOperations,hard,R3,Create directory Project_Alpha on Desktop,True,Folder verified on filesystem
+DT038,FileOperations,hard,R4,"Create Source, Docs, and Tests subfolders inside Project_Alpha",True,General artifact criterion met
+DT039,FileOperations,medium,R1,Execute web_search tool,True,General artifact criterion met
+DT039,FileOperations,medium,R2,Query sanitized cleanly,True,General artifact criterion met
+DT039,FileOperations,medium,R3,Returns structured results array (no raw HTML),True,General artifact criterion met
+DT039,FileOperations,medium,R4,Contains valid URL pointing to python.org,False,Python file missing or syntax error
+DT040,FileOperations,hard,R1,Execute web search with resilient fallback hierarchy,True,Web search executed and verified
+DT040,FileOperations,hard,R2,Rejects any bot CAPTCHA challenge,True,General artifact criterion met
+DT040,FileOperations,hard,R3,"Returns structured titles, URLs, and snippets",True,General artifact criterion met
+DT040,FileOperations,hard,R4,Results validated by validation agent,True,General artifact criterion met
+DT041,Workflows,hard,R1,Create folder AI_Launch on Desktop,True,Folder verified on filesystem
+DT041,Workflows,hard,R2,Generate Word document explaining AI Overview,False,Word document missing or invalid
+DT041,Workflows,hard,R3,Execute screenshot capture tool,False,Screenshot missing or empty
+DT041,Workflows,hard,R4,All 3 distinct operations completed in ordered plan,True,Valid execution plan generated
+DT041,Workflows,hard,R5,Files verified on filesystem,True,General artifact criterion met
+DT042,Workflows,hard,R1,Create folder Q1_Review,True,Folder verified on filesystem
+DT042,Workflows,hard,R2,Generate Excel sheet with Q1 sales figures,False,Excel spreadsheet missing or invalid
+DT042,Workflows,hard,R3,Generate PowerPoint presentation with 3 summary slides,False,PowerPoint missing or invalid
+DT042,Workflows,hard,R4,Both document tools executed sequentially,False,General criterion failed
+DT042,Workflows,hard,R5,Both artifacts verified valid,False,General criterion failed
+DT043,Workflows,medium,R1,Execute web search for TypeScript features,False,Web search failed
+DT043,Workflows,medium,R2,Extract search findings without bot challenge,False,Web search failed
+DT043,Workflows,medium,R3,Generate Word report synthesizing the findings,False,Word document missing or invalid
+DT043,Workflows,medium,R4,Report contains structured headings and paragraphs,True,General artifact criterion met
+DT043,Workflows,medium,R5,Word file verified,False,Word document missing or invalid
+DT044,Workflows,medium,R1,Create folder Sprint_24 on Desktop,True,Folder verified on filesystem
+DT044,Workflows,medium,R2,Generate Python binary search script,False,Web search failed
+DT044,Workflows,medium,R3,Generate task tracking Excel spreadsheet,False,Excel spreadsheet missing or invalid
+DT044,Workflows,medium,R4,"Multi-agent coordination across desktop, code, and spreadsheet",False,Excel spreadsheet missing or invalid
+DT044,Workflows,medium,R5,All files validated,True,General artifact criterion met
+DT045,Workflows,hard,R1,Identify missing client and scope specifications,True,General artifact criterion met
+DT045,Workflows,hard,R2,Prompt for clarification on client and deliverables,True,Clarification correctly triggered
+DT045,Workflows,hard,R3,Create AcmeCorp folder upon user clarification,True,Clarification correctly triggered
+DT045,Workflows,hard,R4,Generate Executive Summary Word doc,False,Word document missing or invalid
+DT045,Workflows,hard,R5,Generate Budget Excel spreadsheet,False,Excel spreadsheet missing or invalid
+DT046,Workflows,hard,R1,Create ML_Study folder,True,Folder verified on filesystem
+DT046,Workflows,hard,R2,Generate Python linear regression code,False,Python file missing or syntax error
+DT046,Workflows,hard,R3,Generate 3-slide PowerPoint on Machine Learning,False,PowerPoint missing or invalid
+DT046,Workflows,hard,R4,Coordinate across code generation and presentation tools,False,PowerPoint missing or invalid
+DT046,Workflows,hard,R5,Both artifacts verified on disk,False,General criterion failed
+DT047,Workflows,medium,R1,Execute web search for FastAPI,False,Web search failed
+DT047,Workflows,medium,R2,Generate technical Word document summarizing FastAPI,False,Word document missing or invalid
+DT047,Workflows,medium,R3,Capture desktop screenshot,False,Screenshot missing or empty
+DT047,Workflows,medium,R4,All 3 multi-domain steps completed,False,General criterion failed
+DT047,Workflows,medium,R5,Outputs verified,False,General criterion failed
+DT048,Workflows,hard,R1,Detect incomplete specification and prompt for clarification,True,Clarification correctly triggered
+DT048,Workflows,hard,R2,Accept user clarification for Company_HR onboarding package,True,Clarification correctly triggered
+DT048,Workflows,hard,R3,Create folder 'Company_HR' on Desktop,True,Folder verified on filesystem
+DT048,Workflows,hard,R4,Generate Leave Policy Word doc and Employee Directory Excel sheet,False,Word document missing or invalid
+DT049,Workflows,hard,R1,Create Cyber_Audit folder on Desktop,True,Folder verified on filesystem
+DT049,Workflows,hard,R2,Generate Cybersecurity Checklist in Excel,False,Excel spreadsheet missing or invalid
+DT049,Workflows,hard,R3,Generate 4-slide Executive Summary presentation in PowerPoint,False,PowerPoint missing or invalid
+DT049,Workflows,hard,R4,Sequential dispatch to document generators,True,General artifact criterion met
+DT049,Workflows,hard,R5,Outputs structurally validated,True,General artifact criterion met
+DT050,Workflows,hard,R1,Create folder Annual_Report_2026,True,Folder verified on filesystem
+DT050,Workflows,hard,R2,Generate Financial Review Word document with 4 sections,False,Word document missing or invalid
+DT050,Workflows,hard,R3,Generate Annual Budget spreadsheet in Excel,False,Excel spreadsheet missing or invalid
+DT050,Workflows,hard,R4,Capture verification screenshot,False,Screenshot missing or empty
+DT050,Workflows,hard,R5,All 4 multi-agent operations validated,True,General artifact criterion met

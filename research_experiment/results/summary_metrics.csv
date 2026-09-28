@@ -1,0 +1,25 @@
+metric,value
+Total Tasks,50
+Successful Tasks,27
+Partial Tasks,8
+Failed Tasks,15
+Task Success Rate (TSR %),54.0
+Total Requirements,214
+Satisfied Requirements,137
+Requirement Satisfaction Rate (RSR %),64.02
+Tool Selection Accuracy (TSA %),72.0
+Planning Success Rate (PSR %),78.0
+Total Tasks Requiring Replanning,8
+Total Replanning Events,11
+Recovered Tasks After Replanning,2
+Unrecovered Tasks After Replanning,6
+Replanning Recovery Rate (%),25.0
+Mean Latency (s),18.45
+Median Latency (s),15.36
+Min Latency (s),1.22
+Max Latency (s),94.04
+Std Dev Latency (s),15.91
+Total Tool Calls,57
+Average Tool Calls Per Task,1.14
+Total LLM Calls,116
+Average LLM Calls Per Task,2.32

@@ -1,0 +1,51 @@
+task_id,category,difficulty,final_status,failure_category,rsr_percent,duration_seconds,tool_calls,replanning_count,recovery
+DT001,Documents,easy,success,None,100.0,6.11,1,0,False
+DT002,Documents,easy,success,None,100.0,22.7,1,0,False
+DT003,Documents,medium,failure,F4 Planning error,0.0,6.42,0,0,False
+DT004,Documents,medium,success,None,100.0,19.46,1,0,False
+DT005,Documents,medium,success,None,100.0,11.61,1,0,False
+DT006,Documents,easy,success,None,100.0,21.65,1,0,False
+DT007,Documents,hard,failure,F4 Planning error,0.0,24.41,0,1,False
+DT008,Documents,medium,success,None,100.0,31.51,1,0,False
+DT009,Documents,hard,failure,F4 Planning error,0.0,2.42,0,0,False
+DT010,Documents,easy,success,None,100.0,22.82,1,0,False
+DT011,Spreadsheets,easy,success,None,100.0,11.03,1,0,False
+DT012,Spreadsheets,easy,success,None,100.0,18.23,1,0,False
+DT013,Spreadsheets,medium,success,None,100.0,9.63,1,0,False
+DT014,Spreadsheets,medium,failure,F8 Output generation failure,0.0,10.57,1,0,False
+DT015,Spreadsheets,medium,success,None,100.0,31.61,1,0,False
+DT016,Spreadsheets,easy,success,None,100.0,18.66,1,0,False
+DT017,Spreadsheets,hard,failure,F4 Planning error,0.0,29.86,0,1,False
+DT018,Spreadsheets,medium,partial,F2 Missing clarification,50.0,32.97,1,0,False
+DT019,Spreadsheets,hard,success,None,100.0,17.82,1,0,False
+DT020,Spreadsheets,easy,failure,F8 Output generation failure,0.0,13.46,1,0,False
+DT021,Presentations,easy,success,None,100.0,15.01,1,0,False
+DT022,Presentations,easy,partial,F14 Other,50.0,17.24,1,0,False
+DT023,Presentations,medium,failure,F4 Planning error,0.0,1.3,0,0,False
+DT024,Presentations,medium,success,None,100.0,16.67,1,0,False
+DT025,Presentations,medium,success,None,100.0,14.04,1,0,False
+DT026,Presentations,easy,success,None,100.0,12.56,1,0,False
+DT027,Presentations,hard,success,None,100.0,22.25,1,1,True
+DT028,Presentations,medium,success,None,100.0,18.82,1,0,False
+DT029,Presentations,hard,failure,F4 Planning error,0.0,1.61,0,0,False
+DT030,Presentations,easy,success,None,100.0,14.92,1,0,False
+DT031,FileOperations,easy,success,None,100.0,9.07,1,0,False
+DT032,FileOperations,easy,success,None,100.0,14.35,1,0,False
+DT033,FileOperations,medium,success,None,100.0,15.36,1,0,False
+DT034,FileOperations,medium,failure,F4 Planning error,0.0,1.33,0,0,False
+DT035,FileOperations,medium,partial,F2 Missing clarification,75.0,94.04,1,2,False
+DT036,FileOperations,easy,success,None,100.0,7.21,1,0,False
+DT037,FileOperations,medium,success,None,100.0,19.55,2,1,True
+DT038,FileOperations,hard,success,None,100.0,14.1,4,0,False
+DT039,FileOperations,medium,partial,F14 Other,75.0,9.99,1,0,False
+DT040,FileOperations,hard,success,None,100.0,1.22,0,0,False
+DT041,Workflows,hard,partial,F14 Other,60.0,9.99,3,0,False
+DT042,Workflows,hard,failure,F3 Unnecessary clarification,20.0,2.83,0,0,False
+DT043,Workflows,medium,failure,F14 Other,20.0,20.72,2,0,False
+DT044,Workflows,medium,failure,F14 Other,40.0,14.07,3,0,False
+DT045,Workflows,hard,partial,F14 Other,60.0,28.71,3,0,False
+DT046,Workflows,hard,failure,F4 Planning error,20.0,5.97,0,0,False
+DT047,Workflows,medium,failure,F4 Planning error,0.0,31.54,0,1,False
+DT048,Workflows,hard,partial,F14 Other,75.0,67.76,3,2,False
+DT049,Workflows,hard,partial,F14 Other,60.0,15.49,3,0,False
+DT050,Workflows,hard,failure,F14 Other,40.0,41.83,4,2,False

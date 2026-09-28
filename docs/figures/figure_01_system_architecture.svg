@@ -1,0 +1,205 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1150" width="1600" height="1150" style="background:#FFFFFF; font-family:'Segoe UI', Inter, Helvetica, Arial, sans-serif;">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#334155"/>
+    </marker>
+    <marker id="arrow-navy" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#1F3A5F"/>
+    </marker>
+    <marker id="arrow-teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#1D7A6E"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#C23B22"/>
+    </marker>
+    <filter id="shadow" x="-3%" y="-3%" width="106%" height="106%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- Title & Header -->
+  <rect x="0" y="0" width="1600" height="70" fill="#1F3A5F"/>
+  <text x="50" y="44" font-size="22" font-weight="700" fill="#FFFFFF">DesktopPilot AI — Implemented System Architecture</text>
+  <text x="1550" y="44" font-size="14" font-weight="500" fill="#93C5FD" text-anchor="end">Academic Mini-Project Architecture Map</text>
+
+  <!-- 1. Client & Interface Layer -->
+  <rect x="50" y="95" width="1500" height="140" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+  <rect x="50" y="95" width="260" height="30" rx="4" fill="#1F3A5F"/>
+  <text x="65" y="115" font-size="13" font-weight="700" fill="#FFFFFF">1. CLIENT &amp; INTERFACE LAYER</text>
+
+  <!-- React UI Box -->
+  <rect x="80" y="140" width="680" height="75" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="100" y="166" font-size="15" font-weight="700" fill="#1F3A5F">React Web Interface (Vite + TypeScript + TailwindCSS)</text>
+  <text x="100" y="192" font-size="13" fill="#475569">Chat Panel, Voice Input, Real-Time Agent Trace Sidebar, Session Management</text>
+
+  <!-- PySide6 GUI Box -->
+  <rect x="840" y="140" width="680" height="75" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="860" y="166" font-size="15" font-weight="700" fill="#1F3A5F">PySide6 Local Desktop GUI (`gui.py`)</text>
+  <text x="860" y="192" font-size="13" fill="#475569">Native System Window, Speech-to-Text (`SpeechRecognition`), Async Worker Threads</text>
+
+  <!-- Flow Arrow 1 -> 2 -->
+  <line x1="800" y1="235" x2="800" y2="265" stroke="#1F3A5F" stroke-width="2" marker-end="url(#arrow-navy)"/>
+  <text x="815" y="255" font-size="12" font-weight="600" fill="#1F3A5F">HTTP REST / SSE Stream</text>
+
+  <!-- 2. Backend & Communication Layer -->
+  <rect x="50" y="270" width="1500" height="110" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+  <rect x="50" y="270" width="280" height="30" rx="4" fill="#1F3A5F"/>
+  <text x="65" y="290" font-size="13" font-weight="700" fill="#FFFFFF">2. BACKEND &amp; PROCESS BRIDGE</text>
+
+  <!-- Node API Server -->
+  <rect x="80" y="310" width="430" height="55" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="95" y="333" font-size="14" font-weight="700" fill="#0F172A">Node.js Express API Server</text>
+  <text x="95" y="352" font-size="12" fill="#475569">Port 3000 | `/api/chat/sessions/:id/stream` (SSE)</text>
+
+  <!-- Subprocess Bridge -->
+  <rect x="565" y="310" width="470" height="55" rx="6" fill="#E6F4F1" stroke="#1D7A6E" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="580" y="333" font-size="14" font-weight="700" fill="#1D7A6E">Streaming Subprocess Bridge (`run_task.py`)</text>
+  <text x="580" y="352" font-size="12" fill="#0F172A">Spawns Python LangGraph pipeline, emits NDJSON events</text>
+
+  <!-- FastAPI Backend -->
+  <rect x="1090" y="310" width="430" height="55" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="1105" y="333" font-size="14" font-weight="700" fill="#0F172A">FastAPI Service (`api/server.py`)</text>
+  <text x="1105" y="352" font-size="12" fill="#475569">Port 8000 | Uvicorn Async REST API</text>
+
+  <!-- Flow Arrow 2 -> 3 -->
+  <line x1="800" y1="380" x2="800" y2="410" stroke="#1F3A5F" stroke-width="2" marker-end="url(#arrow-navy)"/>
+
+  <!-- 3. LangGraph Orchestration Layer -->
+  <rect x="50" y="415" width="1500" height="265" rx="8" fill="#F0F4F8" stroke="#94A3B8" stroke-width="1.5"/>
+  <rect x="50" y="415" width="340" height="30" rx="4" fill="#1F3A5F"/>
+  <text x="65" y="435" font-size="13" font-weight="700" fill="#FFFFFF">3. LANGGRAPH ORCHESTRATION LAYER</text>
+
+  <!-- State Container Banner -->
+  <rect x="80" y="455" width="1440" height="35" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="95" y="478" font-size="13" font-weight="700" fill="#1F3A5F">Shared AgentState:</text>
+  <text x="240" y="478" font-size="12" fill="#475569">messages, session_id, user_input, task_type, current_task_info, requirements_complete, plan, current_step, target_agent, validation_result, replan_reason, execution_trace</text>
+
+  <!-- Core Pipeline Nodes -->
+  <!-- Model Router -->
+  <rect x="80" y="505" width="220" height="70" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="95" y="532" font-size="14" font-weight="700" fill="#1F3A5F">Model Router</text>
+  <text x="95" y="552" font-size="12" fill="#475569">Ping Groq / Ollama</text>
+  <text x="95" y="567" font-size="11" fill="#1D7A6E">Set Capabilities</text>
+
+  <line x1="300" y1="540" x2="330" y2="540" stroke="#334155" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <!-- Memory Agent -->
+  <rect x="330" y="505" width="220" height="70" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="345" y="532" font-size="14" font-weight="700" fill="#1F3A5F">Memory Agent</text>
+  <text x="345" y="552" font-size="12" fill="#475569">Load prior context</text>
+  <text x="345" y="567" font-size="11" fill="#1D7A6E">Persist session state</text>
+
+  <line x1="550" y1="540" x2="580" y2="540" stroke="#334155" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <!-- Supervisor -->
+  <rect x="580" y="505" width="220" height="70" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="595" y="532" font-size="14" font-weight="700" fill="#1F3A5F">Supervisor</text>
+  <text x="595" y="552" font-size="12" fill="#475569">Classify task intent</text>
+  <text x="595" y="567" font-size="11" fill="#1D7A6E">Capability check</text>
+
+  <line x1="800" y1="540" x2="830" y2="540" stroke="#334155" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <!-- Requirement Analyzer -->
+  <rect x="830" y="505" width="220" height="70" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="845" y="532" font-size="14" font-weight="700" fill="#1F3A5F">Requirement Analyzer</text>
+  <text x="845" y="552" font-size="12" fill="#475569">Extract task parameters</text>
+  <text x="845" y="567" font-size="11" fill="#B87315">Single question loop</text>
+
+  <line x1="1050" y1="540" x2="1080" y2="540" stroke="#334155" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <!-- Planning Agent -->
+  <rect x="1080" y="505" width="210" height="70" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="1095" y="532" font-size="14" font-weight="700" fill="#1F3A5F">Planning Agent</text>
+  <text x="1095" y="552" font-size="12" fill="#475569">Structured Plan JSON</text>
+  <text x="1095" y="567" font-size="11" fill="#1D7A6E">Decompose steps</text>
+
+  <line x1="1290" y1="540" x2="1320" y2="540" stroke="#334155" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <!-- Task Coordinator -->
+  <rect x="1320" y="505" width="200" height="70" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="1335" y="532" font-size="14" font-weight="700" fill="#1F3A5F">Task Coordinator</text>
+  <text x="1335" y="552" font-size="12" fill="#475569">Sequential dispatch</text>
+  <text x="1335" y="567" font-size="11" fill="#1D7A6E">Route to active agent</text>
+
+  <!-- Lower LangGraph row: Validation & Replanning Edge -->
+  <rect x="580" y="595" width="470" height="65" rx="6" fill="#E6F4F1" stroke="#1D7A6E" stroke-width="1.2"/>
+  <text x="600" y="622" font-size="14" font-weight="700" fill="#1D7A6E">Validation Agent (`validation_agent.py`)</text>
+  <text x="600" y="643" font-size="12" fill="#0F172A">Inspects physical file existence, size, paragraph/slide/row counts</text>
+
+  <!-- Replanning Cyclic Arrow -->
+  <path d="M 1050 625 L 1185 625 L 1185 580" fill="none" stroke="#C23B22" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#arrow-red)"/>
+  <text x="1100" y="615" font-size="11" font-weight="700" fill="#C23B22">FAIL: Cyclic Replan</text>
+
+  <!-- Pass edge to memory -->
+  <path d="M 580 625 L 440 625 L 440 580" fill="none" stroke="#15803D" stroke-width="2" marker-end="url(#arrow-teal)"/>
+  <text x="450" y="615" font-size="11" font-weight="700" fill="#15803D">PASS: Persist</text>
+
+  <!-- Flow Arrow 3 -> 4 -->
+  <line x1="1420" y1="580" x2="1420" y2="705" stroke="#1F3A5F" stroke-width="2" marker-end="url(#arrow-navy)"/>
+
+  <!-- 4. Execution Agents & Tool Integrations -->
+  <rect x="50" y="710" width="1500" height="240" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+  <rect x="50" y="710" width="370" height="30" rx="4" fill="#1F3A5F"/>
+  <text x="65" y="730" font-size="13" font-weight="700" fill="#FFFFFF">4. DOMAIN EXECUTION AGENTS &amp; TOOLS</text>
+
+  <!-- Document Agent & Tools -->
+  <rect x="80" y="755" width="340" height="175" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#shadow)"/>
+  <rect x="80" y="755" width="340" height="28" rx="4" fill="#1F3A5F"/>
+  <text x="95" y="774" font-size="13" font-weight="700" fill="#FFFFFF">Document Agent</text>
+  <text x="95" y="805" font-size="12" font-weight="600" fill="#0F172A">python-docx:</text>
+  <text x="95" y="823" font-size="11" fill="#475569">• Formal letters (From, To, Subj, Body, Sign)</text>
+  <text x="95" y="845" font-size="12" font-weight="600" fill="#0F172A">openpyxl:</text>
+  <text x="95" y="863" font-size="11" fill="#475569">• Multi-column data sheets, attendance</text>
+  <text x="95" y="885" font-size="12" font-weight="600" fill="#0F172A">python-pptx:</text>
+  <text x="95" y="903" font-size="11" fill="#475569">• Slide decks, structured bullet layouts</text>
+
+  <!-- Desktop Agent & Tools -->
+  <rect x="450" y="755" width="340" height="175" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#shadow)"/>
+  <rect x="450" y="755" width="340" height="28" rx="4" fill="#1F3A5F"/>
+  <text x="465" y="774" font-size="13" font-weight="700" fill="#FFFFFF">Desktop Agent</text>
+  <text x="465" y="805" font-size="12" font-weight="600" fill="#0F172A">os / shutil / pathlib:</text>
+  <text x="465" y="823" font-size="11" fill="#475569">• Directory create/move/copy/delete/rename</text>
+  <text x="465" y="845" font-size="12" font-weight="600" fill="#0F172A">subprocess:</text>
+  <text x="465" y="863" font-size="11" fill="#475569">• Local application execution &amp; launching</text>
+  <text x="465" y="885" font-size="12" font-weight="600" fill="#0F172A">pyautogui:</text>
+  <text x="465" y="903" font-size="11" fill="#475569">• Desktop GUI automation hooks</text>
+
+  <!-- Browser Agent & Tools -->
+  <rect x="820" y="755" width="340" height="175" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#shadow)"/>
+  <rect x="820" y="755" width="340" height="28" rx="4" fill="#1F3A5F"/>
+  <text x="835" y="774" font-size="13" font-weight="700" fill="#FFFFFF">Browser Agent</text>
+  <text x="835" y="805" font-size="12" font-weight="600" fill="#0F172A">Playwright (Chromium):</text>
+  <text x="835" y="823" font-size="11" fill="#475569">• Async headless navigation &amp; DOM inner-text</text>
+  <text x="835" y="845" font-size="12" font-weight="600" fill="#0F172A">httpx / BeautifulSoup4:</text>
+  <text x="835" y="863" font-size="11" fill="#475569">• DuckDuckGo HTML web search fallback</text>
+  <text x="835" y="885" font-size="12" font-weight="600" fill="#0F172A">Web Information Retrieval:</text>
+  <text x="835" y="903" font-size="11" fill="#475569">• Scraped snippet extraction</text>
+
+  <!-- Vision Agent Stub -->
+  <rect x="1190" y="755" width="330" height="175" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#shadow)"/>
+  <rect x="1190" y="755" width="330" height="28" rx="4" fill="#334155"/>
+  <text x="1205" y="774" font-size="13" font-weight="700" fill="#FFFFFF">Vision Agent (Phase 8 Stub)</text>
+  <text x="1205" y="805" font-size="12" font-weight="600" fill="#0F172A">Multimodal UI Inspection:</text>
+  <text x="1205" y="825" font-size="11" fill="#475569">• Desktop screen analysis placeholder</text>
+  <text x="1205" y="855" font-size="12" font-weight="600" fill="#0F172A">Status:</text>
+  <text x="1205" y="875" font-size="11" fill="#B87315">• Fully wired in LangGraph</text>
+  <text x="1205" y="895" font-size="11" fill="#475569">• Planned for full vision models</text>
+
+  <!-- 5. Persistence & External LLM Layer -->
+  <rect x="50" y="970" width="1500" height="145" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+  <rect x="50" y="970" width="320" height="30" rx="4" fill="#1F3A5F"/>
+  <text x="65" y="990" font-size="13" font-weight="700" fill="#FFFFFF">5. PERSISTENCE &amp; LLM INFERENCE</text>
+
+  <!-- SQLite Database -->
+  <rect x="80" y="1015" width="680" height="85" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="100" y="1040" font-size="14" font-weight="700" fill="#1F3A5F">SQLite Persistent Storage (`desktop_pilot.db` / `api.db`)</text>
+  <text x="100" y="1062" font-size="12" fill="#475569">• `sessions` table: session_id, messages_json, memory_summary, task_state_json, timestamps</text>
+  <text x="100" y="1082" font-size="12" fill="#475569">• `execution_logs` table: session_id, timestamp, agent, status, message (Full Audit Trail)</text>
+
+  <!-- External LLM Services -->
+  <rect x="800" y="1015" width="720" height="85" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="820" y="1040" font-size="14" font-weight="700" fill="#1F3A5F">LLM Inference Providers (`model_router.py`)</text>
+  <text x="820" y="1062" font-size="12" fill="#475569">• Cloud Primary: Groq API (`ChatGroq` / `openai/gpt-oss-120b` or `llama-3.3-70b-versatile`)</text>
+  <text x="820" y="1082" font-size="12" fill="#475569">• Local Fallback: Ollama Local Server (`ChatOllama` / `llama3.1:8b-instruct` on port 11434)</text>
+
+</svg>

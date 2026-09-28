@@ -1,0 +1,16 @@
+task_id,category,difficulty,requirement_satisfaction_1_to_5,output_correctness_1_to_5,completeness_1_to_5,formatting_1_to_5,overall_quality_1_to_5,comments
+DT001,Documents,easy,,,,,,Human evaluation not yet performed.
+DT005,Documents,medium,,,,,,Human evaluation not yet performed.
+DT007,Documents,hard,,,,,,Human evaluation not yet performed.
+DT011,Spreadsheets,easy,,,,,,Human evaluation not yet performed.
+DT015,Spreadsheets,medium,,,,,,Human evaluation not yet performed.
+DT019,Spreadsheets,hard,,,,,,Human evaluation not yet performed.
+DT021,Presentations,easy,,,,,,Human evaluation not yet performed.
+DT025,Presentations,medium,,,,,,Human evaluation not yet performed.
+DT027,Presentations,hard,,,,,,Human evaluation not yet performed.
+DT031,FileOperations,easy,,,,,,Human evaluation not yet performed.
+DT035,FileOperations,medium,,,,,,Human evaluation not yet performed.
+DT038,FileOperations,hard,,,,,,Human evaluation not yet performed.
+DT041,Workflows,hard,,,,,,Human evaluation not yet performed.
+DT045,Workflows,hard,,,,,,Human evaluation not yet performed.
+DT050,Workflows,hard,,,,,,Human evaluation not yet performed.

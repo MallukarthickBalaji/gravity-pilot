@@ -1,0 +1,101 @@
+{
+  "task_id": "DT046",
+  "request": "Create folder 'ML_Study' on Desktop, write Python code for linear regression, generate a 3-slide presentation on Machine Learning, and verify both files.",
+  "user_request": "Create folder 'ML_Study' on Desktop, write Python code for linear regression, generate a 3-slide presentation on Machine Learning, and verify both files.",
+  "category": "Workflows",
+  "difficulty": "hard",
+  "is_ambiguous": false,
+  "requirements": [
+    {
+      "requirement_id": "R1",
+      "description": "Create ML_Study folder",
+      "satisfied": true,
+      "reason": "Folder verified on filesystem"
+    },
+    {
+      "requirement_id": "R2",
+      "description": "Generate Python linear regression code",
+      "satisfied": false,
+      "reason": "Python file missing or syntax error"
+    },
+    {
+      "requirement_id": "R3",
+      "description": "Generate 3-slide PowerPoint on Machine Learning",
+      "satisfied": false,
+      "reason": "PowerPoint missing or invalid"
+    },
+    {
+      "requirement_id": "R4",
+      "description": "Coordinate across code generation and presentation tools",
+      "satisfied": false,
+      "reason": "PowerPoint missing or invalid"
+    },
+    {
+      "requirement_id": "R5",
+      "description": "Both artifacts verified on disk",
+      "satisfied": false,
+      "reason": "General criterion failed"
+    }
+  ],
+  "clarification": [],
+  "clarifications": [],
+  "plan": [],
+  "previous_plan": [],
+  "execution": [
+    {
+      "agent": "planning_agent",
+      "status": "success",
+      "message": "Answered general query directly."
+    }
+  ],
+  "agent_actions": [
+    {
+      "agent": "planning_agent",
+      "status": "success",
+      "message": "Answered general query directly."
+    }
+  ],
+  "tool_calls": [],
+  "tool_results": [],
+  "artifacts": [],
+  "generated_outputs": [],
+  "validation": [
+    {
+      "physical_artifacts_verified": false,
+      "details": [
+        "No workflow artifacts verified on disk."
+      ],
+      "system_final_response": "**What you\u2019ll need**\n\n| Item | How to get it |\n|------|---------------|\n| Python 3.10+ | https://www.python.org/downloads/ |\n| `python-pptx` | `pip install python-pptx` |\n| `scikit\u2011learn` | `pip install scikit-learn` |\n\n---\n\n## 1\ufe0f\u20e3 Create the folder and files\n\nRun the following script **once**. It will:\n\n1. Make `Desktop/ML_Study` (creates it if it doesn\u2019t exist).\n2. Write a `linear_regression.py` file with a minimal example.\n3. Create a `MachineLearning.pptx` with 3 slides.\n\n```python\n#!/usr/bin/env python3\nimport os\nfrom pathlib import Path\nfrom pptx import Presentation\nfrom pptx.util import Inches, Pt\n\n# 1. Folder\ndesktop = Path.home() / \"Desktop\"\nml_folder = desktop / \"ML_Study\"\nml_folder.mkdir(exist_ok=True)\n\n# 2. Python code\npy_code = \"\"\"\\\n# linear_regression.py\nimport numpy as np\nfrom sklearn.linear_model import LinearRegression\n\n# Dummy data\nX = np.array([[1], [2], [3], [4], [5]])\ny = np.array([2, 4, 6, 8, 10])\n\nmodel = LinearRegression()\nmodel.fit(X, y)\n\nprint(\"Coefficient:\", model.coef_[0])\nprint(\"Intercept:\", model.intercept_)\n\"\"\"\n\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code)."
+    }
+  ],
+  "validation_results": [
+    {
+      "physical_artifacts_verified": false,
+      "details": [
+        "No workflow artifacts verified on disk."
+      ],
+      "system_final_response": "**What you\u2019ll need**\n\n| Item | How to get it |\n|------|---------------|\n| Python 3.10+ | https://www.python.org/downloads/ |\n| `python-pptx` | `pip install python-pptx` |\n| `scikit\u2011learn` | `pip install scikit-learn` |\n\n---\n\n## 1\ufe0f\u20e3 Create the folder and files\n\nRun the following script **once**. It will:\n\n1. Make `Desktop/ML_Study` (creates it if it doesn\u2019t exist).\n2. Write a `linear_regression.py` file with a minimal example.\n3. Create a `MachineLearning.pptx` with 3 slides.\n\n```python\n#!/usr/bin/env python3\nimport os\nfrom pathlib import Path\nfrom pptx import Presentation\nfrom pptx.util import Inches, Pt\n\n# 1. Folder\ndesktop = Path.home() / \"Desktop\"\nml_folder = desktop / \"ML_Study\"\nml_folder.mkdir(exist_ok=True)\n\n# 2. Python code\npy_code = \"\"\"\\\n# linear_regression.py\nimport numpy as np\nfrom sklearn.linear_model import LinearRegression\n\n# Dummy data\nX = np.array([[1], [2], [3], [4], [5]])\ny = np.array([2, 4, 6, 8, 10])\n\nmodel = LinearRegression()\nmodel.fit(X, y)\n\nprint(\"Coefficient:\", model.coef_[0])\nprint(\"Intercept:\", model.intercept_)\n\"\"\"\n\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code).encode('utf-8')\n(py_code)."
+    }
+  ],
+  "replanning": [],
+  "replanning_events": [],
+  "final_result": "failure",
+  "final_status": "failure",
+  "failure_category": "F4 Planning error",
+  "recovery": false,
+  "timings": {
+    "start_time": "2026-09-28T09:45:01.066767",
+    "end_time": "2026-09-28T09:45:07.038948",
+    "duration_seconds": 5.97
+  },
+  "duration_seconds": 5.97,
+  "errors": [],
+  "metrics": {
+    "rsr": 20.0,
+    "reqs_passed": 1,
+    "reqs_total": 5,
+    "tool_selection_correct": false,
+    "tool_call_count": 0,
+    "replanning_count": 0
+  }
+}

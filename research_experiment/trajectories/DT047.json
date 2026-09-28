@@ -1,0 +1,259 @@
+{
+  "task_id": "DT047",
+  "request": "Search the web for 'FastAPI web framework', generate a technical briefing Word document, and capture a screenshot.",
+  "user_request": "Search the web for 'FastAPI web framework', generate a technical briefing Word document, and capture a screenshot.",
+  "category": "Workflows",
+  "difficulty": "medium",
+  "is_ambiguous": false,
+  "requirements": [
+    {
+      "requirement_id": "R1",
+      "description": "Execute web search for FastAPI",
+      "satisfied": false,
+      "reason": "Web search failed"
+    },
+    {
+      "requirement_id": "R2",
+      "description": "Generate technical Word document summarizing FastAPI",
+      "satisfied": false,
+      "reason": "Word document missing or invalid"
+    },
+    {
+      "requirement_id": "R3",
+      "description": "Capture desktop screenshot",
+      "satisfied": false,
+      "reason": "Screenshot missing or empty"
+    },
+    {
+      "requirement_id": "R4",
+      "description": "All 3 multi-domain steps completed",
+      "satisfied": false,
+      "reason": "General criterion failed"
+    },
+    {
+      "requirement_id": "R5",
+      "description": "Outputs verified",
+      "satisfied": false,
+      "reason": "General criterion failed"
+    }
+  ],
+  "clarification": [],
+  "clarifications": [],
+  "plan": [],
+  "previous_plan": [
+    {
+      "step_id": 1,
+      "agent": "browser_agent",
+      "action": "Search the web for FastAPI web framework and extract a summary",
+      "params": {
+        "operation": "web_search",
+        "query": "FastAPI web framework",
+        "extract": "summary"
+      }
+    },
+    {
+      "step_id": 2,
+      "agent": "document_agent",
+      "action": "Create a Word technical briefing document using the extracted summary",
+      "params": {
+        "doc_type": "word",
+        "output_filename": "Desktop\\FastAPI_Briefing.docx",
+        "content": {
+          "title": "Technical Briefing: FastAPI Web Framework",
+          "sections": [
+            {
+              "heading": "Overview",
+              "paragraphs": [
+                "<summary>"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "step_id": 3,
+      "agent": "desktop_agent",
+      "action": "Capture a screenshot of the current desktop",
+      "params": {
+        "operation": "screenshot",
+        "dest_path": "Desktop\\FastAPI_Screenshot.png"
+      }
+    }
+  ],
+  "execution": [
+    {
+      "agent": "planning_agent",
+      "status": "error",
+      "message": "Revised plan (attempt 1) generated with 0 step(s) after failure."
+    }
+  ],
+  "agent_actions": [
+    {
+      "agent": "planning_agent",
+      "status": "error",
+      "message": "Revised plan (attempt 1) generated with 0 step(s) after failure."
+    }
+  ],
+  "tool_calls": [],
+  "tool_results": [],
+  "artifacts": [],
+  "generated_outputs": [],
+  "validation": [
+    {
+      "physical_artifacts_verified": false,
+      "details": [
+        "No workflow artifacts verified on disk."
+      ],
+      "system_final_response": null
+    }
+  ],
+  "validation_results": [
+    {
+      "physical_artifacts_verified": false,
+      "details": [
+        "No workflow artifacts verified on disk."
+      ],
+      "system_final_response": null
+    }
+  ],
+  "replanning": [
+    {
+      "task_id": "DT047",
+      "attempt_number": 2,
+      "failure_reason": "[EXPERIMENTAL FAULT INJECTION] Workflow step execution missing intermediate parameter on attempt 1",
+      "validation_errors": [
+        "[EXPERIMENTAL FAULT INJECTION] Workflow step execution missing intermediate parameter on attempt 1"
+      ],
+      "old_plan": [
+        {
+          "step_id": 1,
+          "agent": "browser_agent",
+          "action": "Search the web for FastAPI web framework and extract a summary",
+          "params": {
+            "operation": "web_search",
+            "query": "FastAPI web framework",
+            "extract": "summary"
+          }
+        },
+        {
+          "step_id": 2,
+          "agent": "document_agent",
+          "action": "Create a Word technical briefing document using the extracted summary",
+          "params": {
+            "doc_type": "word",
+            "output_filename": "Desktop\\FastAPI_Briefing.docx",
+            "content": {
+              "title": "Technical Briefing: FastAPI Web Framework",
+              "sections": [
+                {
+                  "heading": "Overview",
+                  "paragraphs": [
+                    "<summary>"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "step_id": 3,
+          "agent": "desktop_agent",
+          "action": "Capture a screenshot of the current desktop",
+          "params": {
+            "operation": "screenshot",
+            "dest_path": "Desktop\\FastAPI_Screenshot.png"
+          }
+        }
+      ],
+      "new_plan": [],
+      "replan_count": 1,
+      "tools_used": [],
+      "execution_result": "Self-correction re-execution succeeded on disk",
+      "final_validation_result": {
+        "passed": false,
+        "reason": "[EXPERIMENTAL FAULT INJECTION] Workflow step execution missing intermediate parameter on attempt 1"
+      },
+      "recovered": false
+    }
+  ],
+  "replanning_events": [
+    {
+      "task_id": "DT047",
+      "attempt_number": 2,
+      "failure_reason": "[EXPERIMENTAL FAULT INJECTION] Workflow step execution missing intermediate parameter on attempt 1",
+      "validation_errors": [
+        "[EXPERIMENTAL FAULT INJECTION] Workflow step execution missing intermediate parameter on attempt 1"
+      ],
+      "old_plan": [
+        {
+          "step_id": 1,
+          "agent": "browser_agent",
+          "action": "Search the web for FastAPI web framework and extract a summary",
+          "params": {
+            "operation": "web_search",
+            "query": "FastAPI web framework",
+            "extract": "summary"
+          }
+        },
+        {
+          "step_id": 2,
+          "agent": "document_agent",
+          "action": "Create a Word technical briefing document using the extracted summary",
+          "params": {
+            "doc_type": "word",
+            "output_filename": "Desktop\\FastAPI_Briefing.docx",
+            "content": {
+              "title": "Technical Briefing: FastAPI Web Framework",
+              "sections": [
+                {
+                  "heading": "Overview",
+                  "paragraphs": [
+                    "<summary>"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "step_id": 3,
+          "agent": "desktop_agent",
+          "action": "Capture a screenshot of the current desktop",
+          "params": {
+            "operation": "screenshot",
+            "dest_path": "Desktop\\FastAPI_Screenshot.png"
+          }
+        }
+      ],
+      "new_plan": [],
+      "replan_count": 1,
+      "tools_used": [],
+      "execution_result": "Self-correction re-execution succeeded on disk",
+      "final_validation_result": {
+        "passed": false,
+        "reason": "[EXPERIMENTAL FAULT INJECTION] Workflow step execution missing intermediate parameter on attempt 1"
+      },
+      "recovered": false
+    }
+  ],
+  "final_result": "failure",
+  "final_status": "failure",
+  "failure_category": "F4 Planning error",
+  "recovery": false,
+  "timings": {
+    "start_time": "2026-09-28T09:45:08.054651",
+    "end_time": "2026-09-28T09:45:39.598149",
+    "duration_seconds": 31.54
+  },
+  "duration_seconds": 31.54,
+  "errors": [],
+  "metrics": {
+    "rsr": 0.0,
+    "reqs_passed": 0,
+    "reqs_total": 5,
+    "tool_selection_correct": false,
+    "tool_call_count": 0,
+    "replanning_count": 1
+  }
+}

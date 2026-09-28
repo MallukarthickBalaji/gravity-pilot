@@ -1,0 +1,43 @@
+=======================================================
+DESKTOPPILOT AI — BASELINE SYSTEM VERIFICATION TEST
+=======================================================
+Date: 2026-09-27
+Environment: Windows (x86_64), Python 3.11, Node.js v20+, Vite 6
+Active LLM Backends:
+  - Cloud: Groq (openai/gpt-oss-120b)
+  - Local: Ollama 0.34.4 (llama3:latest at http://127.0.0.1:11434)
+
+--- 1. BACKEND TEST SUITE EXECUTION ---
+Command: python backend/tests/run_all_tests.py
+Output:
+  Suite 1: Filesystem Tools (create, folder, copy, rename, move, delete, safety guard) -> PASSED
+  Suite 2: Document Generation Tools (Word, Excel, PowerPoint, Code file generation) -> PASSED
+  Suite 3: Screenshot Capture (Pillow multi-screen grab, non-zero file validation) -> PASSED
+  Suite 4: Notebook Inspection (FileNotFoundError, runtime environment check) -> PASSED
+  Suite 5: Web Search & Bot Detection (Canonical schema, CAPTCHA rejection, Bing/DDG) -> PASSED
+  Suite 6: Cloud LLM (Groq API ping, model router, generation turn) -> PASSED
+  Suite 7: Local LLM (Ollama API tags check, router strictness, generation turn) -> PASSED
+  Suite 8: Sequential Isolation & Clarification (Multi-turn clarification, isolation) -> PASSED
+
+Total Test Suites: 8
+Passed: 8
+Failed: 0
+Skipped: 0
+Execution Time: 21.24s
+Errors: None
+
+--- 2. FRONTEND PRODUCTION BUILD ---
+Command: npm run build (in frontend/)
+Output:
+  tsc && vite build
+  transforming... 1584 modules transformed.
+  rendering chunks...
+  dist/index.html                   0.96 kB │ gzip:  0.55 kB
+  dist/assets/index-B1lQoOjR.css    1.48 kB │ gzip:  0.77 kB
+  dist/assets/index-BxMQNjF7.js   180.90 kB │ gzip: 56.71 kB
+Build Status: SUCCESS (0 errors, 0 warnings)
+Build Time: 1.76s
+
+--- 3. BASELINE SUMMARY ---
+All core components are fully operational.
+The system is ready for formal research benchmark execution.

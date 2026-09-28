@@ -1,0 +1,194 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" width="1600" height="1100" style="background:#FFFFFF; font-family:'Segoe UI', Inter, Helvetica, Arial, sans-serif;">
+  <defs>
+    <filter id="shadow" x="-3%" y="-3%" width="106%" height="106%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Title & Header -->
+  <rect x="0" y="0" width="1600" height="70" fill="#1F3A5F"/>
+  <text x="50" y="44" font-size="22" font-weight="700" fill="#FFFFFF">DesktopPilot AI — Preliminary Evaluation &amp; Baseline Comparison Matrix</text>
+  <text x="1550" y="44" font-size="14" font-weight="500" fill="#93C5FD" text-anchor="end">Source: Report Sections 12 &amp; 13 (Tables 4 &amp; 5)</text>
+
+  <!-- Side-by-Side Dual-Panel Evaluation Visualization -->
+
+  <!-- PANEL A: 7 Preliminary Structural Test Cases -->
+  <rect x="50" y="95" width="750" height="950" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="50" y="95" width="750" height="38" rx="4" fill="#1F3A5F"/>
+  <text x="70" y="120" font-size="15" font-weight="700" fill="#FFFFFF">PANEL A: PRELIMINARY TEST RESULTS (7/7 PASSED)</text>
+
+  <rect x="70" y="150" width="710" height="50" rx="4" fill="#DCFCE7" stroke="#15803D" stroke-width="1.2"/>
+  <text x="90" y="180" font-size="14" font-weight="700" fill="#15803D">Overall Empirical Result: 7 of 7 Structural Test Cases PASSED (100% Structural Success)</text>
+
+  <!-- Table Header -->
+  <rect x="70" y="215" width="710" height="32" rx="4" fill="#334155"/>
+  <text x="90" y="236" font-size="12" font-weight="700" fill="#FFFFFF">Test Case</text>
+  <text x="320" y="236" font-size="12" font-weight="700" fill="#FFFFFF">Expected Structural Result</text>
+  <text x="690" y="236" font-size="12" font-weight="700" fill="#FFFFFF">Status</text>
+
+  <!-- Row 1: Formal Leave Letter -->
+  <rect x="70" y="255" width="710" height="90" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="90" y="280" font-size="13" font-weight="700" fill="#1F3A5F">1. Formal Leave Letter</text>
+  <text x="90" y="300" font-size="11" fill="#475569">Domain: Word Document (`.docx`)</text>
+  <text x="90" y="320" font-size="11" fill="#475569">Trigger: Persona "Anita" leave request</text>
+  <text x="320" y="280" font-size="12" fill="#0F172A">Valid DOCX with standard layout (From, To,</text>
+  <text x="320" y="300" font-size="12" fill="#0F172A">Subject, Salutation, Body, Closing, Signature)</text>
+  <rect x="670" y="275" width="80" height="30" rx="4" fill="#DCFCE7" stroke="#15803D" stroke-width="1"/>
+  <text x="710" y="295" font-size="12" font-weight="700" fill="#15803D" text-anchor="middle">PASS</text>
+
+  <!-- Row 2: TC Request Letter -->
+  <rect x="70" y="355" width="710" height="90" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="90" y="380" font-size="13" font-weight="700" fill="#1F3A5F">2. TC Request Letter</text>
+  <text x="90" y="400" font-size="11" fill="#475569">Domain: Word Document (`.docx`)</text>
+  <text x="90" y="420" font-size="11" fill="#475569">Trigger: Transfer certificate application</text>
+  <text x="320" y="380" font-size="12" fill="#0F172A">Structured DOCX with multi-field verification,</text>
+  <text x="320" y="400" font-size="12" fill="#0F172A">formal institutional tone, and validated paragraphs</text>
+  <rect x="670" y="375" width="80" height="30" rx="4" fill="#DCFCE7" stroke="#15803D" stroke-width="1"/>
+  <text x="710" y="395" font-size="12" font-weight="700" fill="#15803D" text-anchor="middle">PASS</text>
+
+  <!-- Row 3: Attendance Report -->
+  <rect x="70" y="455" width="710" height="90" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="90" y="480" font-size="13" font-weight="700" fill="#1F3A5F">3. Attendance Report</text>
+  <text x="90" y="500" font-size="11" fill="#475569">Domain: Excel Spreadsheet (`.xlsx`)</text>
+  <text x="90" y="520" font-size="11" fill="#475569">Trigger: Persona "Ramesh" staff report</text>
+  <text x="320" y="480" font-size="12" fill="#0F172A">Header row present with alignment + complete</text>
+  <text x="320" y="500" font-size="12" fill="#0F172A">data rows across 10 students (no blank cells)</text>
+  <rect x="670" y="475" width="80" height="30" rx="4" fill="#DCFCE7" stroke="#15803D" stroke-width="1"/>
+  <text x="710" y="495" font-size="12" font-weight="700" fill="#15803D" text-anchor="middle">PASS</text>
+
+  <!-- Row 4: 5-Slide Presentation -->
+  <rect x="70" y="555" width="710" height="90" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="90" y="580" font-size="13" font-weight="700" fill="#1F3A5F">4. 5-Slide Presentation</text>
+  <text x="90" y="600" font-size="11" fill="#475569">Domain: PowerPoint Deck (`.pptx`)</text>
+  <text x="90" y="620" font-size="11" fill="#475569">Trigger: Persona "Priya" seminar topic</text>
+  <text x="320" y="580" font-size="12" fill="#0F172A">Meaningful slide deck with exact slide count,</text>
+  <text x="320" y="600" font-size="12" fill="#0F172A">title &amp; body bullets, non-placeholder content</text>
+  <rect x="670" y="575" width="80" height="30" rx="4" fill="#DCFCE7" stroke="#15803D" stroke-width="1"/>
+  <text x="710" y="595" font-size="12" font-weight="700" fill="#15803D" text-anchor="middle">PASS</text>
+
+  <!-- Row 5: New-Topic Document -->
+  <rect x="70" y="655" width="710" height="90" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="90" y="680" font-size="13" font-weight="700" fill="#1F3A5F">5. New-Topic Document</text>
+  <text x="90" y="700" font-size="11" fill="#475569">Domain: Context Isolation Check</text>
+  <text x="90" y="720" font-size="11" fill="#475569">Trigger: Back-to-back unrelated prompt</text>
+  <text x="320" y="680" font-size="12" fill="#0F172A">No leakage of previous task's parameters or plan;</text>
+  <text x="320" y="700" font-size="12" fill="#0F172A">starts with clean ephemeral `current_task_info`</text>
+  <rect x="670" y="675" width="80" height="30" rx="4" fill="#DCFCE7" stroke="#15803D" stroke-width="1"/>
+  <text x="710" y="695" font-size="12" font-weight="700" fill="#15803D" text-anchor="middle">PASS</text>
+
+  <!-- Row 6: New-Topic Presentation -->
+  <rect x="70" y="755" width="710" height="90" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="90" y="780" font-size="13" font-weight="700" fill="#1F3A5F">6. New-Topic Presentation</text>
+  <text x="90" y="800" font-size="11" fill="#475569">Domain: Independent Deck Generation</text>
+  <text x="90" y="820" font-size="11" fill="#475569">Trigger: Fresh topic deck request</text>
+  <text x="320" y="780" font-size="12" fill="#0F172A">Independent content and structure created</text>
+  <text x="320" y="800" font-size="12" fill="#0F172A">specifically for the requested technical domain</text>
+  <rect x="670" y="775" width="80" height="30" rx="4" fill="#DCFCE7" stroke="#15803D" stroke-width="1"/>
+  <text x="710" y="795" font-size="12" font-weight="700" fill="#15803D" text-anchor="middle">PASS</text>
+
+  <!-- Row 7: Deliberate Validation Failure -->
+  <rect x="70" y="855" width="710" height="95" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="90" y="880" font-size="13" font-weight="700" fill="#C23B22">7. Deliberate Validation Failure</text>
+  <text x="90" y="900" font-size="11" fill="#475569">Domain: Self-Correction &amp; Replanning</text>
+  <text x="90" y="920" font-size="11" fill="#475569">Trigger: Malformed artifact injection</text>
+  <text x="320" y="880" font-size="12" fill="#0F172A">Validation fails on first pass; failure reason</text>
+  <text x="320" y="900" font-size="12" fill="#0F172A">routed to planner; successful replanned re-execution</text>
+  <rect x="670" y="875" width="80" height="30" rx="4" fill="#DCFCE7" stroke="#15803D" stroke-width="1"/>
+  <text x="710" y="895" font-size="12" font-weight="700" fill="#15803D" text-anchor="middle">PASS</text>
+
+  <rect x="70" y="960" width="710" height="70" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="90" y="985" font-size="12" font-weight="700" fill="#1F3A5F">Methodology Note (Section 12.1):</text>
+  <text x="90" y="1005" font-size="11" fill="#475569">Evaluation is strictly qualitative &amp; structural against physical file checks.</text>
+  <text x="90" y="1020" font-size="11" fill="#475569">No fabricated F1/accuracy scores or artificial benchmarking metrics are asserted.</text>
+
+
+  <!-- PANEL B: Architectural Capability Comparison Matrix -->
+  <rect x="830" y="95" width="720" height="950" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="830" y="95" width="720" height="38" rx="4" fill="#1F3A5F"/>
+  <text x="850" y="120" font-size="15" font-weight="700" fill="#FFFFFF">PANEL B: BASELINE CAPABILITY COMPARISON (TABLE 5)</text>
+
+  <!-- Table Header -->
+  <rect x="850" y="150" width="680" height="35" rx="4" fill="#334155"/>
+  <text x="870" y="173" font-size="13" font-weight="700" fill="#FFFFFF">Capability Dimension</text>
+  <text x="1100" y="173" font-size="13" font-weight="700" fill="#FFFFFF">Traditional LLM Chatbot</text>
+  <text x="1350" y="173" font-size="13" font-weight="700" fill="#FFFFFF">DesktopPilot AI</text>
+
+  <!-- Dim 1: Planning / Strategy -->
+  <rect x="850" y="195" width="680" height="85" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="870" y="225" font-size="13" font-weight="700" fill="#1F3A5F">1. Planning / Strategy</text>
+  <text x="870" y="248" font-size="11" fill="#475569">Step decomposition &amp; routing</text>
+  <text x="1100" y="225" font-size="13" font-weight="600" fill="#B87315">Limited</text>
+  <text x="1100" y="248" font-size="11" fill="#475569">Single-shot prompt only</text>
+  <rect x="1340" y="215" width="130" height="28" rx="4" fill="#DCFCE7" stroke="#15803D" stroke-width="1"/>
+  <text x="1405" y="234" font-size="11" font-weight="700" fill="#15803D" text-anchor="middle">Implemented</text>
+  <text x="1350" y="260" font-size="11" fill="#0F172A">Multi-step JSON planner</text>
+
+  <!-- Dim 2: Tool Execution (OS / GUI) -->
+  <rect x="850" y="290" width="680" height="85" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="870" y="320" font-size="13" font-weight="700" fill="#1F3A5F">2. Tool Execution (OS/GUI)</text>
+  <text x="870" y="343" font-size="11" fill="#475569">Desktop &amp; browser automation</text>
+  <text x="1100" y="320" font-size="13" font-weight="600" fill="#B87315">Limited</text>
+  <text x="1100" y="343" font-size="11" fill="#475569">Text explanation only</text>
+  <rect x="1340" y="310" width="130" height="28" rx="4" fill="#DCFCE7" stroke="#15803D" stroke-width="1"/>
+  <text x="1405" y="329" font-size="11" font-weight="700" fill="#15803D" text-anchor="middle">Implemented</text>
+  <text x="1350" y="355" font-size="11" fill="#0F172A">Playwright / OS utilities</text>
+
+  <!-- Dim 3: Multi-Agent Coordination -->
+  <rect x="850" y="385" width="680" height="85" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="870" y="415" font-size="13" font-weight="700" fill="#1F3A5F">3. Multi-Agent Coordination</text>
+  <text x="870" y="438" font-size="11" fill="#475569">Specialized roles &amp; dispatch</text>
+  <text x="1100" y="415" font-size="13" font-weight="600" fill="#C23B22">Absent</text>
+  <text x="1100" y="438" font-size="11" fill="#475569">Monolithic single LLM</text>
+  <rect x="1340" y="405" width="130" height="28" rx="4" fill="#DCFCE7" stroke="#15803D" stroke-width="1"/>
+  <text x="1405" y="424" font-size="11" font-weight="700" fill="#15803D" text-anchor="middle">Implemented</text>
+  <text x="1350" y="450" font-size="11" fill="#0F172A">LangGraph StateGraph</text>
+
+  <!-- Dim 4: File / Asset Generation -->
+  <rect x="850" y="480" width="680" height="85" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="870" y="510" font-size="13" font-weight="700" fill="#1F3A5F">4. File / Asset Generation</text>
+  <text x="870" y="533" font-size="11" fill="#475569">Binary Office artifact creation</text>
+  <text x="1100" y="510" font-size="13" font-weight="600" fill="#B87315">Limited</text>
+  <text x="1100" y="533" font-size="11" fill="#475569">Markdown / raw text</text>
+  <rect x="1340" y="500" width="130" height="28" rx="4" fill="#DCFCE7" stroke="#15803D" stroke-width="1"/>
+  <text x="1405" y="519" font-size="11" font-weight="700" fill="#15803D" text-anchor="middle">Implemented</text>
+  <text x="1350" y="545" font-size="11" fill="#0F172A">Native DOCX / XLSX / PPTX</text>
+
+  <!-- Dim 5: Automated Validation -->
+  <rect x="850" y="575" width="680" height="85" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="870" y="605" font-size="13" font-weight="700" fill="#1F3A5F">5. Automated Validation</text>
+  <text x="870" y="628" font-size="11" fill="#475569">Physical file structural check</text>
+  <text x="1100" y="605" font-size="13" font-weight="600" fill="#C23B22">Absent</text>
+  <text x="1100" y="628" font-size="11" fill="#475569">No verification of output</text>
+  <rect x="1340" y="595" width="130" height="28" rx="4" fill="#DCFCE7" stroke="#15803D" stroke-width="1"/>
+  <text x="1405" y="614" font-size="11" font-weight="700" fill="#15803D" text-anchor="middle">Implemented</text>
+  <text x="1350" y="640" font-size="11" fill="#0F172A">Deep structural inspector</text>
+
+  <!-- Dim 6: Memory / Persistent State -->
+  <rect x="850" y="670" width="680" height="85" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="870" y="700" font-size="13" font-weight="700" fill="#1F3A5F">6. Memory / Persistent State</text>
+  <text x="870" y="723" font-size="11" fill="#475569">Two-layer session persistence</text>
+  <text x="1100" y="700" font-size="13" font-weight="600" fill="#B87315">Basic</text>
+  <text x="1100" y="723" font-size="11" fill="#475569">Context window overflow risk</text>
+  <rect x="1340" y="690" width="130" height="28" rx="4" fill="#DCFCE7" stroke="#15803D" stroke-width="1"/>
+  <text x="1405" y="709" font-size="11" font-weight="700" fill="#15803D" text-anchor="middle">Implemented</text>
+  <text x="1350" y="735" font-size="11" fill="#0F172A">SQLite + Ephemeral cleanup</text>
+
+  <!-- Dim 7: Exception Replanning -->
+  <rect x="850" y="765" width="680" height="85" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="870" y="795" font-size="13" font-weight="700" fill="#1F3A5F">7. Exception Replanning</text>
+  <text x="870" y="818" font-size="11" fill="#475569">Autonomous error recovery</text>
+  <text x="1100" y="795" font-size="13" font-weight="600" fill="#B87315">Limited</text>
+  <text x="1100" y="818" font-size="11" fill="#475569">User must notice and re-prompt</text>
+  <rect x="1340" y="785" width="130" height="28" rx="4" fill="#DCFCE7" stroke="#15803D" stroke-width="1"/>
+  <text x="1405" y="804" font-size="11" font-weight="700" fill="#15803D" text-anchor="middle">Implemented</text>
+  <text x="1350" y="830" font-size="11" fill="#0F172A">Cyclic LangGraph replan edge</text>
+
+  <!-- Summary Callout -->
+  <rect x="850" y="865" width="680" height="165" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="870" y="895" font-size="13" font-weight="700" fill="#1F3A5F">Summary of Architectural Advancements:</text>
+  <text x="870" y="920" font-size="12" fill="#0F172A">• While a standard LLM terminates its responsibility at generating conversational text,</text>
+  <text x="870" y="940" font-size="12" fill="#1F3A5F">  DesktopPilot AI treats user requests as obligations to produce verified filesystem artifacts.</text>
+  <text x="870" y="965" font-size="12" fill="#0F172A">• Structural validation ensures that format omissions, empty rows, or corrupt layouts are</text>
+  <text x="870" y="985" font-size="12" fill="#0F172A">  detected programmatically and corrected autonomously before delivery.</text>
+  <text x="870" y="1010" font-size="11" font-weight="600" fill="#1D7A6E">• All 7 capability dimensions reflect implemented modules in `desktop_pilot/` codebase.</text>
+</svg>

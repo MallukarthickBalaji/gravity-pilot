@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" width="1600" height="1100" style="background:#FFFFFF; font-family:'Segoe UI', Inter, Helvetica, Arial, sans-serif;">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#334155"/>
+    </marker>
+    <filter id="shadow" x="-3%" y="-3%" width="106%" height="106%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Title & Header -->
+  <rect x="0" y="0" width="1600" height="70" fill="#1F3A5F"/>
+  <text x="50" y="44" font-size="22" font-weight="700" fill="#FFFFFF">DesktopPilot AI — Tool &amp; External Service Integration Matrix</text>
+  <text x="1550" y="44" font-size="14" font-weight="500" fill="#93C5FD" text-anchor="end">Source: `desktop_pilot/agents/*.py`</text>
+
+  <!-- Column Headers -->
+  <rect x="50" y="95" width="450" height="40" rx="4" fill="#1F3A5F"/>
+  <text x="275" y="121" font-size="15" font-weight="700" fill="#FFFFFF" text-anchor="middle">1. AGENT CALLER LAYER</text>
+
+  <rect x="550" y="95" width="500" height="40" rx="4" fill="#1D7A6E"/>
+  <text x="800" y="121" font-size="15" font-weight="700" fill="#FFFFFF" text-anchor="middle">2. IMPLEMENTED TOOL INTERFACE</text>
+
+  <rect x="1100" y="95" width="450" height="40" rx="4" fill="#334155"/>
+  <text x="1325" y="121" font-size="15" font-weight="700" fill="#FFFFFF" text-anchor="middle">3. UNDERLYING SYSTEM / SERVICE</text>
+
+  <!-- ROW 1: Document Agent -->
+  <rect x="50" y="155" width="450" height="180" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="75" y="190" font-size="16" font-weight="700" fill="#1F3A5F">Document Agent</text>
+  <text x="75" y="215" font-size="12" fill="#475569">• Invoked by task_coordinator</text>
+  <text x="75" y="235" font-size="12" fill="#475569">• Receives structured content payload</text>
+  <text x="75" y="255" font-size="12" fill="#475569">• Emits binary output file path</text>
+  <text x="75" y="295" font-size="11" font-weight="600" fill="#1D7A6E">File: desktop_pilot/agents/document_agent.py</text>
+
+  <line x1="500" y1="245" x2="550" y2="245" stroke="#1F3A5F" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="550" y="155" width="500" height="180" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="575" y="185" font-size="14" font-weight="700" fill="#0F172A">generate_word_document()</text>
+  <text x="575" y="205" font-size="12" fill="#475569">Formal letter paragraphs, headings, bullet runs</text>
+  <text x="575" y="230" font-size="14" font-weight="700" fill="#0F172A">generate_excel_document()</text>
+  <text x="575" y="250" font-size="12" fill="#475569">Worksheet initialization, headers, row append</text>
+  <text x="575" y="275" font-size="14" font-weight="700" fill="#0F172A">generate_powerpoint_document()</text>
+  <text x="575" y="295" font-size="12" fill="#475569">Slide layout selection, title &amp; body placeholders</text>
+
+  <line x1="1050" y1="245" x2="1100" y2="245" stroke="#1F3A5F" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="1100" y="155" width="450" height="180" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="1125" y="185" font-size="14" font-weight="700" fill="#1F3A5F">python-docx (v1.1+)</text>
+  <text x="1125" y="205" font-size="12" fill="#475569">Native OpenXML Word Document (.docx)</text>
+  <text x="1125" y="230" font-size="14" font-weight="700" fill="#1F3A5F">openpyxl (v3.1+)</text>
+  <text x="1125" y="250" font-size="12" fill="#475569">Native OpenXML Excel Spreadsheet (.xlsx)</text>
+  <text x="1125" y="275" font-size="14" font-weight="700" fill="#1F3A5F">python-pptx (v1.0+)</text>
+  <text x="1125" y="295" font-size="12" fill="#475569">Native OpenXML PowerPoint Deck (.pptx)</text>
+
+  <!-- ROW 2: Desktop Agent -->
+  <rect x="50" y="355" width="450" height="160" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="75" y="390" font-size="16" font-weight="700" fill="#1F3A5F">Desktop Agent</text>
+  <text x="75" y="415" font-size="12" fill="#475569">• Handles file system operations</text>
+  <text x="75" y="435" font-size="12" fill="#475569">• Launches local desktop applications</text>
+  <text x="75" y="475" font-size="11" font-weight="600" fill="#1D7A6E">File: desktop_pilot/agents/desktop_agent.py</text>
+
+  <line x1="500" y1="435" x2="550" y2="435" stroke="#1F3A5F" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="550" y="355" width="500" height="160" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="575" y="385" font-size="14" font-weight="700" fill="#0F172A">os.makedirs(), os.remove(), shutil.move()</text>
+  <text x="575" y="405" font-size="12" fill="#475569">Directory creation, recursive copy, delete, rename</text>
+  <text x="575" y="430" font-size="14" font-weight="700" fill="#0F172A">subprocess.Popen()</text>
+  <text x="575" y="450" font-size="12" fill="#475569">Asynchronous application launcher</text>
+  <text x="575" y="475" font-size="14" font-weight="700" fill="#0F172A">pyautogui (optional binding)</text>
+  <text x="575" y="495" font-size="12" fill="#475569">Local mouse/keyboard GUI automation hooks</text>
+
+  <line x1="1050" y1="435" x2="1100" y2="435" stroke="#1F3A5F" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="1100" y="355" width="450" height="160" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="1125" y="390" font-size="14" font-weight="700" fill="#1F3A5F">Operating System Virtual Filesystem</text>
+  <text x="1125" y="415" font-size="12" fill="#475569">Local Windows / POSIX file I/O</text>
+  <text x="1125" y="445" font-size="14" font-weight="700" fill="#1F3A5F">OS Process Subsystem</text>
+  <text x="1125" y="470" font-size="12" fill="#475569">Process tree &amp; desktop session context</text>
+
+  <!-- ROW 3: Browser Agent -->
+  <rect x="50" y="535" width="450" height="160" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="75" y="570" font-size="16" font-weight="700" fill="#1F3A5F">Browser Agent</text>
+  <text x="75" y="595" font-size="12" fill="#475569">• Web search &amp; live URL content retrieval</text>
+  <text x="75" y="615" font-size="12" fill="#475569">• Headless DOM inspection</text>
+  <text x="75" y="655" font-size="11" font-weight="600" fill="#1D7A6E">File: desktop_pilot/agents/browser_agent.py</text>
+
+  <line x1="500" y1="615" x2="550" y2="615" stroke="#1F3A5F" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="550" y="535" width="500" height="160" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="575" y="565" font-size="14" font-weight="700" fill="#0F172A">async_playwright.chromium.launch()</text>
+  <text x="575" y="585" font-size="12" fill="#475569">Headless browser instance, page.goto(), text extract</text>
+  <text x="575" y="610" font-size="14" font-weight="700" fill="#0F172A">_perform_web_search()</text>
+  <text x="575" y="630" font-size="12" fill="#475569">DuckDuckGo HTML query with BeautifulSoup snippet parse</text>
+  <text x="575" y="655" font-size="14" font-weight="700" fill="#0F172A">httpx.AsyncClient()</text>
+  <text x="575" y="675" font-size="12" fill="#475569">Asynchronous HTTP fetch fallback</text>
+
+  <line x1="1050" y1="615" x2="1100" y2="615" stroke="#1F3A5F" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="1100" y="535" width="450" height="160" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="1125" y="570" font-size="14" font-weight="700" fill="#1F3A5F">Chromium Browser Binary</text>
+  <text x="1125" y="595" font-size="12" fill="#475569">Playwright automated browser engine</text>
+  <text x="1125" y="625" font-size="14" font-weight="700" fill="#1F3A5F">DuckDuckGo Search Gateway</text>
+  <text x="1125" y="650" font-size="12" fill="#475569">Public HTML web search endpoint</text>
+
+  <!-- ROW 4: Memory Agent & Persistence -->
+  <rect x="50" y="715" width="450" height="160" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="75" y="750" font-size="16" font-weight="700" fill="#1F3A5F">Memory Agent</text>
+  <text x="75" y="775" font-size="12" fill="#475569">• Persists conversation turns &amp; summaries</text>
+  <text x="75" y="795" font-size="12" fill="#475569">• Maintains execution audit logs</text>
+  <text x="75" y="835" font-size="11" font-weight="600" fill="#1D7A6E">File: desktop_pilot/agents/memory_agent.py</text>
+
+  <line x1="500" y1="795" x2="550" y2="795" stroke="#1F3A5F" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="550" y="715" width="500" height="160" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="575" y="745" font-size="14" font-weight="700" fill="#0F172A">save_session_state(), get_session_memory()</text>
+  <text x="575" y="765" font-size="12" fill="#475569">Async SQLAlchemy ORM session commit &amp; query</text>
+  <text x="575" y="790" font-size="14" font-weight="700" fill="#0F172A">log_execution()</text>
+  <text x="575" y="810" font-size="12" fill="#475569">Append-only trace log entries per node transition</text>
+  <text x="575" y="835" font-size="14" font-weight="700" fill="#0F172A">save_task_state(), clear_task_state()</text>
+  <text x="575" y="855" font-size="12" fill="#475569">Ephemeral task state sync &amp; clearing</text>
+
+  <line x1="1050" y1="795" x2="1100" y2="795" stroke="#1F3A5F" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="1100" y="715" width="450" height="160" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="1125" y="750" font-size="14" font-weight="700" fill="#1F3A5F">SQLite 3 Database Engine</text>
+  <text x="1125" y="775" font-size="12" fill="#475569">aiosqlite async connection pool</text>
+  <text x="1125" y="805" font-size="14" font-weight="700" fill="#1F3A5F">Relational Tables (desktop_pilot.db)</text>
+  <text x="1125" y="830" font-size="12" fill="#475569">• sessions (id, session_id, messages_json, ...)</text>
+  <text x="1125" y="850" font-size="12" fill="#475569">• execution_logs (id, timestamp, agent, status)</text>
+
+  <!-- ROW 5: Model Router & LLM Service -->
+  <rect x="50" y="895" width="450" height="160" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="75" y="930" font-size="16" font-weight="700" fill="#1F3A5F">Model Router / LLM Factory</text>
+  <text x="75" y="955" font-size="12" fill="#475569">• Selects active LLM backend</text>
+  <text x="75" y="975" font-size="12" fill="#475569">• Configures temperature and model ID</text>
+  <text x="75" y="1015" font-size="11" font-weight="600" fill="#1D7A6E">File: desktop_pilot/agents/model_router.py</text>
+
+  <line x1="500" y1="975" x2="550" y2="975" stroke="#1F3A5F" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="550" y="895" width="500" height="160" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="575" y="925" font-size="14" font-weight="700" fill="#0F172A">ChatGroq(model=..., api_key=...)</text>
+  <text x="575" y="945" font-size="12" fill="#475569">Low-latency cloud LLM invocation (temperature=0)</text>
+  <text x="575" y="970" font-size="14" font-weight="700" fill="#0F172A">ChatOllama(model=..., base_url=...)</text>
+  <text x="575" y="990" font-size="12" fill="#475569">Local self-hosted offline inference fallback</text>
+  <text x="575" y="1015" font-size="14" font-weight="700" fill="#0F172A">_check_groq(), _check_ollama()</text>
+  <text x="575" y="1035" font-size="12" fill="#475569">Dynamic HTTP health ping with configurable timeout</text>
+
+  <line x1="1050" y1="975" x2="1100" y2="975" stroke="#1F3A5F" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="1100" y="895" width="450" height="160" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="1125" y="930" font-size="14" font-weight="700" fill="#1F3A5F">Groq Cloud LPU Inference API</text>
+  <text x="1125" y="955" font-size="12" fill="#475569">openai/gpt-oss-120b / llama-3.3-70b-versatile</text>
+  <text x="1125" y="985" font-size="14" font-weight="700" fill="#1F3A5F">Ollama Local Daemon</text>
+  <text x="1125" y="1010" font-size="12" fill="#475569">llama3.1:8b-instruct on localhost:11434</text>
+</svg>

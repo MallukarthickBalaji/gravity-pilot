@@ -1,0 +1,58 @@
+task_id,step_id,agent,action,status
+DT001,1,document_agent,Create Word document explaining artificial intelligence overview,dispatched
+DT002,1,document_agent,Create Word document with meeting minutes for Project Kickoff,dispatched
+DT004,1,document_agent,Create Python script fibonacci.py with Fibonacci calculation code,dispatched
+DT005,1,document_agent,Create Word document for inventory tracking proposal,dispatched
+DT006,1,desktop_agent,Create quicksort.py with quicksort implementation,dispatched
+DT008,1,document_agent,Create Word memo on code review standards,dispatched
+DT010,1,desktop_agent,Create README text file for Python library,dispatched
+DT011,1,document_agent,Create Excel attendance sheet for 10 students,dispatched
+DT012,1,document_agent,Create monthly household budget spreadsheet,dispatched
+DT013,1,document_agent,Create Excel sales tracker,dispatched
+DT014,1,document_agent,Create Employee Directory spreadsheet,dispatched
+DT015,1,document_agent,Create invoice spreadsheet,dispatched
+DT016,1,document_agent,Create Excel inventory sheet with 5 products,dispatched
+DT018,1,document_agent,Create Excel gradebook,dispatched
+DT019,1,document_agent,Create 12‑Month Cash Flow Projection Excel file,dispatched
+DT020,1,document_agent,Create Excel RSVP tracker,dispatched
+DT021,1,document_agent,Create PowerPoint with 3 slides on renewable energy,dispatched
+DT022,1,document_agent,Create PowerPoint with 4 slides introducing Python programming,dispatched
+DT024,1,document_agent,Create a 4-slide PowerPoint pitch deck,dispatched
+DT025,1,document_agent,Create PowerPoint presentation on Agile Scrum Methodology,dispatched
+DT026,1,document_agent,Create PowerPoint presentation on Deep Learning basics,dispatched
+DT027,1,document_agent,Create 6-slide PowerPoint executive briefing on AGI and safety alignment,dispatched
+DT028,1,document_agent,Create PowerPoint deck,dispatched
+DT030,1,document_agent,Create PowerPoint presentation on DevOps CI/CD pipelines,dispatched
+DT031,1,desktop_agent,Create folder 'Research_Data' on Desktop,dispatched
+DT032,1,desktop_agent,Create a text file on Desktop,dispatched
+DT033,1,desktop_agent,Copy notes.txt to notes_backup.txt on Desktop,dispatched
+DT035,1,desktop_agent,Delete temporary folder on Desktop,dispatched
+DT036,1,desktop_agent,Take a screenshot of the current screen and save it as desktop_capture.png,dispatched
+DT037,1,desktop_agent,Create Deployment_Artifacts folder on Desktop,dispatched
+DT037,2,desktop_agent,Create verification file inside the new folder to confirm existence,dispatched
+DT038,1,desktop_agent,Create main project folder,dispatched
+DT038,2,desktop_agent,Create Source subfolder,dispatched
+DT038,3,desktop_agent,Create Docs subfolder,dispatched
+DT038,4,desktop_agent,Create Tests subfolder,dispatched
+DT039,1,browser_agent,Perform web search for official Python documentation,dispatched
+DT041,1,desktop_agent,Create project folder on Desktop,dispatched
+DT041,2,document_agent,Generate AI Overview Word document inside AI_Launch,dispatched
+DT041,3,desktop_agent,Capture screenshot of current screen,dispatched
+DT043,1,browser_agent,Search the web for latest TypeScript features and extract a concise summary,dispatched
+DT043,2,document_agent,Create a Word document summarizing the top TypeScript features,dispatched
+DT044,1,desktop_agent,Create folder 'Sprint_24' on Desktop,dispatched
+DT044,2,desktop_agent,Create Python script for binary search in the new folder,dispatched
+DT044,3,document_agent,Create task tracking spreadsheet in the new folder,dispatched
+DT045,1,desktop_agent,Create project folder,dispatched
+DT045,2,document_agent,Create Executive Summary Word document,dispatched
+DT045,3,document_agent,Create Budget Excel sheet,dispatched
+DT048,1,desktop_agent,Create HR folder on Desktop,dispatched
+DT048,2,document_agent,Generate Employee Leave Policy Word document,dispatched
+DT048,3,document_agent,Create Employee Directory Excel spreadsheet,dispatched
+DT049,1,desktop_agent,Create folder for audit assets,dispatched
+DT049,2,document_agent,Generate Cybersecurity Audit Checklist in Excel,dispatched
+DT049,3,document_agent,Create 4-slide Executive Summary PowerPoint,dispatched
+DT050,1,desktop_agent,Create folder for the report,dispatched
+DT050,2,document_agent,Generate Financial Review Word document,dispatched
+DT050,3,document_agent,Generate Annual Budget spreadsheet,dispatched
+DT050,4,desktop_agent,Capture verification screenshot,dispatched

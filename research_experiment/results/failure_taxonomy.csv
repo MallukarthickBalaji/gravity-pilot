@@ -1,0 +1,6 @@
+failure_category,count,percentage,description
+F4 Planning error,9,39.13,Failure category according to IEEE taxonomy
+F8 Output generation failure,2,8.7,Failure category according to IEEE taxonomy
+F2 Missing clarification,2,8.7,Failure category according to IEEE taxonomy
+F14 Other,9,39.13,Failure category according to IEEE taxonomy
+F3 Unnecessary clarification,1,4.35,Failure category according to IEEE taxonomy
