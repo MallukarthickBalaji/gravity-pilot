@@ -102,8 +102,8 @@ if %errorlevel% neq 0 (
     echo [OK] Python dependencies verified.
 )
 
-if not exist "frontend\node_modules" (
-    echo [INFO] Installing frontend packages (first run)...
+if not exist "frontend\node_modules\" (
+    echo [INFO] Installing frontend packages - first run...
     cd frontend && call npm install && cd ..
 ) else (
     echo [OK] Frontend packages verified.
@@ -113,10 +113,10 @@ if not exist "frontend\node_modules" (
 echo.
 echo [6/6] Launching GravityPilot Services...
 echo [INFO] Starting FastAPI Backend on port 8000...
-start "GravityPilot Backend" /min /D "%CD%" cmd /k "title GravityPilot Backend (Port 8000) && python backend\main.py"
+start "GravityPilot Backend" cmd /k "title GravityPilot Backend (Port 8000) && python backend\main.py"
 
 echo [INFO] Starting Vite Frontend on port 5173...
-start "GravityPilot Frontend" /min /D "%CD%\frontend" cmd /k "title GravityPilot Frontend (Port 5173) && call npm run dev"
+start "GravityPilot Frontend" cmd /k "title GravityPilot Frontend (Port 5173) && cd frontend && npm run dev"
 
 echo.
 :: Run Python health monitor which waits for both services and opens browser
@@ -131,9 +131,7 @@ echo   Web UI:     http://localhost:5173
 echo   API Docs:   http://localhost:8000/docs
 echo   API Health: http://localhost:8000/health
 echo.
-echo   Backend and Frontend are running in minimized windows.
-echo   You can click their taskbar icons to view live logs.
-echo.
+echo   Backend and Frontend are running in dedicated windows.
 echo   To stop all services cleanly, run STOP.bat or press [Q].
 echo ========================================================
 echo.
@@ -153,5 +151,5 @@ echo.
 echo [INFO] Stopping all GravityPilot services...
 call "%~dp0STOP.bat"
 echo [OK] All services stopped.
-timeout /t 2 >nul
+ping 127.0.0.1 -n 3 >nul
 exit /b 0
