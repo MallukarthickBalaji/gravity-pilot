@@ -14,38 +14,43 @@ echo [1/6] Checking Python...
 python --version >nul 2>&1
 if %errorlevel% neq 0 (
     echo.
-    echo [ERROR] Python was not found!
+    echo [ERROR] Python was not found in your system PATH!
     echo Please install Python 3.10+ from https://www.python.org/
-    echo and ensure "Add Python to PATH" is checked during installation.
+    echo Ensure "Add Python to PATH" is checked during installation.
     echo.
     pause
     exit /b 1
 )
+for /f "tokens=*" %%v in ('python --version 2^>^&1') do echo [OK] Found %%v
 
 :: 2. Check Node.js and npm
+echo.
 echo [2/6] Checking Node.js and npm...
 node --version >nul 2>&1
 if %errorlevel% neq 0 (
     echo.
-    echo [ERROR] Node.js was not found!
+    echo [ERROR] Node.js was not found in your system PATH!
     echo Please install Node.js LTS from https://nodejs.org/
     echo.
     pause
     exit /b 1
 )
+for /f "tokens=*" %%v in ('node --version 2^>^&1') do echo [OK] Found Node.js %%v
 
-npm --version >nul 2>&1
+call npm --version >nul 2>&1
 if %errorlevel% neq 0 (
     echo.
-    echo [ERROR] npm was not found!
+    echo [ERROR] npm was not found in your system PATH!
     echo Please install Node.js with npm included.
     echo.
     pause
     exit /b 1
 )
+for /f "tokens=*" %%v in ('call npm --version 2^>^&1') do echo [OK] Found npm v%%v
 
 :: 3. Check / Create .env configuration
-echo [3/6] Checking configuration...
+echo.
+echo [3/6] Checking configuration (.env)...
 if not exist ".env" (
     if exist ".env.example" (
         copy ".env.example" ".env" >nul
@@ -65,63 +70,88 @@ if exist ".env" (
 )
 
 if "%HAS_GROQ%"=="0" (
-    echo.
     echo [NOTICE] GROQ_API_KEY is not configured in .env.
-    echo To enable online AI capabilities (Qwen / Llama), add your key to:
-    echo   %~dp0.env
-    echo Get a free key at: https://console.groq.com
-    echo.
+    echo Cloud inference will use Local Ollama or prompts will prompt for key.
+    echo To enable fast cloud reasoning, add your free key to .env:
+    echo   https://console.groq.com
+) else (
+    echo [OK] Cloud API key detected in .env.
 )
 
 :: 4. Clean existing stale processes on ports 8000 and 5173
+echo.
 echo [4/6] Checking port availability...
 for /f "tokens=5" %%a in ('netstat -aon ^| findstr ":8000" ^| findstr "LISTENING"') do (
     echo [INFO] Freeing port 8000 - PID %%a
-    taskkill /F /PID %%a >nul 2>&1
+    taskkill /F /T /PID %%a >nul 2>&1
 )
 for /f "tokens=5" %%a in ('netstat -aon ^| findstr ":5173" ^| findstr "LISTENING"') do (
     echo [INFO] Freeing port 5173 - PID %%a
-    taskkill /F /PID %%a >nul 2>&1
+    taskkill /F /T /PID %%a >nul 2>&1
 )
+echo [OK] Ports 8000 and 5173 are ready.
 
 :: 5. Ensure dependencies are present
+echo.
 echo [5/6] Verifying dependencies...
 python -c "import fastapi, langgraph, docx, openpyxl, pptx, aiosqlite" >nul 2>&1
 if %errorlevel% neq 0 (
     echo [INFO] Installing missing Python backend dependencies...
     python -m pip install -r backend\requirements.txt
+) else (
+    echo [OK] Python dependencies verified.
 )
 
 if not exist "frontend\node_modules" (
-    echo [INFO] Installing frontend packages...
+    echo [INFO] Installing frontend packages (first run)...
     cd frontend && call npm install && cd ..
+) else (
+    echo [OK] Frontend packages verified.
 )
 
-:: 6. Start Services
+:: 6. Launch Services
+echo.
 echo [6/6] Launching GravityPilot Services...
-echo [INFO] Starting FastAPI Backend on http://localhost:8000 ...
-start "GravityPilot Backend" /B python backend\main.py
+echo [INFO] Starting FastAPI Backend on port 8000...
+start "GravityPilot Backend" /min /D "%CD%" cmd /k "title GravityPilot Backend (Port 8000) && python backend\main.py"
 
-echo [INFO] Starting Vite Frontend on http://localhost:5173 ...
-cd frontend
-start "GravityPilot Frontend" /B npm run dev
-cd ..
+echo [INFO] Starting Vite Frontend on port 5173...
+start "GravityPilot Frontend" /min /D "%CD%\frontend" cmd /k "title GravityPilot Frontend (Port 5173) && call npm run dev"
 
 echo.
-echo [INFO] Waiting for GravityPilot Web UI to become ready...
-
-:: Poll until http://localhost:5173 responds, then open browser
-powershell -NoProfile -Command "$ready = $false; for ($i=0; $i -lt 30; $i++) { try { $res = Invoke-WebRequest -Uri 'http://localhost:5173' -UseBasicParsing -TimeoutSec 1; if ($res.StatusCode -eq 200) { $ready = $true; break } } catch {}; Start-Sleep -Milliseconds 600 }; if ($ready) { Write-Host '[SUCCESS] GravityPilot Web UI is live!' -ForegroundColor Green } else { Write-Host '[INFO] Opening browser...' }; Start-Process 'http://localhost:5173'"
+:: Run Python health monitor which waits for both services and opens browser
+python scripts\wait_for_services.py
 
 echo.
 echo ========================================================
-echo   GravityPilot AI is running!
-echo   Web UI:    http://localhost:5173
-echo   API Docs:  http://localhost:8000/docs
-echo   Health:    http://localhost:8000/health
+echo   GRAVITYPILOT AI IS RUNNING
+echo ========================================================
 echo.
-echo   To stop the application, run STOP.bat or close this window.
+echo   Web UI:     http://localhost:5173
+echo   API Docs:   http://localhost:8000/docs
+echo   API Health: http://localhost:8000/health
+echo.
+echo   Backend and Frontend are running in minimized windows.
+echo   You can click their taskbar icons to view live logs.
+echo.
+echo   To stop all services cleanly, run STOP.bat or press [Q].
 echo ========================================================
 echo.
 
-powershell -NoProfile -Command "while ($true) { Start-Sleep -Seconds 3600 }"
+:monitor_loop
+set "USER_CMD="
+set /p USER_CMD="Press [Q] then Enter to stop all services (or [R] to reopen browser): "
+if /i "%USER_CMD%"=="Q" goto shutdown
+if /i "%USER_CMD%"=="R" (
+    start http://localhost:5173
+    goto monitor_loop
+)
+goto monitor_loop
+
+:shutdown
+echo.
+echo [INFO] Stopping all GravityPilot services...
+call "%~dp0STOP.bat"
+echo [OK] All services stopped.
+timeout /t 2 >nul
+exit /b 0
